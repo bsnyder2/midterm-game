@@ -5,22 +5,20 @@ using UnityEngine;
 // This should inherit from a class called Minigame for any minigame, and override some methods
 public class Slider : MonoBehaviour
 {
-    public GameObject oscillator;
+    public GameObject sliderPiece;
     public GameObject sliderBar;
     public GameObject sliderTarget;
-    public GameObject sliderPiece;
+    public GameObject oscillator;
 
     public KeyCode up, down;
-
-    private List<GameObject> sliderPieces;
-
-
     // target point on slider, between 0 and 1
+    public int nSliderPieces = 10;
+    public float pieceDistance = 1.5f;
     public float targetPoint = 0.5f;
 
+    private List<GameObject> sliderPieces;
     private Oscillator oscillatorControl;
-    private float dist = 0.005f;
-
+    private const float sliderSpeed = 0.03f;
 
     // textures etc.
 
@@ -31,6 +29,13 @@ public class Slider : MonoBehaviour
         oscillatorControl = Instantiate(oscillator).GetComponent<Oscillator>();
         sliderBar = Instantiate(sliderBar, transform.position, Quaternion.identity);
         sliderTarget = Instantiate(sliderTarget, transform.position + (Vector3.up * Random.Range(-4, 4)), Quaternion.identity);
+
+        sliderPieces = new List<GameObject>();
+        for (int pieceI = 0; pieceI < nSliderPieces; pieceI++)
+        {
+            GameObject piece = Instantiate(sliderPiece, transform.position + (pieceDistance * pieceI * Vector3.down), Quaternion.identity);
+            sliderPieces.Add(piece);
+        }
     }
 
     // Update is called once per frame
@@ -39,14 +44,13 @@ public class Slider : MonoBehaviour
         if (Input.GetKey(up))
         {
             oscillatorControl.PitchUp();
-            sliderBar.transform.position += Vector3.up * dist;
+            sliderBar.transform.position += Vector3.up * sliderSpeed;
 
         }
         else if (Input.GetKey(down))
         {
             oscillatorControl.PitchDown();
-            sliderBar.transform.position += Vector3.down * dist;
-
+            sliderBar.transform.position += Vector3.down * sliderSpeed;
         }
         // should have velocity that slows down
     }

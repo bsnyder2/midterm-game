@@ -134,13 +134,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slider (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7571045495127976450, guid: 5fb55e15b09654cc3aea65d4e322b1e4, type: 3}
+      propertyPath: up
+      value: 115
+      objectReference: {fileID: 0}
+    - target: {fileID: 7571045495127976450, guid: 5fb55e15b09654cc3aea65d4e322b1e4, type: 3}
+      propertyPath: down
+      value: 97
+      objectReference: {fileID: 0}
     - target: {fileID: 8862666548566769193, guid: 5fb55e15b09654cc3aea65d4e322b1e4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8862666548566769193, guid: 5fb55e15b09654cc3aea65d4e322b1e4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8862666548566769193, guid: 5fb55e15b09654cc3aea65d4e322b1e4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -289,7 +297,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8862666548566769193, guid: 5fb55e15b09654cc3aea65d4e322b1e4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8862666548566769193, guid: 5fb55e15b09654cc3aea65d4e322b1e4, type: 3}
       propertyPath: m_LocalPosition.z

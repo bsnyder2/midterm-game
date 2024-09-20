@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6580202767395585156}
   - component: {fileID: 8814535696452886960}
+  - component: {fileID: 4340779392107911928}
   m_Layer: 0
   m_Name: SliderPiece
   m_TagString: Untagged
@@ -84,3 +85,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4340779392107911928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8397694794993983009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63c42edcbea4346629ed5cc00ab2fb5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eye: {fileID: 1466569318390115322, guid: c76cb103c41df4ea591cd0270a205984, type: 3}
