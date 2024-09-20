@@ -6,9 +6,21 @@ using UnityEngine;
 public class Slider : MonoBehaviour
 {
     public GameObject oscillator;
+    public GameObject sliderBar;
+    public GameObject sliderTarget;
+    public GameObject sliderPiece;
+
     public KeyCode up, down;
 
+    private List<GameObject> sliderPieces;
+
+
+    // target point on slider, between 0 and 1
+    public float targetPoint = 0.5f;
+
     private Oscillator oscillatorControl;
+    private float dist = 0.005f;
+
 
     // textures etc.
 
@@ -17,6 +29,8 @@ public class Slider : MonoBehaviour
     {
         // pull osc control script- no other components on Oscillator prefab
         oscillatorControl = Instantiate(oscillator).GetComponent<Oscillator>();
+        sliderBar = Instantiate(sliderBar, transform.position, Quaternion.identity);
+        sliderTarget = Instantiate(sliderTarget, transform.position + (Vector3.up * Random.Range(-4, 4)), Quaternion.identity);
     }
 
     // Update is called once per frame
@@ -25,11 +39,16 @@ public class Slider : MonoBehaviour
         if (Input.GetKey(up))
         {
             oscillatorControl.PitchUp();
+            sliderBar.transform.position += Vector3.up * dist;
+
         }
         else if (Input.GetKey(down))
         {
             oscillatorControl.PitchDown();
+            sliderBar.transform.position += Vector3.down * dist;
+
         }
+        // should have velocity that slows down
     }
 }
 
