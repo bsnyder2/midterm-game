@@ -44,10 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dae60dde49ba644aea8c9a74ab987442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oscillator: {fileID: 5071414575531797570, guid: c8d3f4ed5d4254fe79c8da68ce787dfb, type: 3}
+  sliderPiece: {fileID: 8397694794993983009, guid: 1ab48a8b227744485a3c063f5db489ce, type: 3}
   sliderBar: {fileID: 7187007491954648340, guid: 4fef7d8aa76a54fbaa3daeb59b6f2b29, type: 3}
   sliderTarget: {fileID: 4967392525597119969, guid: ba52d9c4c9bc947699031147a062da98, type: 3}
-  sliderPiece: {fileID: 8397694794993983009, guid: 1ab48a8b227744485a3c063f5db489ce, type: 3}
+  oscillator: {fileID: 5071414575531797570, guid: c8d3f4ed5d4254fe79c8da68ce787dfb, type: 3}
   up: 119
   down: 113
+  nSliderPieces: 10
+  sliderSpeed: 0.02
+  pieceDistance: 1.5
   targetPoint: 0.5

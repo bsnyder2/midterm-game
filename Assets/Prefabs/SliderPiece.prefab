@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6580202767395585156}
   - component: {fileID: 8814535696452886960}
   - component: {fileID: 4340779392107911928}
+  - component: {fileID: 6383492094881144998}
   m_Layer: 0
   m_Name: SliderPiece
   m_TagString: Untagged
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4e37a303728134cd6840da94e5e60d2c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5f9e60fecbc2e46e1ad32f279d545f9c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,4 +98,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63c42edcbea4346629ed5cc00ab2fb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eye: {fileID: 1466569318390115322, guid: c76cb103c41df4ea591cd0270a205984, type: 3}
+  frames:
+  - {fileID: 21300000, guid: 5c507ef7ebbc74af698aeb725cb82e25, type: 3}
+  - {fileID: 21300000, guid: 5f9e60fecbc2e46e1ad32f279d545f9c, type: 3}
+--- !u!61 &6383492094881144998
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8397694794993983009}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.32, y: 0.77}
+    newSize: {x: 0.22, y: 0.4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.22, y: 0.4}
+  m_EdgeRadius: 0

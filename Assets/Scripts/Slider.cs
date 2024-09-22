@@ -13,12 +13,12 @@ public class Slider : MonoBehaviour
     public KeyCode up, down;
     // target point on slider, between 0 and 1
     public int nSliderPieces = 10;
+    public float sliderSpeed = 0.01f;
     public float pieceDistance = 1.5f;
     public float targetPoint = 0.5f;
 
     private List<GameObject> sliderPieces;
     private Oscillator oscillatorControl;
-    private const float sliderSpeed = 0.03f;
 
     // textures etc.
 
@@ -44,11 +44,14 @@ public class Slider : MonoBehaviour
         if (Input.GetKey(up))
         {
             oscillatorControl.PitchUp();
+            // go to next index in list of pitches
+            //oscillatorControl.PitchNext();
             sliderBar.transform.position += Vector3.up * sliderSpeed;
 
         }
         else if (Input.GetKey(down))
         {
+            //oscillatorControl.PitchPrevious();
             oscillatorControl.PitchDown();
             sliderBar.transform.position += Vector3.down * sliderSpeed;
         }
