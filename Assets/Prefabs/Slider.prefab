@@ -51,6 +51,7 @@ MonoBehaviour:
   up: 119
   down: 113
   nSliderPieces: 10
-  sliderSpeed: 0.02
+  sliderSpeed: 0.01
   pieceDistance: 1.5
   targetPoint: 0.5
+  sliderPieces: []

@@ -1,0 +1,994 @@
+fileFormatVersion: 2
+guid: 985f84a5a606144db99b931f9f71752c
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 20
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: eye-close_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 1153
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1373d62b13c474924b711d7d7d6f4b47
+      internalID: 1978964511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_1
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 1153
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33612bcc318a84f54affaf9fd26348db
+      internalID: 1265222013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_2
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 1153
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6b9d790f00114210a7a566b184fe0d5
+      internalID: -1500648553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_3
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 1153
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67d886c62d98b46a5bde3d0d1c4ddefe
+      internalID: 2125530036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_4
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 1027
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ffeebcb3a04542f4ac2be79dc0ccb59
+      internalID: 518470266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_5
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 1027
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aba71697fb7949a48f188a5964edaf7
+      internalID: 297582455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_6
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 1027
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cc49c4f7592940feaff8c05330cfc5c
+      internalID: 530994175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_7
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 1027
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74e20e36243bb426384be314e34c7b15
+      internalID: 1782495472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_8
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 901
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f52bf64a6aa5242b1a3806eca7b62678
+      internalID: -606017942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_9
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 901
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38926de63082d43d89be545f1979b146
+      internalID: 1287884365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_10
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 901
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3767bada37115402f87e34902fa4ef67
+      internalID: 936541933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_11
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 901
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbb968104256f41ccab003809e4908e6
+      internalID: -1164323074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_12
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 775
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1704ba6b54ca94f47ad9accae7050120
+      internalID: 207053901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_13
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 775
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 971a854a721fa47fab47dfdbeb5262a1
+      internalID: 1243235870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_14
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 775
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7769402207a194395bd36c43c96afd67
+      internalID: 213329054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_15
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 775
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62b1734814d954dbaa0fedd060592cb3
+      internalID: 1637211059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_16
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 649
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a1e4a940dc4d4d5cb468d776cba6f51
+      internalID: -732832665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_17
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 649
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1bd46c36f9324ef78bf1b5ca3a65809
+      internalID: 1212194000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_18
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 649
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0abcbff4076224f4791f51433990bd90
+      internalID: -715685688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_19
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 649
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbff12ac25cec42b59281e26ca0135b0
+      internalID: 1411274548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_20
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 523
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f72e01297af024b858213516b6179cab
+      internalID: 137446694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_21
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 523
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80b75ff5e4e8845cbadd7f57442bf145
+      internalID: -1407341755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_22
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 523
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ec38c292ccbf4a07a107a68e33802e5
+      internalID: 1911942817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_23
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 523
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cfb873ed57a746d39d49f87661dd546
+      internalID: -747152100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_24
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 397
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b3b1bf53cf9941fe9b77acb7a0ba5b2
+      internalID: 1454821896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_25
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 397
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e79acb6f60de458181cd547de5dc31a
+      internalID: -1895070901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_26
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 397
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac36d40fc02094e2d9593a10977429cc
+      internalID: 2072184726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_27
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 397
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa232db7cae704a96acdb53e4398bd3a
+      internalID: -542923292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_28
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 271
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b8a3b3ce364b4670a6985eb3a6abd00
+      internalID: -233076296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_29
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 271
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7f959db69fb648f3a8527701cf81ac8
+      internalID: 1483362102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_30
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 271
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67ce3849f1e474ab8a511ebf0dd7e6d7
+      internalID: -1929872943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_31
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 271
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13ad20276d76941049afdd214148b7cd
+      internalID: 689329515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_32
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 145
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55033aa341cce48d0af2df48517931d6
+      internalID: 1878037816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_33
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 145
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e3860c8297c544ccbd028a212790ebb
+      internalID: 1303122795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_34
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 145
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3fa1ee2d1a5a4933a31c6d19cbc9721
+      internalID: 2051289186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_35
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 145
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b856349f854204153a93a5a9ce2b18d0
+      internalID: 1378763972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_36
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 19
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9eb28857dcf6430a992e39b466859fc
+      internalID: -1613206459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_37
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 19
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 045a0b1370e884a4daef01e9039e0414
+      internalID: 633862414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_38
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 19
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaae4cb5347444ef69f13040b116da82
+      internalID: -1956452700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-close_39
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 19
+        width: 120
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d55132cf92c414215bcf51bcc702db95
+      internalID: -1162119715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      eye-close_0: 1978964511
+      eye-close_1: 1265222013
+      eye-close_10: 936541933
+      eye-close_11: -1164323074
+      eye-close_12: 207053901
+      eye-close_13: 1243235870
+      eye-close_14: 213329054
+      eye-close_15: 1637211059
+      eye-close_16: -732832665
+      eye-close_17: 1212194000
+      eye-close_18: -715685688
+      eye-close_19: 1411274548
+      eye-close_2: -1500648553
+      eye-close_20: 137446694
+      eye-close_21: -1407341755
+      eye-close_22: 1911942817
+      eye-close_23: -747152100
+      eye-close_24: 1454821896
+      eye-close_25: -1895070901
+      eye-close_26: 2072184726
+      eye-close_27: -542923292
+      eye-close_28: -233076296
+      eye-close_29: 1483362102
+      eye-close_3: 2125530036
+      eye-close_30: -1929872943
+      eye-close_31: 689329515
+      eye-close_32: 1878037816
+      eye-close_33: 1303122795
+      eye-close_34: 2051289186
+      eye-close_35: 1378763972
+      eye-close_36: -1613206459
+      eye-close_37: 633862414
+      eye-close_38: -1956452700
+      eye-close_39: -1162119715
+      eye-close_4: 518470266
+      eye-close_5: 297582455
+      eye-close_6: 530994175
+      eye-close_7: 1782495472
+      eye-close_8: -606017942
+      eye-close_9: 1287884365
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -17,7 +17,8 @@ public class Slider : MonoBehaviour
     public float pieceDistance = 1.5f;
     public float targetPoint = 0.5f;
 
-    private List<GameObject> sliderPieces;
+    [HideInInspector]
+    public List<GameObject> sliderPieces;
     private Oscillator oscillatorControl;
 
     // textures etc.
@@ -26,14 +27,14 @@ public class Slider : MonoBehaviour
     void Start()
     {
         // pull osc control script- no other components on Oscillator prefab
-        oscillatorControl = Instantiate(oscillator).GetComponent<Oscillator>();
-        sliderBar = Instantiate(sliderBar, transform.position, Quaternion.identity);
-        sliderTarget = Instantiate(sliderTarget, transform.position + (Vector3.up * Random.Range(-4, 4)), Quaternion.identity);
+        oscillatorControl = Instantiate(oscillator, gameObject.transform).GetComponent<Oscillator>();
+        sliderBar = Instantiate(sliderBar, gameObject.transform);
+        sliderTarget = Instantiate(sliderTarget, transform.position + (Vector3.up * Random.Range(-4, 4)), Quaternion.identity, gameObject.transform);
 
         sliderPieces = new List<GameObject>();
         for (int pieceI = 0; pieceI < nSliderPieces; pieceI++)
         {
-            GameObject piece = Instantiate(sliderPiece, transform.position + (pieceDistance * pieceI * Vector3.down), Quaternion.identity);
+            GameObject piece = Instantiate(sliderPiece, transform.position + (pieceDistance * pieceI * Vector3.down), Quaternion.identity, gameObject.transform);
             sliderPieces.Add(piece);
         }
     }
@@ -56,6 +57,15 @@ public class Slider : MonoBehaviour
             sliderBar.transform.position += Vector3.down * sliderSpeed;
         }
         // should have velocity that slows down
+    }
+
+    public void Foo()
+    {
+        // close other eyes
+        foreach (var sliderPiece in sliderPieces)
+        {
+            sliderPiece.GetComponent<SliderPiece>().Close();
+        }
     }
 }
 
