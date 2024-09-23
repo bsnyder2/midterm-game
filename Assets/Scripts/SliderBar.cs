@@ -21,41 +21,28 @@ public class SliderBar : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // on new collision, set previous pointer to previous collision
-        previousSliderPieceControl = currentSliderPieceControl;
-        //Debug.Log("open");
         // set current pointer to current collision
+        previousSliderPieceControl = currentSliderPieceControl;
         currentSliderPieceControl = collision.GetComponent<SliderPiece>();
-        // if collided with slider piece, open
-        //Debug.Log(currentSliderPieceControl == previousSliderPieceControl);
-        if (ReferenceEquals(currentSliderPieceControl, previousSliderPieceControl))
-        {
-            return;
-        }
+        // no animation if reentered same trigger
+        if (ReferenceEquals(currentSliderPieceControl, previousSliderPieceControl)) return;
+
+        // if collided with slider piece, open and close previous
         if (currentSliderPieceControl != null)
         {
             currentSliderPieceControl.Open();
-            // close all other eyes
-            //transform.parent.GetComponent<Slider>().Foo();
         }
         if (previousSliderPieceControl != null)
         {
             previousSliderPieceControl.Close();
         }
 
-        sliderTargetControl = collision.GetComponent<SliderTarget>();
-        if (sliderTargetControl != null)
-        {
-            Debug.Log("TARGET HIT");
-        }
+        // check for target hit
+        //sliderTargetControl = collision.GetComponent<SliderTarget>();
+        //if (sliderTargetControl != null)
+        //{
+        //    Debug.Log("TARGET HIT");
+        //}
     }
 
-    //private void OnTriggerExit2D(Collider2D collision)
-    //{
-    //    Debug.Log("close");
-    //    sliderPiece = collision.GetComponent<SliderPiece>();
-    //    if (sliderPiece != null)
-    //    {
-    //        sliderPiece.Close();
-    //    }
-    //}
 }

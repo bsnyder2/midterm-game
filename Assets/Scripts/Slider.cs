@@ -14,7 +14,7 @@ public class Slider : MonoBehaviour
     // target point on slider, between 0 and 1
     public int nSliderPieces = 10;
     public float sliderSpeed = 0.01f;
-    public float pieceDistance = 1.5f;
+    public float pieceDistance;
     public float targetPoint = 0.5f;
 
     [HideInInspector]
@@ -27,14 +27,14 @@ public class Slider : MonoBehaviour
     void Start()
     {
         // pull osc control script- no other components on Oscillator prefab
-        oscillatorControl = Instantiate(oscillator, gameObject.transform).GetComponent<Oscillator>();
-        sliderBar = Instantiate(sliderBar, gameObject.transform);
-        sliderTarget = Instantiate(sliderTarget, transform.position + (Vector3.up * Random.Range(-4, 4)), Quaternion.identity, gameObject.transform);
+        oscillatorControl = Instantiate(oscillator).GetComponent<Oscillator>();
+        sliderBar = Instantiate(sliderBar);
+        sliderTarget = Instantiate(sliderTarget, transform.position + (Vector3.up * Random.Range(-4, 4)), Quaternion.identity);
 
         sliderPieces = new List<GameObject>();
         for (int pieceI = 0; pieceI < nSliderPieces; pieceI++)
         {
-            GameObject piece = Instantiate(sliderPiece, transform.position + (pieceDistance * pieceI * Vector3.down), Quaternion.identity, gameObject.transform);
+            GameObject piece = Instantiate(sliderPiece, transform.position + (pieceDistance * pieceI * Vector3.down), Quaternion.identity);
             sliderPieces.Add(piece);
         }
     }
