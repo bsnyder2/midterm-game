@@ -51,8 +51,9 @@ MonoBehaviour:
   down: 113
   nSliderPieces: 7
   sliderSpeed: 0.006
-  pieceStart: 6
-  pieceDistance: 2
+  sliderStart: 4
+  interPieceDistance: 2
+  barStart: 6
 --- !u!212 &7312943696271389537
 SpriteRenderer:
   m_ObjectHideFlags: 0

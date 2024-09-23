@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shiftsPerSecond: 2
   pitchTick: 0.002
-  semitones: 0
+  pitches: 00000000020000000400000007000000090000000c0000000e000000
 --- !u!82 &-7819587146541712400
 AudioSource:
   m_ObjectHideFlags: 0

@@ -5,17 +5,18 @@ using UnityEngine;
 public class SliderBar : MonoBehaviour
 {
     public GameObject oscillator;
+    public bool movingUp;
 
-    private Rigidbody2D thisRigidbody;
+    //private Rigidbody2D thisRigidbody;
 
     private SliderPiece currentSliderPieceControl;
     private SliderPiece previousSliderPieceControl;
     private Oscillator oscillatorControl;
-    // Start is called before the first frame update
-    void Start()
+    // *Awake is called when script instance is loaded
+    void Awake()
     {
         oscillatorControl = Instantiate(oscillator).GetComponent<Oscillator>();
-        thisRigidbody = GetComponent<Rigidbody2D>();
+        //thisRigidbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -43,8 +44,17 @@ public class SliderBar : MonoBehaviour
             previousSliderPieceControl.Close();
         }
 
-        // if moving down, decrease pitch; if moving up
-        Debug.Log(thisRigidbody);
+        // if moving down, decrease pitch; if moving up increase
+        //Debug.Log(thisRigidbody.velocity);
+        //if (Input.GetKey(KeyCode.LeftShift))
+        if (movingUp)
+        {
+            oscillatorControl.PitchNext();
+        } else
+        {
+            oscillatorControl.PitchPrevious();
+        }
+
 
         // check for target hit
         //sliderTargetControl = collision.GetComponent<SliderTarget>();

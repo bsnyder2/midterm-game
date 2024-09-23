@@ -6,7 +6,6 @@ public class Oscillator : MonoBehaviour
 {
     public int shiftsPerSecond = 4;
     public float pitchTick = 0.002f;
-    public int semitones;
 
     private AudioSource sample;
     private float pitchFrameTimer;
@@ -20,6 +19,7 @@ public class Oscillator : MonoBehaviour
     void Start()
     {
         sample = GetComponent<AudioSource>();
+        currentPitchIndex = 0;
     }
 
     // Update is called once per frame
@@ -30,18 +30,20 @@ public class Oscillator : MonoBehaviour
 
     public void PitchNext()
     {
+        Debug.Log("pitch next");
         // if last pitch...
         if (currentPitchIndex >= (pitches.Count - 1)) return;
         currentPitchIndex++;
-        sample.pitch = pitches[currentPitchIndex];
+        sample.pitch = SemitonesToPitch(pitches[currentPitchIndex]);
     }
 
     public void PitchPrevious()
     {
+        Debug.Log("pitch previous");
         // if first pitch...
         if (currentPitchIndex <= 0) return;
         currentPitchIndex--;
-        sample.pitch = pitches[currentPitchIndex];
+        sample.pitch = SemitonesToPitch(pitches[currentPitchIndex]);
     }
 
     public void PitchUp()
@@ -79,5 +81,10 @@ public class Oscillator : MonoBehaviour
             pitchFrameTimer = (1 / shiftsPerSecond);
         }
         pitchFrameTimer -= Time.deltaTime;
+    }
+
+    private static float SemitonesToPitch(int semitones)
+    {
+        return Mathf.Pow(2, semitones / 12f);
     }
 }
