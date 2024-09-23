@@ -37,6 +37,9 @@ public class SliderBar : MonoBehaviour
             previousSliderPieceControl.Close();
         }
 
+        // if moving down, decrease pitch; if moving up
+        //if ()
+
         // check for target hit
         //sliderTargetControl = collision.GetComponent<SliderTarget>();
         //if (sliderTargetControl != null)

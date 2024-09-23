@@ -10,6 +10,9 @@ public class Oscillator : MonoBehaviour
 
     private AudioSource sample;
     private float pitchFrameTimer;
+
+    public List<int> pitches;
+    private int currentPitchIndex;
     //private float lerpTimer = 4;
     // other controls for tremolo etc.
 
@@ -23,6 +26,22 @@ public class Oscillator : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void PitchNext()
+    {
+        // if last pitch...
+        if (currentPitchIndex >= (pitches.Count - 1)) return;
+        currentPitchIndex++;
+        sample.pitch = pitches[currentPitchIndex];
+    }
+
+    public void PitchPrevious()
+    {
+        // if first pitch...
+        if (currentPitchIndex <= 0) return;
+        currentPitchIndex--;
+        sample.pitch = pitches[currentPitchIndex];
     }
 
     public void PitchUp()

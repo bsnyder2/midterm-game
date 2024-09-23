@@ -29,7 +29,7 @@ public class Slider : MonoBehaviour
     void Start()
     {
         // pull osc control script- no other components on Oscillator prefab
-        oscillatorControl = Instantiate(oscillator).GetComponent<Oscillator>();
+        oscillatorControl = Instantiate(oscillator, gameObject.transform).GetComponent<Oscillator>();
         sliderBar = Instantiate(sliderBar, transform.position, Quaternion.identity);
         //sliderTarget = Instantiate(sliderTarget, transform.position + (Vector3.up * Random.Range(-4, 4)), Quaternion.identity);
 
@@ -49,9 +49,10 @@ public class Slider : MonoBehaviour
         {
             if (sliderBar.transform.position.y <= pieceStart)
             {
-                // go to next index in list of pitches
+                // go to next index in list of discrete pitches
                 //oscillatorControl.PitchNext();
-                oscillatorControl.PitchUp();
+                // or continuous increase
+                //oscillatorControl.PitchUp();
                 sliderBar.transform.position += Vector3.up * sliderSpeed;
             }
 
@@ -61,7 +62,7 @@ public class Slider : MonoBehaviour
             if (sliderBar.transform.position.y >= pieceEnd)
             {
                 //oscillatorControl.PitchPrevious();
-                oscillatorControl.PitchDown();
+                //oscillatorControl.PitchDown();
                 sliderBar.transform.position += Vector3.down * sliderSpeed;
             }
         }
