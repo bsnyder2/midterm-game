@@ -6,7 +6,7 @@ public class SliderBar : MonoBehaviour
 {
     SliderPiece currentSliderPieceControl;
     SliderPiece previousSliderPieceControl;
-    SliderTarget sliderTargetControl;
+    //SliderTarget sliderTargetControl;
     // Start is called before the first frame update
     void Start()
     {

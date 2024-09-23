@@ -7,15 +7,17 @@ public class Slider : MonoBehaviour
 {
     public GameObject sliderPiece;
     public GameObject sliderBar;
-    public GameObject sliderTarget;
+    //public GameObject sliderTarget;
     public GameObject oscillator;
 
     public KeyCode up, down;
     // target point on slider, between 0 and 1
     public int nSliderPieces = 10;
     public float sliderSpeed = 0.01f;
-    public float pieceDistance;
-    public float targetPoint = 0.5f;
+    public float pieceStart = 4f;
+    public float pieceDistance = 2f;
+    //public float targetPoint = 0.5f;
+    private float pieceEnd;
 
     [HideInInspector]
     public List<GameObject> sliderPieces;
@@ -28,15 +30,16 @@ public class Slider : MonoBehaviour
     {
         // pull osc control script- no other components on Oscillator prefab
         oscillatorControl = Instantiate(oscillator).GetComponent<Oscillator>();
-        sliderBar = Instantiate(sliderBar);
-        sliderTarget = Instantiate(sliderTarget, transform.position + (Vector3.up * Random.Range(-4, 4)), Quaternion.identity);
+        sliderBar = Instantiate(sliderBar, transform.position, Quaternion.identity);
+        //sliderTarget = Instantiate(sliderTarget, transform.position + (Vector3.up * Random.Range(-4, 4)), Quaternion.identity);
 
         sliderPieces = new List<GameObject>();
         for (int pieceI = 0; pieceI < nSliderPieces; pieceI++)
         {
-            GameObject piece = Instantiate(sliderPiece, transform.position + (pieceDistance * pieceI * Vector3.down), Quaternion.identity);
+            GameObject piece = Instantiate(sliderPiece, transform.position + (pieceDistance * pieceI * Vector3.down) + (pieceStart * Vector3.up), Quaternion.identity);
             sliderPieces.Add(piece);
         }
+        pieceEnd = pieceStart - (pieceDistance * nSliderPieces);
     }
 
     // Update is called once per frame
@@ -44,28 +47,25 @@ public class Slider : MonoBehaviour
     {
         if (Input.GetKey(up))
         {
-            oscillatorControl.PitchUp();
-            // go to next index in list of pitches
-            //oscillatorControl.PitchNext();
-            sliderBar.transform.position += Vector3.up * sliderSpeed;
+            if (sliderBar.transform.position.y <= pieceStart)
+            {
+                // go to next index in list of pitches
+                //oscillatorControl.PitchNext();
+                oscillatorControl.PitchUp();
+                sliderBar.transform.position += Vector3.up * sliderSpeed;
+            }
 
         }
         else if (Input.GetKey(down))
         {
-            //oscillatorControl.PitchPrevious();
-            oscillatorControl.PitchDown();
-            sliderBar.transform.position += Vector3.down * sliderSpeed;
+            if (sliderBar.transform.position.y >= pieceEnd)
+            {
+                //oscillatorControl.PitchPrevious();
+                oscillatorControl.PitchDown();
+                sliderBar.transform.position += Vector3.down * sliderSpeed;
+            }
         }
-        // should have velocity that slows down
-    }
-
-    public void Foo()
-    {
-        // close other eyes
-        foreach (var sliderPiece in sliderPieces)
-        {
-            sliderPiece.GetComponent<SliderPiece>().Close();
-        }
+        // should have velocity that slows down- physics/vector movement, not position
     }
 }
 

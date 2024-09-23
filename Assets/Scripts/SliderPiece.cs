@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class SliderPiece : MonoBehaviour
 {
+    public bool isTarget;
     public Sprite[] frames;
-    public float animationFrameTime = 10;
+    public float animationFrameTime;
 
     private SpriteRenderer spriteRenderer;
     private Queue<IEnumerator> animationQueue;
@@ -19,9 +20,14 @@ public class SliderPiece : MonoBehaviour
         StartCoroutine(AnimationCoordinator());
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Open()
     {
+        animationQueue.Enqueue(OpenRoutine());
+    }
+
+    public void Close()
+    {
+        animationQueue.Enqueue(CloseRoutine());
     }
 
     // inspired by https://discussions.unity.com/t/how-to-stack-coroutines-and-call-each-one-till-all-are-executed/219063/5
@@ -38,16 +44,6 @@ public class SliderPiece : MonoBehaviour
             }
             yield return null;
         }
-    }
-
-    public void Open()
-    {
-        animationQueue.Enqueue(OpenRoutine());
-    }
-
-    public void Close()
-    {
-        animationQueue.Enqueue(CloseRoutine());
     }
 
     IEnumerator OpenRoutine()
