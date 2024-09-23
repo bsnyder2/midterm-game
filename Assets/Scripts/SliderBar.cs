@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class SliderBar : MonoBehaviour
 {
-    SliderPiece currentSliderPieceControl;
-    SliderPiece previousSliderPieceControl;
-    //SliderTarget sliderTargetControl;
+    public GameObject oscillator;
+
+    private Rigidbody2D thisRigidbody;
+
+    private SliderPiece currentSliderPieceControl;
+    private SliderPiece previousSliderPieceControl;
+    private Oscillator oscillatorControl;
     // Start is called before the first frame update
     void Start()
     {
+        oscillatorControl = Instantiate(oscillator).GetComponent<Oscillator>();
+        thisRigidbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -38,7 +44,7 @@ public class SliderBar : MonoBehaviour
         }
 
         // if moving down, decrease pitch; if moving up
-        //if ()
+        Debug.Log(thisRigidbody);
 
         // check for target hit
         //sliderTargetControl = collision.GetComponent<SliderTarget>();
@@ -46,6 +52,8 @@ public class SliderBar : MonoBehaviour
         //{
         //    Debug.Log("TARGET HIT");
         //}
+
+        // TODO oscillator control with list of pitches
     }
 
 }

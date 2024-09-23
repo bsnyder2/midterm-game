@@ -8,7 +8,6 @@ public class Slider : MonoBehaviour
     public GameObject sliderPiece;
     public GameObject sliderBar;
     //public GameObject sliderTarget;
-    public GameObject oscillator;
 
     public KeyCode up, down;
     // target point on slider, between 0 and 1
@@ -19,9 +18,7 @@ public class Slider : MonoBehaviour
     //public float targetPoint = 0.5f;
     private float pieceEnd;
 
-    [HideInInspector]
-    public List<GameObject> sliderPieces;
-    private Oscillator oscillatorControl;
+    private List<GameObject> sliderPieces;
 
     // textures etc.
 
@@ -29,7 +26,6 @@ public class Slider : MonoBehaviour
     void Start()
     {
         // pull osc control script- no other components on Oscillator prefab
-        oscillatorControl = Instantiate(oscillator, gameObject.transform).GetComponent<Oscillator>();
         sliderBar = Instantiate(sliderBar, transform.position, Quaternion.identity);
         //sliderTarget = Instantiate(sliderTarget, transform.position + (Vector3.up * Random.Range(-4, 4)), Quaternion.identity);
 

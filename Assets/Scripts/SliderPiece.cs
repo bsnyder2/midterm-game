@@ -49,11 +49,11 @@ public class SliderPiece : MonoBehaviour
     IEnumerator OpenRoutine()
     {
         // play all frames of animation
-        int animationFrameIndex = frames.Length - 1;
-        while (animationFrameIndex >= 0)
+        int animationFrameIndex = 0;
+        while (animationFrameIndex < frames.Length)
         {
             spriteRenderer.sprite = frames[animationFrameIndex];
-            animationFrameIndex--;
+            animationFrameIndex++;
             yield return new WaitForSeconds(Time.deltaTime * animationFrameTime);
         }
     }
@@ -61,11 +61,11 @@ public class SliderPiece : MonoBehaviour
     IEnumerator CloseRoutine()
     {
         // play all frames of animation
-        int animationFrameIndex = 0;
-        while (animationFrameIndex < frames.Length)
+        int animationFrameIndex = frames.Length - 1;
+        while (animationFrameIndex >= 0)
         {
             spriteRenderer.sprite = frames[animationFrameIndex];
-            animationFrameIndex++;
+            animationFrameIndex--;
             yield return new WaitForSeconds(Time.deltaTime * animationFrameTime);
         }
     }
