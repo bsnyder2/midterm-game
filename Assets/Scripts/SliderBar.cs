@@ -12,17 +12,12 @@ public class SliderBar : MonoBehaviour
     private SliderPiece currentSliderPieceControl;
     private SliderPiece previousSliderPieceControl;
     private Oscillator oscillatorControl;
+
     // *Awake is called when script instance is loaded
     void Awake()
     {
         oscillatorControl = Instantiate(oscillator).GetComponent<Oscillator>();
         //thisRigidbody = GetComponent<Rigidbody2D>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -63,7 +58,12 @@ public class SliderBar : MonoBehaviour
         //    Debug.Log("TARGET HIT");
         //}
 
-        // TODO oscillator control with list of pitches
+        // TODO target hit on each slider (different color eye)
+        // -> kill enemy by casting rays from each eye
+        // slowing down time and music effect? enough time to create interval that matches melody
+        // analog synth tones
+        // guitar?
+        // make it sound great in headphones
     }
 
 }
