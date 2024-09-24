@@ -296,6 +296,14 @@ PrefabInstance:
       value: Slider
       objectReference: {fileID: 0}
     - target: {fileID: 1821832406177231686, guid: ee9b04f31f090458e9712e62f995d409, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1821832406177231686, guid: ee9b04f31f090458e9712e62f995d409, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1821832406177231686, guid: ee9b04f31f090458e9712e62f995d409, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12
       objectReference: {fileID: 0}

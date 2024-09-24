@@ -18,6 +18,7 @@ public class Slider : MonoBehaviour
     public int barStart = 0;
     //public float targetPoint = 0.5f;
     private float sliderEnd;
+    private float distanceScalar;
 
     private List<GameObject> sliderPieces;
     private SliderBar sliderBarControl;
@@ -27,10 +28,15 @@ public class Slider : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        distanceScalar = transform.localScale.y / 8f;
+        //sliderStart = sliderStart;
+        Debug.Log(distanceScalar);
         sliderPieces = new List<GameObject>();
         for (int pieceI = 0; pieceI < nSliderPieces; pieceI++)
         {
-            GameObject piece = Instantiate(sliderPiece, transform.position + (interPieceDistance * pieceI * Vector3.down) + (sliderStart * Vector3.up), Quaternion.identity);
+            GameObject piece = Instantiate(sliderPiece, transform.position + (interPieceDistance * pieceI * distanceScalar * Vector3.down) + (sliderStart * distanceScalar * Vector3.up), Quaternion.identity);
+            // scale eye size
+            piece.transform.localScale *= distanceScalar;
             sliderPieces.Add(piece);
         }
         sliderEnd = sliderStart - (interPieceDistance * nSliderPieces);
