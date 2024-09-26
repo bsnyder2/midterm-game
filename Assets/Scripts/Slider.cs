@@ -29,20 +29,20 @@ public class Slider : MonoBehaviour
     void Start()
     {
         distanceScalar = transform.localScale.y / 8f;
-        //sliderStart = sliderStart;
-        Debug.Log(distanceScalar);
+        //Debug.Log(distanceScalar);
         sliderPieces = new List<GameObject>();
         for (int pieceI = 0; pieceI < nSliderPieces; pieceI++)
         {
+            // instantiate piece
             GameObject piece = Instantiate(sliderPiece, transform.position + (interPieceDistance * pieceI * distanceScalar * Vector3.down) + (sliderStart * distanceScalar * Vector3.up), Quaternion.identity);
-            // scale eye size
             piece.transform.localScale *= distanceScalar;
             sliderPieces.Add(piece);
         }
         sliderEnd = sliderStart - (interPieceDistance * nSliderPieces);
 
+        // instantiate bar at 
         sliderBar = Instantiate(sliderBar, sliderPieces[barStart].transform.position, Quaternion.identity);
-        //sliderBar = Instantiate(sliderBar, transform.position + (interPieceDistance * barStart * Vector3.down) + (sliderStart * Vector3.up), Quaternion.identity);
+        sliderBar.transform.localScale *= distanceScalar;
         sliderBarControl = sliderBar.GetComponent<SliderBar>();
     }
 
@@ -51,24 +51,24 @@ public class Slider : MonoBehaviour
     {
         if (Input.GetKey(up))
         {
-            if (sliderBar.transform.position.y <= sliderStart)
+            if (sliderBar.transform.position.y <= (sliderStart * distanceScalar))
             {
                 // go to next index in list of discrete pitches
                 //oscillatorControl.PitchNext();
                 // or continuous increase
                 //oscillatorControl.PitchUp();
-                sliderBar.transform.position += Vector3.up * sliderSpeed;
+                sliderBar.transform.position += sliderSpeed * distanceScalar * Vector3.up;
                 sliderBarControl.movingUp = true;
             }
 
         }
         else if (Input.GetKey(down))
         {
-            if (sliderBar.transform.position.y >= sliderEnd)
+            if (sliderBar.transform.position.y >= (sliderEnd * distanceScalar))
             {
                 //oscillatorControl.PitchPrevious();
                 //oscillatorControl.PitchDown();
-                sliderBar.transform.position += Vector3.down * sliderSpeed;
+                sliderBar.transform.position += sliderSpeed * distanceScalar * Vector3.down;
                 sliderBarControl.movingUp = false;
             }
         }
