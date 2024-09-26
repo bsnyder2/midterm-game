@@ -216,13 +216,14 @@ GameObject:
   m_Component:
   - component: {fileID: 334273402}
   - component: {fileID: 334273401}
+  - component: {fileID: 334273403}
   m_Layer: 0
   m_Name: purplesoul (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &334273401
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -284,12 +285,27 @@ Transform:
   m_GameObject: {fileID: 334273400}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.33432624, y: -0.4123388, z: 0}
-  m_LocalScale: {x: 0.004048228, y: 0.0075297044, z: 0.0075297044}
+  m_LocalPosition: {x: 7.2599998, y: -3.9700005, z: 0}
+  m_LocalScale: {x: 0.09020918, y: 0.09020918, z: 0.09020918}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1276967656}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &334273403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 334273400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c373090e8e923394195bc992eb885a4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingPoint: {fileID: 1565123944}
+  speed: 0.5
+  waitTime: 3
 --- !u!1 &432918220
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,13 +316,14 @@ GameObject:
   m_Component:
   - component: {fileID: 432918222}
   - component: {fileID: 432918221}
+  - component: {fileID: 432918223}
   m_Layer: 0
   m_Name: purplesoul (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &432918221
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -368,12 +385,27 @@ Transform:
   m_GameObject: {fileID: 432918220}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.38009977, y: -0.4123388, z: 0}
-  m_LocalScale: {x: 0.004048228, y: 0.0075297044, z: 0.0075297044}
+  m_LocalPosition: {x: 8.280001, y: -3.9700005, z: 0}
+  m_LocalScale: {x: 0.09020918, y: 0.09020918, z: 0.09020918}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1276967656}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &432918223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432918220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c373090e8e923394195bc992eb885a4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingPoint: {fileID: 1585338660}
+  speed: 0.5
+  waitTime: 4
 --- !u!1001 &499083899
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -446,6 +478,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -527,6 +560,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94ed2aad176d5734d82aba6bae3884f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectsToActivate:
+  - {fileID: 2084037716}
+  - {fileID: 334273400}
+  - {fileID: 432918220}
 --- !u!1 &529828318
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,8 +653,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 529828318}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.74, y: 0.83, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.7399999, y: 0.83, z: 0}
   m_LocalScale: {x: 0.07369, y: 0.07369, z: 0.07369}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -782,11 +831,8 @@ Transform:
   m_LocalScale: {x: 22.283623, y: 11.980441, z: 11.980441}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 334273402}
   - {fileID: 1688240784}
-  - {fileID: 2084037718}
   - {fileID: 672833335}
-  - {fileID: 432918222}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1369793607
@@ -2978,6 +3024,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BeginningText
       objectReference: {fileID: 0}
+    - target: {fileID: 8379655308759590497, guid: 68f05672e617ef84ba6dd3131b6dbabe, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2993,13 +3043,14 @@ GameObject:
   m_Component:
   - component: {fileID: 2084037718}
   - component: {fileID: 2084037717}
+  - component: {fileID: 2084037719}
   m_Layer: 0
   m_Name: purplesoul
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &2084037717
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3061,12 +3112,27 @@ Transform:
   m_GameObject: {fileID: 2084037716}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.28765517, y: -0.41233876, z: 0}
-  m_LocalScale: {x: 0.004048228, y: 0.0075297044, z: 0.0075297044}
+  m_LocalPosition: {x: 6.2199993, y: -3.97, z: 0}
+  m_LocalScale: {x: 0.09020918, y: 0.09020918, z: 0.09020918}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1276967656}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2084037719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084037716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c373090e8e923394195bc992eb885a4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingPoint: {fileID: 529828320}
+  speed: 0.5
+  waitTime: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3075,6 +3141,9 @@ SceneRoots:
   - {fileID: 1580676207}
   - {fileID: 1598510079}
   - {fileID: 290005934}
+  - {fileID: 2084037718}
+  - {fileID: 334273402}
+  - {fileID: 432918222}
   - {fileID: 1276967656}
   - {fileID: 529828320}
   - {fileID: 1565123944}
