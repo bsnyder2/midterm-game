@@ -39,6 +39,14 @@ public class Slider : MonoBehaviour
             sliderPieces.Add(piece);
         }
         sliderEnd = sliderStart - (interPieceDistance * nSliderPieces);
+        //float top = 0.75f;
+        //float interPieceDistance = 0.2f;
+        //sliderPieces = new List<GameObject>();
+        //for (int pieceI = 0; pieceI < nSliderPieces; pieceI++)
+        //{
+        //    GameObject piece = Instantiate(sliderPiece, transform.position + (Vector3.up * transform.localScale.y * top) + (interPieceDistance * pieceI * transform.localScale.y * Vector3.down), Quaternion.identity);
+        //    piece.transform.localScale *= transform.localScale.y;
+        //}
 
         // instantiate bar at 
         sliderBar = Instantiate(sliderBar, sliderPieces[barStart].transform.position, Quaternion.identity);
@@ -51,9 +59,11 @@ public class Slider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Some really not pretty equations here
+        Debug.Log(sliderBar.transform.position.y);
         if (Input.GetKey(up))
         {
-            if (sliderBar.transform.position.y <= (sliderStart * distanceScalar))
+            if (sliderBar.transform.position.y <= (transform.position.y + transform.localScale.y - (distanceScalar * 3)))
             {
                 // go to next index in list of discrete pitches
                 //oscillatorControl.PitchNext();
@@ -66,7 +76,7 @@ public class Slider : MonoBehaviour
         }
         else if (Input.GetKey(down))
         {
-            if (sliderBar.transform.position.y >= (sliderEnd * distanceScalar))
+            if (sliderBar.transform.position.y >= (transform.position.y - transform.localScale.y - (distanceScalar)))
             {
                 //oscillatorControl.PitchPrevious();
                 //oscillatorControl.PitchDown();
