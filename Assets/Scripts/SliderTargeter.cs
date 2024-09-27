@@ -41,11 +41,12 @@ public class MinigameRunner : MonoBehaviour
         {
             if (bar.isHit) sliderHits++;
         }
+        // if all slides have a hit
         if (sliderHits >= sliderBarControls.Length)
         {
-            //Debug.Log("all hits");
             HitEnemy();
-
+            // end hits
+            foreach (var bar in sliderBarControls) bar.isHit = false;
         }
     }
 
@@ -55,14 +56,11 @@ public class MinigameRunner : MonoBehaviour
         Vector3 enemyPosition = currentEnemyControl.transform.position;
         foreach (var bar in sliderBarControls)
         {
-            //Debug.Log("raycast from " + bar.transform.position + " to " + enemyPosition);
             bar.DrawLine(enemyPosition);
         }
         currentEnemyControl.Die();
 
-        // reset bar targets each
-        //Debug.Log(barTargets);
-        //Debug.Log(barTargetsIndex);
+        // reset bar targets for each slider
         sliderControls[0].ResetBarTarget(barTargets[barTargetsIndex,0]);
         sliderControls[1].ResetBarTarget(barTargets[barTargetsIndex,1]);
 

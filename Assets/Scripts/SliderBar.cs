@@ -53,6 +53,7 @@ public class SliderBar : MonoBehaviour
         }
 
         isHit = currentSliderPieceControl.isTarget;
+        //Debug.Log(isHit ? "there is a hit" : "no hit");
 
 
         // check for target hit

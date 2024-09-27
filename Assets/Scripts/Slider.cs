@@ -15,7 +15,7 @@ public class Slider : MonoBehaviour
     public float sliderStart = 4f;
     public float interPieceDistance = 2f;
     public int barStart = 0;
-    public int barTarget;
+    public int initBarTarget;
 
     private float sliderEnd;
     private float distanceScalar;
@@ -45,7 +45,7 @@ public class Slider : MonoBehaviour
         sliderBar.transform.localScale *= distanceScalar;
         sliderBarControl = sliderBar.GetComponent<SliderBar>();
 
-        ResetBarTarget(barTarget);
+        ResetBarTarget(initBarTarget);
     }
 
     // Update is called once per frame
@@ -77,14 +77,14 @@ public class Slider : MonoBehaviour
         // should have velocity that slows down- physics/vector movement, not position
     }
 
-    public void ResetBarTarget(int barTarget)
+    public void ResetBarTarget(int newBarTarget)
     {
         foreach (var sliderPiece in sliderPieces)
         {
             sliderPiece.GetComponent<SliderPiece>().isTarget = false;
         }
-        sliderPieces[barTarget].GetComponent<SliderPiece>().isTarget = true;
-        Debug.Log("this is beign rn");
+        sliderPieces[newBarTarget].GetComponent<SliderPiece>().isTarget = true;
+        //Debug.Log("this is beign rn");
     }
 }
 
