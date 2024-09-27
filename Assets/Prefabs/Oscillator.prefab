@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shiftsPerSecond: 2
   pitchTick: 0.002
-  pitches: 00000000020000000400000007000000090000000c0000000e000000
+  pitches: 000000000200000005000000070000000a0000000c0000000e000000
 --- !u!82 &-7819587146541712400
 AudioSource:
   m_ObjectHideFlags: 0
@@ -58,9 +58,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9b85e1c461f1c42119fbba68294912ec, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0a2be9a9eb5c74e69bc06d2692020c40, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.01
+  m_Volume: 0.1
   m_Pitch: -0.5
   Loop: 1
   Mute: 0

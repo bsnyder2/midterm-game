@@ -7,7 +7,6 @@ public class Slider : MonoBehaviour
 {
     public GameObject sliderPiece;
     public GameObject sliderBar;
-    //public GameObject sliderTarget;
 
     public KeyCode up, down;
     // target point on slider, between 0 and 1
@@ -16,7 +15,8 @@ public class Slider : MonoBehaviour
     public float sliderStart = 4f;
     public float interPieceDistance = 2f;
     public int barStart = 0;
-    //public float targetPoint = 0.5f;
+    public int barTarget;
+
     private float sliderEnd;
     private float distanceScalar;
 
@@ -44,6 +44,8 @@ public class Slider : MonoBehaviour
         sliderBar = Instantiate(sliderBar, sliderPieces[barStart].transform.position, Quaternion.identity);
         sliderBar.transform.localScale *= distanceScalar;
         sliderBarControl = sliderBar.GetComponent<SliderBar>();
+
+        ResetBarTarget(barTarget);
     }
 
     // Update is called once per frame
@@ -73,6 +75,16 @@ public class Slider : MonoBehaviour
             }
         }
         // should have velocity that slows down- physics/vector movement, not position
+    }
+
+    public void ResetBarTarget(int barTarget)
+    {
+        foreach (var sliderPiece in sliderPieces)
+        {
+            sliderPiece.GetComponent<SliderPiece>().isTarget = false;
+        }
+        sliderPieces[barTarget].GetComponent<SliderPiece>().isTarget = true;
+        Debug.Log("this is beign rn");
     }
 }
 

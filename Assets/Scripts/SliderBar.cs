@@ -6,18 +6,20 @@ public class SliderBar : MonoBehaviour
 {
     public GameObject oscillator;
     public bool movingUp;
+    public bool isHit;
 
     //private Rigidbody2D thisRigidbody;
 
     private SliderPiece currentSliderPieceControl;
     private SliderPiece previousSliderPieceControl;
     private Oscillator oscillatorControl;
+    private LineRenderer lineRenderer;
 
     // *Awake is called when script instance is loaded
     void Awake()
     {
         oscillatorControl = Instantiate(oscillator).GetComponent<Oscillator>();
-        //thisRigidbody = GetComponent<Rigidbody2D>();
+        lineRenderer = GetComponent<LineRenderer>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -50,6 +52,8 @@ public class SliderBar : MonoBehaviour
             oscillatorControl.PitchPrevious();
         }
 
+        isHit = currentSliderPieceControl.isTarget;
+
 
         // check for target hit
         //sliderTargetControl = collision.GetComponent<SliderTarget>();
@@ -64,6 +68,12 @@ public class SliderBar : MonoBehaviour
         // analog synth tones
         // guitar?
         // make it sound great in headphones
+    }
+
+    public void DrawLine(Vector3 enemyPosition)
+    {
+        lineRenderer.SetPosition(0, currentSliderPieceControl.transform.position);
+        lineRenderer.SetPosition(1, enemyPosition);
     }
 
 }
