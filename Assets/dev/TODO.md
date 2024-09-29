@@ -15,7 +15,7 @@
 	- or make original patch
 - sine wave or triangle wave for oscillator?
 	- or make original patch
-- Or make actual good bg music and have the slowdown mechanic for quicktime events
+- Or make actual good bg music and have the slowdown mechanic for quicktime events (using pitch)
 
 ## Textures
 - (important) **center slider**

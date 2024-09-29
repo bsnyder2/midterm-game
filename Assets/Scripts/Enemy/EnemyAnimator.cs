@@ -32,7 +32,7 @@ public class EnemyAnimator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //animationQueue.Enqueue(IdleRoutine());
     }
 
     public void Die()

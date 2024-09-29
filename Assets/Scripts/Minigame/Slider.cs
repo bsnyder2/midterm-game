@@ -15,7 +15,6 @@ public class Slider : MonoBehaviour
     public float sliderStart = 4f;
     public float interPieceDistance = 2f;
     public int barStart = 0;
-    public int initBarTarget;
 
     private float sliderEnd;
     private float distanceScalar;
@@ -53,7 +52,8 @@ public class Slider : MonoBehaviour
         sliderBar.transform.localScale *= distanceScalar;
         sliderBarControl = sliderBar.GetComponent<SliderBar>();
 
-        initBarTarget = 0;
+        // TODO bad
+        int initBarTarget = 5;
         ResetBarTarget(initBarTarget);
     }
 
