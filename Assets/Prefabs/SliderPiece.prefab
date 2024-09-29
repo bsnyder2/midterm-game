@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTarget: 0
-  frames:
+  standardFrames:
   - {fileID: 642648855, guid: a7635fdfe1d2d04429c1388b870c3a4a, type: 3}
   - {fileID: 563871691, guid: a7635fdfe1d2d04429c1388b870c3a4a, type: 3}
   - {fileID: 562242209, guid: a7635fdfe1d2d04429c1388b870c3a4a, type: 3}
@@ -109,6 +109,16 @@ MonoBehaviour:
   - {fileID: 1988539900, guid: a7635fdfe1d2d04429c1388b870c3a4a, type: 3}
   - {fileID: -1040626676, guid: a7635fdfe1d2d04429c1388b870c3a4a, type: 3}
   - {fileID: 315679552, guid: a7635fdfe1d2d04429c1388b870c3a4a, type: 3}
+  targetFrames:
+  - {fileID: -477942428, guid: b626f3f9878bf426284cf09d150ff412, type: 3}
+  - {fileID: -1753097864, guid: b626f3f9878bf426284cf09d150ff412, type: 3}
+  - {fileID: 734419566, guid: b626f3f9878bf426284cf09d150ff412, type: 3}
+  - {fileID: -1201000147, guid: b626f3f9878bf426284cf09d150ff412, type: 3}
+  - {fileID: -901655645, guid: b626f3f9878bf426284cf09d150ff412, type: 3}
+  - {fileID: 1617754370, guid: b626f3f9878bf426284cf09d150ff412, type: 3}
+  - {fileID: 207556568, guid: b626f3f9878bf426284cf09d150ff412, type: 3}
+  - {fileID: 422202454, guid: b626f3f9878bf426284cf09d150ff412, type: 3}
+  - {fileID: -772977567, guid: b626f3f9878bf426284cf09d150ff412, type: 3}
   animationFrameTime: 48
 --- !u!61 &6383492094881144998
 BoxCollider2D:

@@ -696,6 +696,10 @@ PrefabInstance:
       propertyPath: blinkTransition
       value: 
       objectReference: {fileID: 1993999884}
+    - target: {fileID: 4830433346853745767, guid: 68f05672e617ef84ba6dd3131b6dbabe, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7470840068945678246, guid: 68f05672e617ef84ba6dd3131b6dbabe, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2869,6 +2873,10 @@ PrefabInstance:
     - target: {fileID: 2359438374294241925, guid: a0573739ec77b6a46a7984e22c658474, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2792232662426328151, guid: a0573739ec77b6a46a7984e22c658474, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

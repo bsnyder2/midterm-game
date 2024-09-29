@@ -23,6 +23,8 @@ public class Slider : MonoBehaviour
     private List<GameObject> sliderPieces;
     private SliderBar sliderBarControl;
 
+    public int badPracticeVariable;
+
     // textures etc.
 
     // Start is called before the first frame update
@@ -53,6 +55,7 @@ public class Slider : MonoBehaviour
         sliderBar.transform.localScale *= distanceScalar;
         sliderBarControl = sliderBar.GetComponent<SliderBar>();
 
+        initBarTarget = 0;
         ResetBarTarget(initBarTarget);
     }
 
@@ -60,7 +63,6 @@ public class Slider : MonoBehaviour
     void Update()
     {
         // Some really not pretty equations here
-        Debug.Log(sliderBar.transform.position.y);
         if (Input.GetKey(up))
         {
             if (sliderBar.transform.position.y <= (transform.position.y + transform.localScale.y - (distanceScalar * 3)))
@@ -89,11 +91,15 @@ public class Slider : MonoBehaviour
 
     public void ResetBarTarget(int newBarTarget)
     {
+        //Debug.Log(sliderPieces.Count);
+
         foreach (var sliderPiece in sliderPieces)
         {
             sliderPiece.GetComponent<SliderPiece>().isTarget = false;
         }
         sliderPieces[newBarTarget].GetComponent<SliderPiece>().isTarget = true;
+
+        //sliderPieces[newBarTarget].GetComponent<SpriteRenderer>().sprite = targetSprite;
         //Debug.Log("this is beign rn");
     }
 }

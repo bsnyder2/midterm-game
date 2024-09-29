@@ -5,8 +5,10 @@ using UnityEngine;
 public class SliderPiece : MonoBehaviour
 {
     public bool isTarget;
-    public Sprite[] frames;
+    public Sprite[] standardFrames;
+    public Sprite[] targetFrames;
     public float animationFrameTime;
+    private Sprite[] frames;
 
     private SpriteRenderer spriteRenderer;
     private Queue<IEnumerator> animationQueue;
@@ -18,6 +20,25 @@ public class SliderPiece : MonoBehaviour
         // animation queue is always active
         animationQueue = new Queue<IEnumerator>();
         StartCoroutine(AnimationCoordinator());
+
+    }
+
+    //public void BadFunction(bool isTarget)
+    //{
+    //    frames = isTarget ? targetFrames : standardFrames;
+    //}
+
+    private void Update()
+    {
+        // on switch to other set of frames/if isTarget changes
+        //Sprite[] newFrames = isTarget ? targetFrames : standardFrames;
+        //if ((frames != null) && (newFrames != frames))
+        //{
+        //    //spriteRenderer.sprite = newFrames[0];
+        //    Close();
+        //}
+        //frames = newFrames;
+        //Debug.Log(isTarget);
     }
 
     public void Open()
@@ -49,10 +70,11 @@ public class SliderPiece : MonoBehaviour
     IEnumerator OpenRoutine()
     {
         // play all frames of animation
+        //Sprite[] frames = isTarget ? targetFrames : standardFrames;
         int animationFrameIndex = 0;
-        while (animationFrameIndex < frames.Length)
+        while (animationFrameIndex < standardFrames.Length)
         {
-            spriteRenderer.sprite = frames[animationFrameIndex];
+            spriteRenderer.sprite = standardFrames[animationFrameIndex];
             animationFrameIndex++;
             yield return new WaitForSeconds(Time.deltaTime * animationFrameTime);
         }
@@ -61,10 +83,11 @@ public class SliderPiece : MonoBehaviour
     IEnumerator CloseRoutine()
     {
         // play all frames of animation
-        int animationFrameIndex = frames.Length - 1;
+        //Sprite[] frames = isTarget ? targetFrames : standardFrames;
+        int animationFrameIndex = standardFrames.Length - 1;
         while (animationFrameIndex >= 0)
         {
-            spriteRenderer.sprite = frames[animationFrameIndex];
+            spriteRenderer.sprite = standardFrames[animationFrameIndex];
             animationFrameIndex--;
             yield return new WaitForSeconds(Time.deltaTime * animationFrameTime);
         }

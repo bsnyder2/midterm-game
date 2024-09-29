@@ -57,6 +57,7 @@ public class MinigameRunner : MonoBehaviour
         foreach (var bar in sliderBarControls)
         {
             bar.DrawLine(enemyPosition);
+            Debug.Log("draw line");
         }
         currentEnemyControl.Die();
 
@@ -65,5 +66,7 @@ public class MinigameRunner : MonoBehaviour
         sliderControls[1].ResetBarTarget(barTargets[barTargetsIndex,1]);
 
         barTargetsIndex++;
+        sliderControls[0].badPracticeVariable++;
+        sliderControls[1].badPracticeVariable++;
     }
 }
