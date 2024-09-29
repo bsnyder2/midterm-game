@@ -59,7 +59,7 @@ public class SliderPiece : MonoBehaviour
     }
 
     // inspired by https://discussions.unity.com/t/how-to-stack-coroutines-and-call-each-one-till-all-are-executed/219063/5
-    IEnumerator AnimationCoordinator()
+    private IEnumerator AnimationCoordinator()
     {
         // constantly check...
         while (true)
@@ -74,7 +74,7 @@ public class SliderPiece : MonoBehaviour
         }
     }
 
-    IEnumerator OpenRoutine()
+    private IEnumerator OpenRoutine()
     {
         // play all frames of animation
         //Sprite[] frames = isTarget ? targetFrames : standardFrames;
@@ -87,7 +87,7 @@ public class SliderPiece : MonoBehaviour
         }
     }
 
-    IEnumerator CloseRoutine()
+    private IEnumerator CloseRoutine()
     {
         // play all frames of animation
         //Sprite[] frames = isTarget ? targetFrames : standardFrames;

@@ -4,25 +4,23 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    private EnemyAnimator enemyAnimator;
     // Start is called before the first frame update
     void Start()
     {
-        
+        enemyAnimator = GetComponent<EnemyAnimator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
 
-    public string Hello()
-    {
-        return "hello";
     }
 
     public void Die()
     {
-        //Debug.Log("enemy died");
+        Debug.Log("enemy died");
+        enemyAnimator.Die();
+        //Destroy(gameObject);
     }
 }
