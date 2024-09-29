@@ -17,12 +17,16 @@ public class EnemyAnimator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        idleFrames = spritesheet[0..29];
-        dieFrames = spritesheet[51..59];
+        idleFrames = spritesheet[0..7];
+        dieFrames = spritesheet[51..60];
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         animationQueue = new Queue<IEnumerator>();
         StartCoroutine(AnimationCoordinator());
+        for (int i = 0; i < 5; i++)
+        {
+            animationQueue.Enqueue(IdleRoutine());
+        }
     }
 
     // Update is called once per frame
@@ -48,6 +52,17 @@ public class EnemyAnimator : MonoBehaviour
                 yield return StartCoroutine(animationQueue.Dequeue());
             }
             yield return null;
+        }
+    }
+
+    private IEnumerator IdleRoutine()
+    {
+        int animationFrameIndex = 0;
+        while (animationFrameIndex < idleFrames.Length)
+        {
+            spriteRenderer.sprite = idleFrames[animationFrameIndex];
+            animationFrameIndex++;
+            yield return new WaitForSeconds(Time.deltaTime * animationFrameTime);
         }
     }
 
