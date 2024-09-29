@@ -23,8 +23,6 @@ public class Slider : MonoBehaviour
     private List<GameObject> sliderPieces;
     private SliderBar sliderBarControl;
 
-    public int badPracticeVariable;
-
     // textures etc.
 
     // Start is called before the first frame update

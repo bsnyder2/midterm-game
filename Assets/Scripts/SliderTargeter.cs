@@ -66,7 +66,7 @@ public class MinigameRunner : MonoBehaviour
         sliderControls[1].ResetBarTarget(barTargets[barTargetsIndex,1]);
 
         barTargetsIndex++;
-        sliderControls[0].badPracticeVariable++;
-        sliderControls[1].badPracticeVariable++;
+        //sliderControls[0].badPracticeVariable++;
+        //sliderControls[1].badPracticeVariable++;
     }
 }
