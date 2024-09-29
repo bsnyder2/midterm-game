@@ -33,15 +33,18 @@ public class SliderPiece : MonoBehaviour
     {
         // frames for this should be target if it's a target, not if otherwise
         frames = isTarget ? targetFrames : standardFrames;
-        // if eye becomes or stops being a target
-        if (lastTarget != isTarget)
+        // if eye becomes a target
+        if (!lastTarget && isTarget)
         {
             // set sprite to first frame
             spriteRenderer.sprite = frames[0];
             //Close();
         }
         // if eye stops being a target
-        if (lastTarget && !isTarget) Open();
+        if (lastTarget && !isTarget)
+        {
+            spriteRenderer.sprite = frames[frames.Length - 1];
+        }
         lastTarget = isTarget;
     }
 
