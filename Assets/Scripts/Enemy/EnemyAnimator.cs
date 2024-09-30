@@ -35,7 +35,7 @@ public class EnemyAnimator : MonoBehaviour
     public void Die()
     {
         //Debug.Log("Die runs");
-        //animationQueue.Enqueue(DieRoutine());
+        animationQueue.Enqueue(DieRoutine());
     }
 
     private IEnumerator AnimationCoordinator()

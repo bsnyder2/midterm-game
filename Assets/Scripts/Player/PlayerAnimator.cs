@@ -21,8 +21,6 @@ public class PlayerAnimator : MonoBehaviour
         {
             animationQueue.Enqueue(IdleRoutine());
         }
-        Debug.Log("Start runs");
-
     }
 
     private void Update()
@@ -34,7 +32,6 @@ public class PlayerAnimator : MonoBehaviour
     {
         Start();
         gameObject.SetActive(true);
-        Debug.Log("Active? " + gameObject.activeInHierarchy);
         animationQueue.Enqueue(AttackRoutine());
     }
 

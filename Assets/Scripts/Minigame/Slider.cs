@@ -15,9 +15,10 @@ public class Slider : MonoBehaviour
     public float sliderStart = 4f;
     public float interPieceDistance = 2f;
     public int barStart = 0;
+    public bool flipX;
 
-    private float sliderEnd;
     private float distanceScalar;
+    //private float sliderEnd;
 
     private List<GameObject> sliderPieces;
     private SliderBar sliderBarControl;
@@ -27,8 +28,9 @@ public class Slider : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.flipX = flipX;
         distanceScalar = transform.localScale.y / 8f;
-        //Debug.Log(distanceScalar);
         sliderPieces = new List<GameObject>();
         for (int pieceI = 0; pieceI < nSliderPieces; pieceI++)
         {
@@ -37,15 +39,6 @@ public class Slider : MonoBehaviour
             piece.transform.localScale *= distanceScalar;
             sliderPieces.Add(piece);
         }
-        sliderEnd = sliderStart - (interPieceDistance * nSliderPieces);
-        //float top = 0.75f;
-        //float interPieceDistance = 0.2f;
-        //sliderPieces = new List<GameObject>();
-        //for (int pieceI = 0; pieceI < nSliderPieces; pieceI++)
-        //{
-        //    GameObject piece = Instantiate(sliderPiece, transform.position + (Vector3.up * transform.localScale.y * top) + (interPieceDistance * pieceI * transform.localScale.y * Vector3.down), Quaternion.identity);
-        //    piece.transform.localScale *= transform.localScale.y;
-        //}
 
         // instantiate bar at 
         sliderBar = Instantiate(sliderBar, sliderPieces[barStart].transform.position, Quaternion.identity);
@@ -55,6 +48,19 @@ public class Slider : MonoBehaviour
         // TODO bad
         int initBarTarget = 5;
         ResetBarTarget(initBarTarget);
+
+        // Fade in... maybe a better way to do this. If all the other objects are children of Slider I could just iterate through all of those, and also do that in MinigameRunner which I should do
+        StartCoroutine(FadeAnimator.FadeIn(spriteRenderer, 0, 0.8f, 2));
+
+        foreach (var sliderPiece in sliderPieces)
+        {
+            StartCoroutine(FadeAnimator.FadeIn(sliderPiece.GetComponent<SpriteRenderer>(), 0, 0.8f, 2));
+        }
+        SpriteRenderer[] overlays = GetComponentsInChildren<SpriteRenderer>();
+        foreach (var overlay in overlays)
+        {
+            StartCoroutine(FadeAnimator.FadeIn(overlay.GetComponent<SpriteRenderer>(), 0, 0.8f, 2));
+        }
     }
 
     // Update is called once per frame

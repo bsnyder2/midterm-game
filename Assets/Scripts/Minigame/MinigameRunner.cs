@@ -7,6 +7,8 @@ public class MinigameRunner : MonoBehaviour
     // better place to define constants?
     private readonly int[,] barTargets = { { 1, 3 }, { 4, 1 }, { 2, 5 } };
 
+    public bool running = false;
+
     private Player playerControl;
     private Slider[] sliderControl;
     private SliderBar[] sliderBarControl;
@@ -26,7 +28,7 @@ public class MinigameRunner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckSliderHits();
+        if (running) CheckSliderHits();
     }
 
     private void CheckSliderHits()
@@ -71,7 +73,5 @@ public class MinigameRunner : MonoBehaviour
         sliderControl[1].ResetBarTarget(barTargets[barTargetsIndex,1]);
 
         barTargetsIndex++;
-        //sliderControls[0].badPracticeVariable++;
-        //sliderControls[1].badPracticeVariable++;
     }
 }
