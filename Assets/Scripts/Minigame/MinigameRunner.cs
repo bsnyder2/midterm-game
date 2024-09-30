@@ -7,8 +7,9 @@ public class MinigameRunner : MonoBehaviour
     // better place to define constants?
     private readonly int[,] barTargets = { { 1, 3 }, { 4, 1 }, { 2, 5 } };
 
-    private Slider[] sliderControls;
-    private SliderBar[] sliderBarControls;
+    private Player playerControl;
+    private Slider[] sliderControl;
+    private SliderBar[] sliderBarControl;
     private Enemy currentEnemyControl;
 
     private int barTargetsIndex = 0;
@@ -18,6 +19,8 @@ public class MinigameRunner : MonoBehaviour
     {
         // should set pointer with different method
         currentEnemyControl = FindObjectOfType<Enemy>();
+        playerControl = FindObjectOfType<Player>();
+
     }
 
     // Update is called once per frame
@@ -30,23 +33,23 @@ public class MinigameRunner : MonoBehaviour
     {
         // TODO this is a hack. Because can't call this on Start because SliderBars haven't initialized yet
         // actual init
-        if (sliderBarControls == null)
+        if (sliderBarControl == null)
         {
-            sliderControls = FindObjectsByType<Slider>(FindObjectsSortMode.None);
-            sliderBarControls = FindObjectsByType<SliderBar>(FindObjectsSortMode.None);
+            sliderControl = FindObjectsByType<Slider>(FindObjectsSortMode.None);
+            sliderBarControl = FindObjectsByType<SliderBar>(FindObjectsSortMode.None);
         }
 
         int sliderHits = 0;
-        foreach (var bar in sliderBarControls)
+        foreach (var bar in sliderBarControl)
         {
             if (bar.isHit) sliderHits++;
         }
         // if all slides have a hit
-        if (sliderHits >= sliderBarControls.Length)
+        if (sliderHits >= sliderBarControl.Length)
         {
             HitEnemy();
             // end hits
-            foreach (var bar in sliderBarControls) bar.isHit = false;
+            foreach (var bar in sliderBarControl) bar.isHit = false;
         }
     }
 
@@ -54,16 +57,18 @@ public class MinigameRunner : MonoBehaviour
     {
         // draw ray
         Vector3 enemyPosition = currentEnemyControl.transform.position;
-        foreach (var bar in sliderBarControls)
+        foreach (var bar in sliderBarControl)
         {
             bar.DrawLine(enemyPosition);
             Debug.Log("draw line");
         }
+
+        playerControl.Attack();
         currentEnemyControl.Die();
 
         // reset bar targets for each slider
-        sliderControls[0].ResetBarTarget(barTargets[barTargetsIndex,0]);
-        sliderControls[1].ResetBarTarget(barTargets[barTargetsIndex,1]);
+        sliderControl[0].ResetBarTarget(barTargets[barTargetsIndex,0]);
+        sliderControl[1].ResetBarTarget(barTargets[barTargetsIndex,1]);
 
         barTargetsIndex++;
         //sliderControls[0].badPracticeVariable++;

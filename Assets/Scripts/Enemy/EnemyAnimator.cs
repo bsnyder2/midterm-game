@@ -4,24 +4,21 @@ using UnityEngine;
 
 public class EnemyAnimator : MonoBehaviour
 {
-    public Sprite[] spritesheet;
+    // make this more like PlayerController script
+    public Sprite[] idleFrames;
+    public Sprite[] dieFrames;
     public float animationFrameTime;
 
     private SpriteRenderer spriteRenderer;
+    //private Dictionary<string, Sprite[]> animations;
     private Queue<IEnumerator> animationQueue;
-
-    private Sprite[] idleFrames;
-    private Sprite[] dieFrames;
-
 
     // Start is called before the first frame update
     void Start()
     {
-        idleFrames = spritesheet[0..7];
-        dieFrames = spritesheet[51..60];
-
         spriteRenderer = GetComponent<SpriteRenderer>();
         animationQueue = new Queue<IEnumerator>();
+        //Debug.Log(animationQueue);
         StartCoroutine(AnimationCoordinator());
         for (int i = 0; i < 5; i++)
         {
@@ -37,7 +34,8 @@ public class EnemyAnimator : MonoBehaviour
 
     public void Die()
     {
-        animationQueue.Enqueue(DieRoutine());
+        //Debug.Log("Die runs");
+        //animationQueue.Enqueue(DieRoutine());
     }
 
     private IEnumerator AnimationCoordinator()

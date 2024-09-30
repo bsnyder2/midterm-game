@@ -8,6 +8,7 @@
 	- sliders should only pop up during QTEs
 
 ## Animation
+- Logic should be similar to that in PlayerController script
 - Main character
 
 ## Sound

@@ -8,7 +8,10 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.SetActive(true);
+
         enemyAnimator = GetComponent<EnemyAnimator>();
+
     }
 
     // Update is called once per frame
