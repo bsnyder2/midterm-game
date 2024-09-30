@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class MinigameLoader : MonoBehaviour
 {
-    MinigameRunner minigameRunnerControl;
+    private MinigameRunner minigameRunnerControl;
+
+
     // Start is called before the first frame update
     void Start()
     {

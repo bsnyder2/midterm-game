@@ -5,14 +5,18 @@ using UnityEngine;
 public class MinigameRunner : MonoBehaviour
 {
     // better place to define constants?
-    private readonly int[,] barTargets = { { 1, 3 }, { 4, 1 }, { 2, 5 } };
+    private readonly int[,] barTargets = { { 1, 3 }, { 4, 1 }, { 2, 5 }, { 3, 6 }, { 1, 3 } };
 
     public bool running = false;
 
     private Player playerControl;
     private Slider[] sliderControl;
     private SliderBar[] sliderBarControl;
+
+    private Enemy[] enemies;
+    private int currentEnemyIndex;
     private Enemy currentEnemyControl;
+
 
     private int barTargetsIndex = 0;
 
@@ -20,8 +24,12 @@ public class MinigameRunner : MonoBehaviour
     void Start()
     {
         // should set pointer with different method
-        currentEnemyControl = FindObjectOfType<Enemy>();
         playerControl = FindObjectOfType<Player>();
+
+        // get all enemies placed
+        enemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
+        currentEnemyIndex = 0;
+        currentEnemyControl = enemies[currentEnemyIndex];
 
     }
 
@@ -29,6 +37,16 @@ public class MinigameRunner : MonoBehaviour
     void Update()
     {
         if (running) CheckSliderHits();
+    }
+
+    private void NextEnemy() {
+        currentEnemyIndex++;
+        if (currentEnemyIndex > (enemies.Length - 1))
+        {
+            Debug.Log("out of enemies");
+            return;
+        }
+        currentEnemyControl = enemies[currentEnemyIndex];
     }
 
     private void CheckSliderHits()
@@ -73,5 +91,6 @@ public class MinigameRunner : MonoBehaviour
         sliderControl[1].ResetBarTarget(barTargets[barTargetsIndex,1]);
 
         barTargetsIndex++;
+        NextEnemy();
     }
 }

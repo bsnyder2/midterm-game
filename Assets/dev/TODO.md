@@ -2,6 +2,9 @@
 
 
 ## Game overall
+- Enemies spawn and lerp toward player
+
+
 - Ben idea- make more varied environments with tileset, and have player move automatically after defeating enemies
 	- e.g. player climbs up rocks, approaches enemy, stops for QTE with sliders, kill or die animation, climbs down, next enemy etc.
 	- could just walk off screen for screen transitions, but also consider one scrolling scene with sliders at constant position
@@ -26,7 +29,7 @@
 - ray from eyes toward enemy
 - enemies
 - different slider shapes etc
-- QTE bar/circle?
+- QTE bar/circle? (don't need this because measured by enemy)
 - parallax scrolling bg
 - particle effects around sliders
 - different sized eyes on sliders

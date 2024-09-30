@@ -15,7 +15,6 @@ public class Slider : MonoBehaviour
     public float sliderStart = 4f;
     public float interPieceDistance = 2f;
     public int barStart = 0;
-    public bool flipX;
 
     private float distanceScalar;
     //private float sliderEnd;
@@ -29,7 +28,6 @@ public class Slider : MonoBehaviour
     void Start()
     {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.flipX = flipX;
         distanceScalar = transform.localScale.y / 8f;
         sliderPieces = new List<GameObject>();
         for (int pieceI = 0; pieceI < nSliderPieces; pieceI++)
@@ -50,16 +48,16 @@ public class Slider : MonoBehaviour
         ResetBarTarget(initBarTarget);
 
         // Fade in... maybe a better way to do this. If all the other objects are children of Slider I could just iterate through all of those, and also do that in MinigameRunner which I should do
-        StartCoroutine(FadeAnimator.FadeIn(spriteRenderer, 0, 0.8f, 2));
+        StartCoroutine(FadeAnimator.FadeIn(spriteRenderer, 0, 1f, 2));
 
         foreach (var sliderPiece in sliderPieces)
         {
-            StartCoroutine(FadeAnimator.FadeIn(sliderPiece.GetComponent<SpriteRenderer>(), 0, 0.8f, 2));
+            StartCoroutine(FadeAnimator.FadeIn(sliderPiece.GetComponent<SpriteRenderer>(), 0, 1f, 2));
         }
         SpriteRenderer[] overlays = GetComponentsInChildren<SpriteRenderer>();
         foreach (var overlay in overlays)
         {
-            StartCoroutine(FadeAnimator.FadeIn(overlay.GetComponent<SpriteRenderer>(), 0, 0.8f, 2));
+            StartCoroutine(FadeAnimator.FadeIn(overlay.GetComponent<SpriteRenderer>(), 0, 1f, 2));
         }
     }
 
