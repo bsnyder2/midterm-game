@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
         animations.Add("Hit", hit);
         animations.Add("Attack", attack);
         animations.Add("Die", die);
+
+        MoveAndAnimate(transform.position, transform.position + (2 * Vector3.right), "Walk");
     }
 
     // Update is called once per frame
