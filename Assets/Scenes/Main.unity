@@ -477,6 +477,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7901637197844726936, guid: 0edf47a81c8cb4a5d86a4e271fdec734, type: 3}
+      propertyPath: distance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7901637197844726936, guid: 0edf47a81c8cb4a5d86a4e271fdec734, type: 3}
+      propertyPath: moveSpeed
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -636,8 +644,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7ac9bb6c777549f481584ad249d82fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies: []
-  minigameRunner: {fileID: 0}
 --- !u!4 &558141757
 Transform:
   m_ObjectHideFlags: 0
