@@ -39,15 +39,18 @@ public class PlayerController : MonoBehaviour
         if (isIdle)
         {
             MoveAndAnimate(transform.position, transform.position + Vector3.forward, "Idle");
+            isIdle = false;
         }
     }
 
     public void MoveAndAnimate(Vector3 startPosition, Vector3 endPosition, string animationName)
     {
-        if (isMoving)
+
+        Debug.Log(animationName);
+        if (animationName != "Idle")
         {
             isIdle = false;
-            return;
+            //return;
         }
 
         StartCoroutine(MoveAndPlayAnimation(startPosition, endPosition, animationName));
@@ -55,7 +58,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator MoveAndPlayAnimation(Vector3 startPosition, Vector3 endPosition, string animationName)
     {
-        isMoving = true;
+        //isMoving = true;
 
         if (!animations.ContainsKey(animationName))
         {
@@ -73,9 +76,9 @@ public class PlayerController : MonoBehaviour
         while (progress < 1f)
         {
             progress += (speed * Time.deltaTime) / distance;
-            Debug.Log("Progress = " + progress);
+            //Debug.Log("Progress = " + progress);
             transform.position = Vector3.Lerp(startPosition, endPosition, progress);
-            Debug.Log("Position = " + transform.position);
+            //Debug.Log("Position = " + transform.position);
 
             if (Time.deltaTime > 0)
             {
@@ -94,8 +97,8 @@ public class PlayerController : MonoBehaviour
         }
 
         transform.position = endPosition;
-        isMoving = false;
-        isIdle = true;
+        //isMoving = false;
+        //isIdle = true;
     }
 
 }
