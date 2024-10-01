@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5626300214700478534}
   - component: {fileID: 2588706830626658405}
-  - component: {fileID: 8281722871858024012}
-  - component: {fileID: 6155548250738411268}
+  - component: {fileID: 7901637197844726936}
+  - component: {fileID: 7435556301837928670}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8281722871858024012
+--- !u!114 &7901637197844726936
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3e294712bde46e7b41f7a13517ad33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6155548250738411268
+--- !u!114 &7435556301837928670
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,20 +110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fb9a33c418d343acb3e49bce64f1ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idleFrames:
-  - {fileID: -2087316460, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
-  - {fileID: -44954921, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
-  - {fileID: 1702120490, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
-  - {fileID: -383896882, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
-  - {fileID: -484687030, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
-  - {fileID: -365124192, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
-  attackFrames:
-  - {fileID: -1940075434, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
-  - {fileID: 170604966, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
-  - {fileID: -1400366870, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
-  - {fileID: -2113859281, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
-  - {fileID: -1323742822, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
-  - {fileID: -698382094, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
-  - {fileID: -109520251, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
-  - {fileID: -631917044, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
-  animationFrameTime: 96
+  idleFrames: []
+  attackFrames: []
+  animationFrameTime: 0

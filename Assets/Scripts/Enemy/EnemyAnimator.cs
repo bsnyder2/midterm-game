@@ -20,10 +20,10 @@ public class EnemyAnimator : MonoBehaviour
         animationQueue = new Queue<IEnumerator>();
         //Debug.Log(animationQueue);
         StartCoroutine(AnimationCoordinator());
-        for (int i = 0; i < 5; i++)
-        {
-            animationQueue.Enqueue(IdleRoutine());
-        }
+        //for (int i = 0; i < 5; i++)
+        //{
+        //    animationQueue.Enqueue(IdleRoutine());
+        //}
     }
 
     // Update is called once per frame

@@ -17,10 +17,10 @@ public class PlayerAnimator : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         animationQueue = new Queue<IEnumerator>();
         StartCoroutine(AnimationCoordinator());
-        for (int i = 0; i < 5; i++)
-        {
-            animationQueue.Enqueue(IdleRoutine());
-        }
+        //for (int i = 0; i < 5; i++)
+        //{
+        //    animationQueue.Enqueue(IdleRoutine());
+        //}
     }
 
     private void Update()
