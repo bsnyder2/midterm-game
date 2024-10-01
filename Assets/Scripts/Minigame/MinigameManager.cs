@@ -14,13 +14,15 @@ public class MinigameManager : MonoBehaviour
     {
         playerController = character.GetComponent<Player>();
         transitionSpriteRenderer = transition.GetComponent<SpriteRenderer>();
+        Debug.Log("Help " + playerController.isMoving);
         StartCoroutine(FadeAnimator.FadeIn(transitionSpriteRenderer, 1, 0, 3));
+        playerController.isMoving = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        Debug.Log("Help " + playerController.isMoving);
 
     }
 

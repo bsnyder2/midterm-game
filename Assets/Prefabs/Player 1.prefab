@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2953273367075426891}
   - component: {fileID: 7304429489971088283}
   - component: {fileID: 3514494946293114380}
+  - component: {fileID: 779145954279207611}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Untagged
@@ -198,3 +199,36 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fb186ab2650b9b7408e9a71c962f9c60, type: 3}
   - {fileID: 21300000, guid: a0a5bd3bfac505945a1440629e15fcfd, type: 3}
   isMoving: 0
+--- !u!114 &779145954279207611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2403231593115058388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fb9a33c418d343acb3e49bce64f1ee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idleFrames:
+  - {fileID: 21300000, guid: 6c0a0e53f7988d442ac44d65d94c4cd2, type: 3}
+  - {fileID: 21300000, guid: 735e5fd072803324787c57deadca769a, type: 3}
+  - {fileID: 21300000, guid: c0157d1d2a9a63549bbe1ab92500cfd3, type: 3}
+  - {fileID: 21300000, guid: acc93377e42639442baf2a880f26ce5a, type: 3}
+  - {fileID: 21300000, guid: e43ac83bb0eab204cb3e6a0e48ebfe79, type: 3}
+  - {fileID: 21300000, guid: ff810f6f92da87849b7049176773f79c, type: 3}
+  attackFrames:
+  - {fileID: 21300000, guid: 50814a1cd7fa74e418ec11c21cd46e59, type: 3}
+  - {fileID: 21300000, guid: f00dc2a61bddc4040b566b262c086aef, type: 3}
+  - {fileID: 21300000, guid: cd6b220d68565ea4c9f6f85f59124b59, type: 3}
+  - {fileID: 21300000, guid: 33fd6cd0c0f0a504793236359ece28cf, type: 3}
+  - {fileID: 21300000, guid: c8e6799b60cdeb34c8cebe1cddb88bae, type: 3}
+  - {fileID: 21300000, guid: 58e41448e8e65c444a86d5095b41018d, type: 3}
+  - {fileID: 21300000, guid: be0866213b4b39044a1010ab62a910fa, type: 3}
+  - {fileID: 21300000, guid: 9e03bf49e4863d94789bbcdd761c99a7, type: 3}
+  - {fileID: 21300000, guid: beb3b0996943a3a41a29e84ebd9ac39c, type: 3}
+  - {fileID: 21300000, guid: 44ebf1bc713b9804dada02b99ea0af3c, type: 3}
+  - {fileID: 21300000, guid: 89e3c761732b6ac49b8380803b59596b, type: 3}
+  - {fileID: 21300000, guid: 568837bcbaab5884bbdc3fa461d80f1d, type: 3}
+  animationFrameTime: 0
