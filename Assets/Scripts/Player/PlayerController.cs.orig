@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public Sprite[] hit;
     public Sprite[] attack;
     public Sprite[] die;
+    public float frameRate = 0.1f;
     private bool isMoving = false;
     private bool isIdle = true;
     private Sprite[] currentAnimation;
@@ -76,7 +77,6 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Progress = " + progress);
             transform.position = Vector3.Lerp(startPosition, endPosition, progress);
             Debug.Log("Position = " + transform.position);
-
             if (Time.deltaTime > 0)
             {
                 yield return new WaitForSeconds(0.01f);
