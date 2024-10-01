@@ -24,7 +24,9 @@ public class OpeningSceneManager : MonoBehaviour
         playerController = character.GetComponent<Player>();
         doneTrigger = objectsToActivate[2].transform.position;
         transitionSpriteRenderer = transition.GetComponent<SpriteRenderer>();
-        playerController.enabled = true;
+        playerController.isMoving = true;
+        //playerController.enabled = true;
+        //playerController.Run();
         //playerController.MoveAndAnimate(character.transform.position, endPosition.position, "Walk");
         //Debug.Log("Started");
     }
@@ -66,4 +68,5 @@ public class OpeningSceneManager : MonoBehaviour
         soulsActivated = true;
         isDone = true;
     }
+
 }
