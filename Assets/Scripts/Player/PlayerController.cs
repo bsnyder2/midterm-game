@@ -13,7 +13,8 @@ public class PlayerController : MonoBehaviour
     public Sprite[] attack;
     public Sprite[] die;
     public float frameRate = 0.1f;
-    private bool animating = false;
+    private bool isMoving = false;
+    private bool isIdle = true;
     private Sprite[] currentAnimation;
 
     // Player Movement
@@ -36,13 +37,17 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+       if(isIdle)
+       {
+            MoveAndAnimate(transform.postion, transform.positon, "Idle");
+       }
     }
 
     public void MoveAndAnimate(Vector3 startPosition, Vector3 endPosition, string animationName)
     {
-        if (animating)
+        if (isMoving)
        {
+            isIdle = false;
             return;
        }
 
@@ -51,7 +56,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator MoveAndPlayAnimation(Vector3 startPosition, Vector3 endPosition, string animationName)
     {
-        animating = true;
+        isMoving = true;
 
         if(!animations.ContainsKey(animationName))
         {
@@ -69,7 +74,9 @@ public class PlayerController : MonoBehaviour
         while(progress < 1f)
         {
             progress += (speed * Time.deltaTime) / distance;
+            Debug.Log("Progress = " + progress);
             transform.position = Vector3.Lerp(startPosition, endPosition, progress);
+            Debug.Log("Position = " + transform.position);
 
             if (frameRate > 0)
             {
@@ -88,7 +95,8 @@ public class PlayerController : MonoBehaviour
         }
 
         transform.position = endPosition;
-        animating = false;
+        isMoving = false;
+        isIdle = true;
     }
 
 }
