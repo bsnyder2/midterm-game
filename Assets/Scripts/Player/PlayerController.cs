@@ -31,34 +31,34 @@ public class PlayerController : MonoBehaviour
         animations.Add("Attack", attack);
         animations.Add("Die", die);
 
-        MoveAndAnimate(transform.position, transform.position + (2 * Vector3.right), "Walk");
+        //MoveAndAnimate(transform.position, transform.position + (2 * Vector3.right), "Walk");
     }
 
     // Update is called once per frame
     void Update()
     {
-       if(isIdle)
-       {
-            MoveAndAnimate(transform.postion, transform.positon, "Idle");
-       }
+        if (isIdle)
+        {
+            MoveAndAnimate(transform.position, transform.position, "Idle");
+        }
     }
 
     public void MoveAndAnimate(Vector3 startPosition, Vector3 endPosition, string animationName)
     {
         if (isMoving)
-       {
+        {
             isIdle = false;
             return;
-       }
+        }
 
-       StartCoroutine(MoveAndPlayAnimation(startPosition, endPosition, animationName));
+        StartCoroutine(MoveAndPlayAnimation(startPosition, endPosition, animationName));
     }
 
     private IEnumerator MoveAndPlayAnimation(Vector3 startPosition, Vector3 endPosition, string animationName)
     {
         isMoving = true;
 
-        if(!animations.ContainsKey(animationName))
+        if (!animations.ContainsKey(animationName))
         {
             Debug.Log("Animation not found");
             yield break;
@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
 
         transform.position = startPosition;
 
-        while(progress < 1f)
+        while (progress < 1f)
         {
             progress += (speed * Time.deltaTime) / distance;
             Debug.Log("Progress = " + progress);
@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour
 
                 _playerSprite.sprite = currentAnimation[currentFrame];
             }
-            
+
             yield return null;
         }
 

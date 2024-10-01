@@ -7,6 +7,8 @@ public class BlinkTransition : MonoBehaviour
     public Sprite[] frames;
     public float animationFrameTime;
     private SpriteRenderer spriteRenderer;
+
+    public OpeningSceneManager openingSceneManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +33,7 @@ public class BlinkTransition : MonoBehaviour
         }
         gameObject.transform.localScale += new Vector3(5, 7, 0); ;
         yield return new WaitForSeconds(animationFrameTime);
+        openingSceneManager.enabled = true;
         gameObject.SetActive(false);
     }
 
