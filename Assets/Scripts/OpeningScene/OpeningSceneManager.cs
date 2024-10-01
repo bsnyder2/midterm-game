@@ -13,7 +13,7 @@ public class OpeningSceneManager : MonoBehaviour
     public GameObject transition;
     private SpriteRenderer transitionSpriteRenderer;
 
-    private PlayerController playerController;
+    private Player playerController;
     private bool isDone = false;
 
     private string nextScene = "Main";
@@ -21,10 +21,11 @@ public class OpeningSceneManager : MonoBehaviour
     void Start()
     {
         //move character off screen
-        playerController = character.GetComponent<PlayerController>();
+        playerController = character.GetComponent<Player>();
         doneTrigger = objectsToActivate[2].transform.position;
         transitionSpriteRenderer = transition.GetComponent<SpriteRenderer>();
-        playerController.MoveAndAnimate(character.transform.position, endPosition.position, "Walk");
+        playerController.enabled = true;
+        //playerController.MoveAndAnimate(character.transform.position, endPosition.position, "Walk");
         //Debug.Log("Started");
     }
 
@@ -35,6 +36,8 @@ public class OpeningSceneManager : MonoBehaviour
         {
             StartCoroutine(Activate());
         }*/
+
+        Debug.Log(character.transform.position.x);
 
         if (character.transform.position.x >= endPosition.position.x && soulsActivated == false)
         {
