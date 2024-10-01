@@ -24,7 +24,7 @@ public class OpeningSceneManager : MonoBehaviour
         playerController = character.GetComponent<PlayerController>();
         doneTrigger = objectsToActivate[2].transform.position;
         transitionSpriteRenderer = transition.GetComponent<SpriteRenderer>();
-        //playerController.MoveAndAnimate(character.transform.position, endPosition.position, "Walk");
+        playerController.MoveAndAnimate(character.transform.position, endPosition.position, "Walk");
     }
 
     // Update is called once per frame
