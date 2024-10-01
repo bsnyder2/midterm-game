@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class MinigameRunner : MonoBehaviour
@@ -13,7 +14,7 @@ public class MinigameRunner : MonoBehaviour
     private Slider[] sliderControl;
     private SliderBar[] sliderBarControl;
 
-    private Enemy[] enemies;
+    private List<Enemy> enemies;
     private int currentEnemyIndex;
     private Enemy currentEnemyControl;
 
@@ -26,9 +27,16 @@ public class MinigameRunner : MonoBehaviour
         // should set pointer with different method
         playerControl = FindObjectOfType<Player>();
 
-        // get all enemies placed
-        enemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
+        // get all enemy objects placed
+        Enemy[] enemyControls = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
+        //List<GameOb> foo = new List<Object>(enemies);
+        enemies = enemyControls.OrderBy((Enemy c) => c.gameObject.transform.position.x).ToList();
+        foreach (Enemy e in enemies)
+        {
+            Debug.Log(e.gameObject.transform.position.x);
+        }
         currentEnemyIndex = 0;
+
         currentEnemyControl = enemies[currentEnemyIndex];
 
     }
@@ -41,7 +49,7 @@ public class MinigameRunner : MonoBehaviour
 
     private void NextEnemy() {
         currentEnemyIndex++;
-        if (currentEnemyIndex > (enemies.Length - 1))
+        if (currentEnemyIndex > (enemies.Count - 1))
         {
             Debug.Log("out of enemies");
             return;

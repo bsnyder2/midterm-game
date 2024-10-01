@@ -1,8 +1,19 @@
 # TODO
 
+##
+- **Playtesting**!!!
+
+## Grading
+- look at rubric
+
+## For build
+- Whatever target works but probably WebGL
+- Application.Quit();
+
 
 ## Game overall
 - Enemies spawn and lerp toward player
+- (important) **key controls displayed**
 
 
 - Ben idea- make more varied environments with tileset, and have player move automatically after defeating enemies
@@ -13,6 +24,8 @@
 ## Animation
 - Logic should be similar to that in PlayerController script
 - Main character
+- Game over
+- Lose heart
 
 ## Sound
 - Use a different synth preset for bg
@@ -33,6 +46,7 @@
 - parallax scrolling bg
 - particle effects around sliders
 - different sized eyes on sliders
+- light source- would be quick to implement and look cool
 
 
 ## Various issues
