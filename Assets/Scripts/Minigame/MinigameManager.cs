@@ -15,6 +15,8 @@ public class MinigameManager : MonoBehaviour
         playerController = character.GetComponent<Player>();
         transitionSpriteRenderer = transition.GetComponent<SpriteRenderer>();
         StartCoroutine(FadeAnimator.FadeIn(transitionSpriteRenderer, 1, 0, 3));
+
+        playerController.isMoving = true;
     }
 
     // Update is called once per frame

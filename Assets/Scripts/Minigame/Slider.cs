@@ -30,18 +30,26 @@ public class Slider : MonoBehaviour
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         distanceScalar = transform.localScale.y / 8f;
         sliderPieces = new List<GameObject>();
-        for (int pieceI = 0; pieceI < nSliderPieces; pieceI++)
-        {
-            // instantiate piece
-            GameObject piece = Instantiate(sliderPiece, transform.position + (interPieceDistance * pieceI * distanceScalar * Vector3.down) + (sliderStart * distanceScalar * Vector3.up), Quaternion.identity);
-            piece.transform.localScale *= distanceScalar;
-            sliderPieces.Add(piece);
-        }
 
-        // instantiate bar at 
-        sliderBar = Instantiate(sliderBar, sliderPieces[barStart].transform.position, Quaternion.identity);
-        sliderBar.transform.localScale *= distanceScalar;
-        sliderBarControl = sliderBar.GetComponent<SliderBar>();
+        SliderPiece[] sliderPieceControls = GetComponentsInChildren<SliderPiece>();
+        foreach (var sliderPieceControl in sliderPieceControls)
+        {
+            sliderPieces.Add(sliderPieceControl.gameObject);
+        }
+        //for (int pieceI = 0; pieceI < nSliderPieces; pieceI++)
+        //{
+        //    // instantiate piece
+        //    GameObject piece = Instantiate(sliderPiece, transform.position + (interPieceDistance * pieceI * distanceScalar * Vector3.down) + (sliderStart * distanceScalar * Vector3.up), Quaternion.identity);
+        //    piece.transform.localScale *= distanceScalar;
+        //    sliderPieces.Add(piece);
+        //}
+
+        // instantiate bar at
+        sliderBarControl = GetComponentInChildren<SliderBar>();
+        sliderBar = sliderBarControl.gameObject;
+        //sliderBar = Instantiate(sliderBar, sliderPieces[barStart].transform.position, Quaternion.identity);
+        //sliderBar.transform.localScale *= distanceScalar;
+        //sliderBarControl = sliderBar.GetComponent<SliderBar>();
 
         // TODO bad
         int initBarTarget = 5;

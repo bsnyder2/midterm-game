@@ -3,8 +3,12 @@
 ##
 - **Playtesting**!!!
 
+- camera zoom out?
+
 ## Grading
 - look at rubric
+- get rid of unused/commented out code
+- resolve all TODOs
 
 ## For build
 - Whatever target works but probably WebGL
@@ -14,6 +18,9 @@
 ## Game overall
 - Enemies spawn and lerp toward player
 - (important) **key controls displayed**
+- win condition
+- lose condition
+- animations for both of those
 
 
 - Ben idea- make more varied environments with tileset, and have player move automatically after defeating enemies
