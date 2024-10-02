@@ -341,28 +341,13 @@ GameObject:
   m_Component:
   - component: {fileID: 343387623}
   - component: {fileID: 343387622}
-  - component: {fileID: 343387621}
   m_Layer: 0
   m_Name: purplesoul (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &343387621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 343387620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c373090e8e923394195bc992eb885a4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingPoint: {fileID: 0}
-  speed: 0.5
+  m_IsActive: 1
 --- !u!212 &343387622
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -623,6 +608,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 143241108}
   transition: {fileID: 145280480}
+  lives:
+  - {fileID: 343387620}
+  - {fileID: 1147624360}
+  - {fileID: 1328917698}
 --- !u!1 &558141755
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,11 +666,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 779145954279207611, guid: 5f5d38d6e7419ea4eaf73b8e00cc80ab, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2403231593115058388, guid: 5f5d38d6e7419ea4eaf73b8e00cc80ab, type: 3}
       propertyPath: m_Name
       value: Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3514494946293114380, guid: 5f5d38d6e7419ea4eaf73b8e00cc80ab, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8691122514211569433, guid: 5f5d38d6e7419ea4eaf73b8e00cc80ab, type: 3}
       propertyPath: m_LocalPosition.x
@@ -795,28 +788,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1147624363}
   - component: {fileID: 1147624362}
-  - component: {fileID: 1147624361}
   m_Layer: 0
   m_Name: purplesoul (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1147624361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1147624360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c373090e8e923394195bc992eb885a4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingPoint: {fileID: 0}
-  speed: 0.5
+  m_IsActive: 1
 --- !u!212 &1147624362
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1072,28 +1050,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1328917701}
   - component: {fileID: 1328917700}
-  - component: {fileID: 1328917699}
   m_Layer: 0
   m_Name: purplesoul (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1328917699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1328917698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c373090e8e923394195bc992eb885a4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingPoint: {fileID: 0}
-  speed: 0.5
+  m_IsActive: 1
 --- !u!212 &1328917700
 SpriteRenderer:
   m_ObjectHideFlags: 0
