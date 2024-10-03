@@ -40,6 +40,7 @@ public class MinigameManager : MonoBehaviour
 {
     
     public GameObject character;
+    public Transform endPosition; 
     private GameObject transition;
 
     //public GameObject lastLife
@@ -69,6 +70,13 @@ public class MinigameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("OY" + character.transform.position.x);
+        if (character.transform.position.x >= endPosition.position.x)
+        {
+            Debug.Log("HELLO?");
+            StartCoroutine(FadeAnimator.FadeIntoTransition(transitionSpriteRenderer, 0, 1, 2, "EndingScene"));
+        }
+
         //Debug.Log("Help " + playerController.isMoving);
 
         //for testing comment out later: 
@@ -91,6 +99,8 @@ public class MinigameManager : MonoBehaviour
         {
             StartCoroutine(FadeAnimator.FadeIntoTransition(transitionSpriteRenderer, 0, 1, 2, "Opening1"));
         }
+
+         
 
     }
 
