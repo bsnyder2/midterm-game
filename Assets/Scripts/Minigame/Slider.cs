@@ -69,7 +69,7 @@ public class Slider : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    // Update is called once per fixed framerate frame
     void Update()
     {
         // Some really not pretty equations here

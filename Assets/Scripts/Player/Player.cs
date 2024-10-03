@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     //private Sprite[] frames;
 
     private SpriteRenderer spriteRenderer;
+    //private Rigidbody2D thisRigidbody;
     //private Queue<IEnumerator> animationQueue;
 
     public bool isMoving = false;
@@ -28,9 +29,12 @@ public class Player : MonoBehaviour
     {
         playerAnimator = GetComponent<PlayerAnimator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        //thisRigidbody = GetComponent<Rigidbody2D>();
         // animation queue is always active
         //animationQueue = new Queue<IEnumerator>();
         //StartCoroutine(AnimationCoordinator());
+        //thisRigidbody.MovePosition(Vector3.right * moveSpeed * Time.deltaTime);
+
     }
 
     // Update is called once per frame
@@ -38,6 +42,9 @@ public class Player : MonoBehaviour
     {
         if (isMoving == true)
         {
+            //Vector3 movement = Vector3.right * moveSpeed * Time.deltaTime;
+            //thisRigidbody.MovePosition(transform.position + movement);
+
             StartCoroutine(MoveRight());
         }
 
