@@ -55,10 +55,6 @@ public class SliderBar : MonoBehaviour
 
         //Debug.Log(isHit ? "there is a hit" : "no hit");
 
-        if (currentSliderPieceControl != null)
-        {
-        }
-
         // check for target hit
         //sliderTargetControl = collision.GetComponent<SliderTarget>();
         //if (sliderTargetControl != null)
@@ -76,6 +72,7 @@ public class SliderBar : MonoBehaviour
 
     public void DrawLine(Vector3 enemyPosition)
     {
+        if (currentSliderPieceControl == null) return;
         lineRenderer.SetPosition(0, currentSliderPieceControl.transform.position);
         lineRenderer.SetPosition(1, enemyPosition);
     }
