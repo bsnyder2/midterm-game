@@ -34,15 +34,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class MinigameManager : MonoBehaviour
 {
+    
     public GameObject character;
-    public GameObject transition;
+    private GameObject transition;
 
     //public GameObject lastLife
     private SpriteRenderer transitionSpriteRenderer;
-    public GameObject[] lives;
+    private GameObject[] lives; 
     //private SpriteRenderer[] lifeSpriteRenderer;
 
     private Player playerController;
@@ -53,7 +55,12 @@ public class MinigameManager : MonoBehaviour
     {
         playerController = character.GetComponent<Player>();
         //lifeSpriteRenderer = lastLife.GetComponent<SpriteRenderer>();
+        GameObject[] transitions = GameObject.FindGameObjectsWithTag("Transition");
+        transition = transitions[0];
         transitionSpriteRenderer = transition.GetComponent<SpriteRenderer>();
+        lives = GameObject.FindGameObjectsWithTag("Soul");
+        lives = lives.OrderByDescending(obj => obj.transform.position.x).ToArray();
+
         //Debug.Log("Help " + playerController.isMoving);
         StartCoroutine(FadeAnimator.FadeIn(transitionSpriteRenderer, 1, 0, 3));
         playerController.isMoving = true;
@@ -78,12 +85,12 @@ public class MinigameManager : MonoBehaviour
         }
 
         //Debug.Log("HELP: " + livesLost);
-        Debug.Log(livesLost + " " + lives.Length);
+        //Debug.Log(livesLost + " " + lives.Length);
 
-        //if (livesLost > lives.Length)
-        //{
-        //    StartCoroutine(FadeAnimator.FadeIntoTransition(transitionSpriteRenderer, 0, 1, 2, "Opening1"));
-        //}
+        if (livesLost > lives.Length)
+        {
+            StartCoroutine(FadeAnimator.FadeIntoTransition(transitionSpriteRenderer, 0, 1, 2, "Opening1"));
+        }
 
     }
 
