@@ -35,6 +35,7 @@ public class SliderBar : MonoBehaviour
         if (currentSliderPieceControl != null)
         {
             currentSliderPieceControl.Open();
+            isHit = currentSliderPieceControl.isTarget;
         }
         if (previousSliderPieceControl != null)
         {
@@ -52,9 +53,11 @@ public class SliderBar : MonoBehaviour
             oscillatorControl.PitchPrevious();
         }
 
-        isHit = currentSliderPieceControl.isTarget;
         //Debug.Log(isHit ? "there is a hit" : "no hit");
 
+        if (currentSliderPieceControl != null)
+        {
+        }
 
         // check for target hit
         //sliderTargetControl = collision.GetComponent<SliderTarget>();

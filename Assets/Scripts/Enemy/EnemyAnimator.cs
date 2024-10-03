@@ -36,6 +36,8 @@ public class EnemyAnimator : MonoBehaviour
     {
         //Debug.Log("Die runs");
         animationQueue.Enqueue(DieRoutine());
+        PolygonCollider2D collider = GetComponent<PolygonCollider2D>();
+        collider.enabled = false;
     }
 
     private IEnumerator AnimationCoordinator()

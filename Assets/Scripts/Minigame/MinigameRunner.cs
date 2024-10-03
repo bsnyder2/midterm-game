@@ -66,6 +66,7 @@ public class MinigameRunner : MonoBehaviour
             sliderControl = FindObjectsByType<Slider>(FindObjectsSortMode.None);
             sliderBarControl = FindObjectsByType<SliderBar>(FindObjectsSortMode.None);
         }
+        //Debug.Log("sliderbarcontrol is still null");
 
         int sliderHits = 0;
         foreach (var bar in sliderBarControl)

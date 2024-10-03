@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -145,5 +146,13 @@ public class Player : MonoBehaviour
             yield return new WaitForSeconds(Time.deltaTime * animationFrameTime);
         }
     }*/
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Enemy other = collision.gameObject.GetComponent<Enemy>();
+        if (other != null)
+        {
+            Debug.Log("Enemy hit");
+        }
+        SceneManager.LoadScene("Main");
+    }
 }
