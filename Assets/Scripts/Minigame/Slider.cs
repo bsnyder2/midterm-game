@@ -70,17 +70,18 @@ public class Slider : MonoBehaviour
     }
 
     // Update is called once per fixed framerate frame
-    void Update()
+    void FixedUpdate()
     {
         // Some really not pretty equations here
         if (Input.GetKey(up))
         {
-            if (sliderBar.transform.position.y <= (transform.position.y + transform.localScale.y - (distanceScalar * 3)))
+            if (sliderBar.transform.position.y <= (transform.position.y + transform.localScale.y - (distanceScalar * 2)))
             {
                 // go to next index in list of discrete pitches
                 //oscillatorControl.PitchNext();
                 // or continuous increase
                 //oscillatorControl.PitchUp();
+                Debug.Log("MOVING UP");
                 sliderBar.transform.position += sliderSpeed * distanceScalar * Vector3.up;
                 sliderBarControl.movingUp = true;
             }
@@ -88,7 +89,7 @@ public class Slider : MonoBehaviour
         }
         else if (Input.GetKey(down))
         {
-            if (sliderBar.transform.position.y >= (transform.position.y - transform.localScale.y - (distanceScalar)))
+            if (sliderBar.transform.position.y >= (transform.position.y - transform.localScale.y + (distanceScalar * 0.5f)))
             {
                 //oscillatorControl.PitchPrevious();
                 //oscillatorControl.PitchDown();

@@ -1,48 +1,19 @@
-//using System.Collections;
-//using System.Collections.Generic;
-//using UnityEngine;
-
-//public class MinigameManager : MonoBehaviour
-//{
-//    public GameObject character;
-//    public GameObject transition;
-//    private SpriteRenderer transitionSpriteRenderer;
-
-//    private Player playerController;
-//    // Start is called before the first frame update
-//    void Start()
-//    {
-//        playerController = character.GetComponent<Player>();
-//        transitionSpriteRenderer = transition.GetComponent<SpriteRenderer>();
-//        StartCoroutine(FadeAnimator.FadeIn(transitionSpriteRenderer, 1, 0, 3));
-
-//        playerController.isMoving = true;
-//    }
-
-//    // Update is called once per frame
-//    void Update()
-//    {
-
-
-//    }
-
-
-//}
-
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class MinigameManager : MonoBehaviour
 {
+    
     public GameObject character;
-    public GameObject transition;
+    public Transform endPosition; 
+    private GameObject transition;
 
     //public GameObject lastLife
     private SpriteRenderer transitionSpriteRenderer;
-    public GameObject[] lives;
+    private GameObject[] lives; 
     //private SpriteRenderer[] lifeSpriteRenderer;
 
     private Player playerController;
@@ -53,8 +24,12 @@ public class MinigameManager : MonoBehaviour
     {
         playerController = character.GetComponent<Player>();
         //lifeSpriteRenderer = lastLife.GetComponent<SpriteRenderer>();
+        GameObject[] transitions = GameObject.FindGameObjectsWithTag("Transition");
+        transition = transitions[0];
         transitionSpriteRenderer = transition.GetComponent<SpriteRenderer>();
-        //Debug.Log("Help " + playerController.isMoving);
+        lives = GameObject.FindGameObjectsWithTag("Soul");
+        lives = lives.OrderByDescending(obj => obj.transform.position.x).ToArray();
+
         StartCoroutine(FadeAnimator.FadeIn(transitionSpriteRenderer, 1, 0, 3));
         playerController.isMoving = true;
     }
@@ -62,28 +37,34 @@ public class MinigameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (character.transform.position.x >= endPosition.position.x)
+        {
+            Debug.Log("HELLO?");
+            StartCoroutine(FadeAnimator.FadeIntoTransition(transitionSpriteRenderer, 0, 1, 2, "EndingScene"));
+        }
+
+        //LoseLife();
         //Debug.Log("Help " + playerController.isMoving);
 
         //for testing comment out later: 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            Debug.Log("Escape Key Pressed");
             LoseLife();
-            //Debug.Log("Escape Key Pressed");
         }
 
-        if (livesLost > 0 && livesLost <= lives.Length)
+        if ((livesLost > 0) && (livesLost <= lives.Length))
         {
             //lives[livesLost - 1].Activate(false);
             StartCoroutine(UseUpLifeAnimation(lives[livesLost - 1]));
         }
 
-        //Debug.Log("HELP: " + livesLost);
-        Debug.Log(livesLost + " " + lives.Length);
+        if (livesLost > lives.Length)
+        {
+            StartCoroutine(FadeAnimator.FadeIntoTransition(transitionSpriteRenderer, 0, 1, 2, "Opening1"));
+        }
 
-        //if (livesLost > lives.Length)
-        //{
-        //    StartCoroutine(FadeAnimator.FadeIntoTransition(transitionSpriteRenderer, 0, 1, 2, "Opening1"));
-        //}
+         
 
     }
 
@@ -106,13 +87,11 @@ public class MinigameManager : MonoBehaviour
             t += Time.deltaTime * 0.5f;
             if (t > 1) t = 1;
             miracle.transform.position = Vector3.Lerp(start, target, t);
-
             yield return null;
         }
 
         lifeSpriteRenderer.enabled = false;
 
     }
-
 
 }

@@ -9,9 +9,21 @@ public class Player : MonoBehaviour
     public float distance = 1f;
     private PlayerAnimator playerAnimator;
 
+
+    // try just doing flipbook animation like bomberman
+    public Sprite[] run;
+    public Sprite[] attack;
+    public Sprite[] die;
+
+
+
+
+
+
+
     //public float animationFrameTime;
     public Sprite[] idleFrames;
-    public Sprite[] runFrames;
+    //public Sprite[] runFrames;
     //private Sprite[] frames;
 
     private SpriteRenderer spriteRenderer;
@@ -23,12 +35,14 @@ public class Player : MonoBehaviour
     private int currentSpriteIndex = 0;
     private float animationTimer;
 
+    public MinigameManager minigameManager; 
+
     //private Rigidbody2D rigidbody;
     // Start is called before the first frame update
     void Start()
     {
         playerAnimator = GetComponent<PlayerAnimator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>(); 
         //thisRigidbody = GetComponent<Rigidbody2D>();
         // animation queue is always active
         //animationQueue = new Queue<IEnumerator>();
@@ -38,57 +52,49 @@ public class Player : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (isMoving == true)
         {
             //Vector3 movement = Vector3.right * moveSpeed * Time.deltaTime;
             //thisRigidbody.MovePosition(transform.position + movement);
 
-            StartCoroutine(MoveRight());
+            MoveRight();
         }
-
+        // else is attacking... (change)
         else
         {
-            StartCoroutine(Idle());
+
         }
+
+        //else
+        //{
+        //    Idle();
+        //}
         //StartCoroutine(MoveRight());
     }
 
     public void Attack()
     {
         // playerAnimator.PlayAnimation("attack");
-        playerAnimator.Attack();
+        //playerAnimator.Attack();
+        Debug.Log("animating attack");
+        Animate(attack);
     }
 
-    private IEnumerator Idle()
+    private void Idle()
     {
         Animate(idleFrames);
-        yield return null;
     }
 
-
-    private IEnumerator MoveRight()
+    private void MoveRight()
     {
-        Vector3 start = transform.position;
-        Vector3 target = new Vector3(start.x + distance, start.y, start.z);
-        Animate(runFrames);
-
-        float t = 0f;
-        while (t < 1)
-        {
-            t += Time.deltaTime * moveSpeed;
-            if (t > 1) t = 1;
-            transform.position = Vector3.Lerp(start, target, t);
-
-            yield return null;
-        }
-
+        transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+        //Animate(run);
     }
 
     private void Animate(Sprite[] frames)
     {
-
         animationTimer += Time.deltaTime;
 
         if (animationTimer >= animationSpeed)
@@ -159,7 +165,8 @@ public class Player : MonoBehaviour
         if (other != null)
         {
             Debug.Log("Enemy hit");
+            minigameManager.LoseLife();
         }
-        SceneManager.LoadScene("Main");
+        //SceneManager.LoadScene("Main");
     }
 }

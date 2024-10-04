@@ -16,10 +16,11 @@ public class Oscillator : MonoBehaviour
     // other controls for tremolo etc.
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         sample = GetComponent<AudioSource>();
         currentPitchIndex = 0;
+        sample.pitch = SemitonesToPitch(pitches[currentPitchIndex]);
     }
 
     public void PitchNext()
