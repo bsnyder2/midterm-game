@@ -35,12 +35,14 @@ public class Player : MonoBehaviour
     private int currentSpriteIndex = 0;
     private float animationTimer;
 
+    public MinigameManager minigameManager; 
+
     //private Rigidbody2D rigidbody;
     // Start is called before the first frame update
     void Start()
     {
         playerAnimator = GetComponent<PlayerAnimator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>(); 
         //thisRigidbody = GetComponent<Rigidbody2D>();
         // animation queue is always active
         //animationQueue = new Queue<IEnumerator>();
@@ -163,6 +165,7 @@ public class Player : MonoBehaviour
         if (other != null)
         {
             Debug.Log("Enemy hit");
+            minigameManager.LoseLife();
         }
         //SceneManager.LoadScene("Main");
     }
