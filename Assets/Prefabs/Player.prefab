@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.93, y: -0.7, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 6c0a0e53f7988d442ac44d65d94c4cd2, type: 3}
+  m_Sprite: {fileID: -167319880, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -151,7 +151,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 2.75}
+    oldSize: {x: 0.25, y: 0.29}
     newSize: {x: 0.64, y: 0.44}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -209,8 +209,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3e294712bde46e7b41f7a13517ad33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
+  moveSpeed: 1.4
   distance: 1
+  run:
+  - {fileID: -167319880, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
+  - {fileID: 1555558575, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
+  - {fileID: -1145397390, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
+  - {fileID: -1578320927, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
+  - {fileID: -1199970354, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
+  - {fileID: -1487902675, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
+  - {fileID: 1885204992, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
+  - {fileID: -1699907686, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
+  attack:
+  - {fileID: -624679861, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
+  - {fileID: -1052500640, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
+  - {fileID: 358767512, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
+  - {fileID: 1879822795, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
+  - {fileID: -197689451, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
+  - {fileID: 2087379620, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
+  - {fileID: 904041023, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
+  - {fileID: -1788990206, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
+  - {fileID: 1355846962, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
+  - {fileID: -240391872, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
+  die: []
   idleFrames:
   - {fileID: 21300000, guid: 6c0a0e53f7988d442ac44d65d94c4cd2, type: 3}
   - {fileID: 21300000, guid: 735e5fd072803324787c57deadca769a, type: 3}
@@ -218,13 +239,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: acc93377e42639442baf2a880f26ce5a, type: 3}
   - {fileID: 21300000, guid: e43ac83bb0eab204cb3e6a0e48ebfe79, type: 3}
   - {fileID: 21300000, guid: ff810f6f92da87849b7049176773f79c, type: 3}
-  runFrames:
-  - {fileID: 21300000, guid: dd207e2962106cd49976d1a9c674c91c, type: 3}
-  - {fileID: 21300000, guid: 65d98524e9dcb3e4db81e7bd05642f1e, type: 3}
-  - {fileID: 21300000, guid: 03a1f2571e1b86244bf0d64002e0e125, type: 3}
-  - {fileID: 21300000, guid: c2e20a644b649724da732068c397a728, type: 3}
-  - {fileID: 21300000, guid: 2ee1a0b0488ae944d9a708d9f40a416f, type: 3}
-  - {fileID: 21300000, guid: 560dde6f4e7484f42be9b2abcecb5ecb, type: 3}
-  - {fileID: 21300000, guid: fb186ab2650b9b7408e9a71c962f9c60, type: 3}
-  - {fileID: 21300000, guid: a0a5bd3bfac505945a1440629e15fcfd, type: 3}
   isMoving: 1

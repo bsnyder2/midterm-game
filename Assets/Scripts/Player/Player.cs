@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
 
     //public float animationFrameTime;
     public Sprite[] idleFrames;
-    public Sprite[] runFrames;
+    //public Sprite[] runFrames;
     //private Sprite[] frames;
 
     private SpriteRenderer spriteRenderer;
@@ -50,19 +50,19 @@ public class Player : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (isMoving == true)
         {
             //Vector3 movement = Vector3.right * moveSpeed * Time.deltaTime;
             //thisRigidbody.MovePosition(transform.position + movement);
 
-            StartCoroutine(MoveRight());
+            MoveRight();
         }
 
         else
         {
-            StartCoroutine(Idle());
+            Idle();
         }
         //StartCoroutine(MoveRight());
     }
@@ -75,31 +75,31 @@ public class Player : MonoBehaviour
         Animate(attack);
     }
 
-    private IEnumerator Idle()
+    private void Idle()
     {
         Animate(idleFrames);
-        yield return null;
     }
 
 
 
 
 
-    private IEnumerator MoveRight()
+    private void MoveRight()
     {
-        Vector3 start = transform.position;
-        Vector3 target = new Vector3(start.x + distance, start.y, start.z);
-        Animate(runFrames);
+        //Vector3 start = transform.position;
+        //Vector3 target = new Vector3(start.x + distance, start.y, start.z);
+        Animate(attack);
 
-        float t = 0f;
-        while (t < 1)
-        {
-            t += Time.deltaTime * moveSpeed;
-            if (t > 1) t = 1;
-            transform.position = Vector3.Lerp(start, target, t);
+        //float t = 0f;
+        //while (t < 1)
+        //{
+        //t += Time.deltaTime * moveSpeed;
+        //if (t > 1) t = 1;
+        transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+        //transform.position = Vector3.Lerp(start, target, t);
 
-            yield return null;
-        }
+            //yield return null;
+        //}
 
     }
 
@@ -177,6 +177,6 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Enemy hit");
         }
-        SceneManager.LoadScene("Main");
+        //SceneManager.LoadScene("Main");
     }
 }
