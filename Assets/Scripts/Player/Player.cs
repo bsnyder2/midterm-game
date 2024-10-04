@@ -59,11 +59,16 @@ public class Player : MonoBehaviour
 
             MoveRight();
         }
-
+        // else is attacking... (change)
         else
         {
-            Idle();
+
         }
+
+        //else
+        //{
+        //    Idle();
+        //}
         //StartCoroutine(MoveRight());
     }
 
@@ -80,32 +85,14 @@ public class Player : MonoBehaviour
         Animate(idleFrames);
     }
 
-
-
-
-
     private void MoveRight()
     {
-        //Vector3 start = transform.position;
-        //Vector3 target = new Vector3(start.x + distance, start.y, start.z);
-        Animate(attack);
-
-        //float t = 0f;
-        //while (t < 1)
-        //{
-        //t += Time.deltaTime * moveSpeed;
-        //if (t > 1) t = 1;
         transform.position += Vector3.right * moveSpeed * Time.deltaTime;
-        //transform.position = Vector3.Lerp(start, target, t);
-
-            //yield return null;
-        //}
-
+        //Animate(run);
     }
 
     private void Animate(Sprite[] frames)
     {
-        //Debug.Log(frames.Length);
         animationTimer += Time.deltaTime;
 
         if (animationTimer >= animationSpeed)

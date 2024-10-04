@@ -1,35 +1,3 @@
-//using System.Collections;
-//using System.Collections.Generic;
-//using UnityEngine;
-
-//public class MinigameManager : MonoBehaviour
-//{
-//    public GameObject character;
-//    public GameObject transition;
-//    private SpriteRenderer transitionSpriteRenderer;
-
-//    private Player playerController;
-//    // Start is called before the first frame update
-//    void Start()
-//    {
-//        playerController = character.GetComponent<Player>();
-//        transitionSpriteRenderer = transition.GetComponent<SpriteRenderer>();
-//        StartCoroutine(FadeAnimator.FadeIn(transitionSpriteRenderer, 1, 0, 3));
-
-//        playerController.isMoving = true;
-//    }
-
-//    // Update is called once per frame
-//    void Update()
-//    {
-
-
-//    }
-
-
-//}
-
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -62,7 +30,6 @@ public class MinigameManager : MonoBehaviour
         lives = GameObject.FindGameObjectsWithTag("Soul");
         lives = lives.OrderByDescending(obj => obj.transform.position.x).ToArray();
 
-        //Debug.Log("Help " + playerController.isMoving);
         StartCoroutine(FadeAnimator.FadeIn(transitionSpriteRenderer, 1, 0, 3));
         playerController.isMoving = true;
     }
@@ -70,8 +37,6 @@ public class MinigameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log("Character here");
-        //Debug.Log("OY" + character.transform.position.x);
         if (character.transform.position.x >= endPosition.position.x)
         {
             Debug.Log("HELLO?");
@@ -88,14 +53,11 @@ public class MinigameManager : MonoBehaviour
             LoseLife();
         }
 
-        if (livesLost > 0 && livesLost <= lives.Length)
+        if ((livesLost > 0) && (livesLost <= lives.Length))
         {
             //lives[livesLost - 1].Activate(false);
             StartCoroutine(UseUpLifeAnimation(lives[livesLost - 1]));
         }
-
-        //Debug.Log("HELP: " + livesLost);
-        //Debug.Log(livesLost + " " + lives.Length);
 
         if (livesLost > lives.Length)
         {
@@ -125,13 +87,11 @@ public class MinigameManager : MonoBehaviour
             t += Time.deltaTime * 0.5f;
             if (t > 1) t = 1;
             miracle.transform.position = Vector3.Lerp(start, target, t);
-
             yield return null;
         }
 
         lifeSpriteRenderer.enabled = false;
 
     }
-
 
 }
