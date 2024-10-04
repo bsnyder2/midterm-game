@@ -9,6 +9,18 @@ public class Player : MonoBehaviour
     public float distance = 1f;
     private PlayerAnimator playerAnimator;
 
+
+    // try just doing flipbook animation like bomberman
+    public Sprite[] run;
+    public Sprite[] attack;
+    public Sprite[] die;
+
+
+
+
+
+
+
     //public float animationFrameTime;
     public Sprite[] idleFrames;
     public Sprite[] runFrames;
@@ -58,7 +70,9 @@ public class Player : MonoBehaviour
     public void Attack()
     {
         // playerAnimator.PlayAnimation("attack");
-        playerAnimator.Attack();
+        //playerAnimator.Attack();
+        Debug.Log("animating attack");
+        Animate(attack);
     }
 
     private IEnumerator Idle()
@@ -66,6 +80,9 @@ public class Player : MonoBehaviour
         Animate(idleFrames);
         yield return null;
     }
+
+
+
 
 
     private IEnumerator MoveRight()
@@ -88,7 +105,7 @@ public class Player : MonoBehaviour
 
     private void Animate(Sprite[] frames)
     {
-
+        //Debug.Log(frames.Length);
         animationTimer += Time.deltaTime;
 
         if (animationTimer >= animationSpeed)

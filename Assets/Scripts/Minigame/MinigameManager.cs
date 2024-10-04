@@ -70,20 +70,22 @@ public class MinigameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("OY" + character.transform.position.x);
+        //Debug.Log("Character here");
+        //Debug.Log("OY" + character.transform.position.x);
         if (character.transform.position.x >= endPosition.position.x)
         {
             Debug.Log("HELLO?");
             StartCoroutine(FadeAnimator.FadeIntoTransition(transitionSpriteRenderer, 0, 1, 2, "EndingScene"));
         }
 
+        //LoseLife();
         //Debug.Log("Help " + playerController.isMoving);
 
         //for testing comment out later: 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            Debug.Log("Escape Key Pressed");
             LoseLife();
-            //Debug.Log("Escape Key Pressed");
         }
 
         if (livesLost > 0 && livesLost <= lives.Length)

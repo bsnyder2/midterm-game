@@ -11,7 +11,7 @@
 ##
 - **Playtesting**!!!
 
-- camera zoom out?
+- camera zoom out? (done)
 
 ## Grading
 - look at rubric
@@ -50,17 +50,17 @@
 - Or make actual good bg music and have the slowdown mechanic for quicktime events (using pitch)
 
 ## Textures
-- (important) **center slider**
-- target: closed eye w/ eyelashes and then different color when open
-	- same size as regular eyes
+- (important) **center slider** (don't need)
+- target: closed eye w/ eyelashes (done) and then different color when open
+	- same size as regular eyes (done)
 - glowing particle effect around target eyes
 - ray from eyes toward enemy
-- enemies
-- different slider shapes etc
+- enemies (done)
+- different slider shapes etc (don'y need')
 - QTE bar/circle? (don't need this because measured by enemy)
-- parallax scrolling bg
+- parallax scrolling bg (done)
 - particle effects around sliders
-- different sized eyes on sliders
+- different sized eyes on sliders (done)
 - light source- would be quick to implement and look cool
 
 
