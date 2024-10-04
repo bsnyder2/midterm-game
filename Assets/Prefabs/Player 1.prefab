@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3e294712bde46e7b41f7a13517ad33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 4
   distance: 1
   idleFrames:
   - {fileID: 21300000, guid: 6c0a0e53f7988d442ac44d65d94c4cd2, type: 3}
@@ -227,4 +227,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 560dde6f4e7484f42be9b2abcecb5ecb, type: 3}
   - {fileID: 21300000, guid: fb186ab2650b9b7408e9a71c962f9c60, type: 3}
   - {fileID: 21300000, guid: a0a5bd3bfac505945a1440629e15fcfd, type: 3}
-  isMoving: 0
+  isMoving: 1

@@ -1,12 +1,10 @@
 # TODO
 
 
-
-
 ## Animation to do
 - strategy from bomberman for queueing
 - When get hit by enemy: falls to ground and stays there.
-- Life transform posiiton to character. Life gets disabled.
+- Life transform position to character. Life gets disabled.
 - Character gets up and keeps moving right.
 - When character falls down and stays down when there are no more lives, reset whole game.
 
