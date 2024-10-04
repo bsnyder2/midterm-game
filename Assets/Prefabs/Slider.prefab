@@ -196,6 +196,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6719771274784872173, guid: 4fef7d8aa76a54fbaa3daeb59b6f2b29, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7187007491954648340, guid: 4fef7d8aa76a54fbaa3daeb59b6f2b29, type: 3}
       propertyPath: m_Name
       value: SliderBar

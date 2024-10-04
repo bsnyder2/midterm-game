@@ -4,40 +4,45 @@ using UnityEngine;
 
 public class TutorialRunner : MonoBehaviour
 {
-    private SpriteRenderer _wRenderer;
-    private SpriteRenderer _sRenderer;
-    private SpriteRenderer _iRenderer;
-    private SpriteRenderer _kRenderer;
+    private SpriteRenderer renderer;
+    //private SpriteRenderer _sRenderer;
+    //private SpriteRenderer _iRenderer;
+    //private SpriteRenderer _kRenderer;
 
-    public Sprite[] w_keys;
-    public Sprite[] s_keys;
-    public Sprite[] i_keys;
-    public Sprite[] k_keys;
+    public Sprite[] keys;
+
+    public KeyCode keycode;
+    //public Sprite[] s_keys;
+    //public Sprite[] i_keys;
+    //public Sprite[] k_keys;
 
     // slider object
 
     // Start is called before the first frame update
     void Start()
     {
-        _wRenderer = GetComponent<SpriteRenderer>();
-        _sRenderer = GetComponent<SpriteRenderer>();
-        _iRenderer = GetComponent<SpriteRenderer>();
-        _kRenderer = GetComponent<SpriteRenderer>();
+        renderer = GetComponent<SpriteRenderer>();
+        //_sRenderer = GetComponent<SpriteRenderer>();
+        //_iRenderer = GetComponent<SpriteRenderer>();
+        //_kRenderer = GetComponent<SpriteRenderer>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.W))
+        if(Input.GetKey(keycode))
         {
-            _wRenderer.sprite = w_keys[1];
+            renderer.sprite = keys[1];
+            Debug.Log("Running second script");
             // change sprite to pressed W key
             // invoke the correct slider movement
         } else {
-            _wRenderer.sprite = w_keys[0];
+            renderer.sprite = keys[0];
+            Debug.Log("Not running");
         }
         
-        if(Input.GetKey(KeyCode.S))
+        /*if(Input.GetKey(KeyCode.S))
         {
             _sRenderer.sprite = s_keys[1];
             // change sprite to pressed S key
@@ -62,6 +67,6 @@ public class TutorialRunner : MonoBehaviour
             // invoke the correct slider movement
         } else{
             _kRenderer.sprite = k_keys[0];
-        }
+        }*/
     }
 }

@@ -6,9 +6,9 @@ using UnityEngine;
 public class TutorialController : MonoBehaviour
 {
     // better place to define constants?
-    private readonly int[,] barTargets = { { 4, 6 } };
+    private readonly int[,] barTargets = { { 1, 2 } };
 
-    public bool running = false;
+    //public bool running = false;
 
     private Slider[] sliderControl;
     private SliderBar[] sliderBarControl;
@@ -19,17 +19,27 @@ public class TutorialController : MonoBehaviour
 
     public bool Hit = false;
 
+    private SpriteRenderer transitionSpriteRenderer;
+
+
     // Start is called before the first frame update
     void Start()
     {
         // should set pointer with different method
+        GameObject[] transitions = GameObject.FindGameObjectsWithTag("Transition");
+        GameObject transition = transitions[0];
+        transitionSpriteRenderer = transition.GetComponent<SpriteRenderer>();
+        sliderControl = FindObjectsByType<Slider>(FindObjectsSortMode.None);
+            //sliderBarControl = FindObjectsByType<SliderBar>(FindObjectsSortMode.None);
+        sliderControl[0].ResetBarTarget(barTargets[barTargetsIndex,0]);
+        sliderControl[1].ResetBarTarget(barTargets[barTargetsIndex,1]);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (running) CheckSliderHits();
+        CheckSliderHits();
         
     }
 
@@ -52,9 +62,12 @@ public class TutorialController : MonoBehaviour
         // if all slides have a hit
         if (sliderHits >= sliderBarControl.Length)
         {
+            Debug.Log("Title HIt");
             HitTitle();
             // end hits
-            foreach (var bar in sliderBarControl) bar.isHit = false;
+            foreach (var bar in sliderBarControl){
+                bar.isHit = false;
+            } 
         }
     }
 
@@ -69,5 +82,6 @@ public class TutorialController : MonoBehaviour
         }
 
         Hit = true;
+        StartCoroutine(FadeAnimator.FadeIntoTransition(transitionSpriteRenderer, 0, 1, 2, "Opening1"));
     }
 }
