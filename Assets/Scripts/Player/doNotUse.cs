@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public Sprite[] hit;
     public Sprite[] attack;
     public Sprite[] die;
-    private bool isMoving = false;
+    //private bool isMoving = false;
     private bool isIdle = true;
     private Sprite[] currentAnimation;
 

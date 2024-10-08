@@ -857,10 +857,6 @@ PrefabInstance:
       propertyPath: blinkTransition
       value: 
       objectReference: {fileID: 1993999884}
-    - target: {fileID: 4830433346853745767, guid: 68f05672e617ef84ba6dd3131b6dbabe, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7470840068945678246, guid: 68f05672e617ef84ba6dd3131b6dbabe, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -904,10 +900,6 @@ PrefabInstance:
     - target: {fileID: 8379655308759590497, guid: 68f05672e617ef84ba6dd3131b6dbabe, type: 3}
       propertyPath: m_Name
       value: BeginningText
-      objectReference: {fileID: 0}
-    - target: {fileID: 8379655308759590497, guid: 68f05672e617ef84ba6dd3131b6dbabe, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1027,7 +1019,7 @@ TilemapCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1369793607}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
