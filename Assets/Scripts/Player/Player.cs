@@ -12,8 +12,11 @@ public class Player : MonoBehaviour
     }
     public float moveSpeed = 1;
     public float distance = 1f;
+
     private PlayerAnimator playerAnimator;
     private bool attacking = false;
+
+    private AnimationState currentAnimationState;
 
 
     // try just doing flipbook animation like bomberman
@@ -28,12 +31,14 @@ public class Player : MonoBehaviour
     //public Sprite[] runFrames;
     //private Sprite[] frames;
 
+    private Sprite[] currentFrames;
+
     private SpriteRenderer spriteRenderer;
     //private Rigidbody2D thisRigidbody;
     //private Queue<IEnumerator> animationQueue;
 
     public bool isMoving = false;
-    private float animationSpeed = 0.2f;
+    private float animationSpeed = 6f;
     private int currentSpriteIndex = 0;
     private float animationTimer;
 
@@ -44,12 +49,13 @@ public class Player : MonoBehaviour
     void Start()
     {
         playerAnimator = GetComponent<PlayerAnimator>();
-        spriteRenderer = GetComponent<SpriteRenderer>(); 
+        spriteRenderer = GetComponent<SpriteRenderer>();
         //thisRigidbody = GetComponent<Rigidbody2D>();
         // animation queue is always active
         //animationQueue = new Queue<IEnumerator>();
         //StartCoroutine(AnimationCoordinator());
         //thisRigidbody.MovePosition(Vector3.right * moveSpeed * Time.deltaTime);
+        SwitchAnimation(AnimationState.Running);
 
     }
 
@@ -57,6 +63,9 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         if (isMoving) MoveRight();
+
+        // play current animation
+        PlayCurrentAnimation();
     }
 
     //private void Idle()
@@ -66,7 +75,7 @@ public class Player : MonoBehaviour
 
     private void MoveRight()
     {
-        Debug.Log(attacking);
+        //Debug.Log(attacking);
         transform.position += Vector3.right * moveSpeed * Time.deltaTime;
         //if (attacking) {
         //    AnimateAttack(attack);
@@ -97,74 +106,106 @@ public class Player : MonoBehaviour
     //}
 
     // only executed on state switch
-    private void PlayAnimation(AnimationState animationState)
+    private void SwitchAnimation(AnimationState animationState)
     {
         Debug.Log("Switched animation state to " + animationState);
         switch (animationState)
         {
             case AnimationState.Running:
-                Run(run);
+                //Run(run);
+                currentAnimationState = AnimationState.Running;
+                currentFrames = run;
                 break;
             case AnimationState.Attacking:
-                AttackRun(attack);
+                //AttackRun(attack);
+                currentAnimationState = AnimationState.Attacking;
+                currentFrames = attack;
                 break;
         }
 
     }
 
-    private void Run(Sprite[] frames)
+    private void PlayCurrentAnimation()
     {
-        //if (animationTimer >= animationSpeed)
-        //{
-
-        //    currentSpriteIndex = (currentSpriteIndex + 1) % frames.Length;
-        //    spriteRenderer.sprite = frames[currentSpriteIndex];
-
-        //    animationTimer = 0f;
-        //}
-
-        // on next frame
         if (animationTimer <= 0)
         {
-            if (animationTimer >= (frames.Length - 1))
+            if (currentSpriteIndex >= (currentFrames.Length - 1))
             {
+                // if animation that completes, return
+                //return;
+                if (currentAnimationState == AnimationState.Attacking)
+                {
+                    SwitchAnimation(AnimationState.Running);
+                    return;
+                }
+                // if animation that repeats, loop
                 currentSpriteIndex = 0;
             }
-            spriteRenderer.sprite = frames[currentSpriteIndex];
+            spriteRenderer.sprite = currentFrames[currentSpriteIndex];
+            //Debug.Log("sprite " + currentSpriteIndex);
+            Debug.Log("played frame " + currentSpriteIndex);
+
             currentSpriteIndex++;
             animationTimer = (1 / animationSpeed);
+
         }
         animationTimer -= Time.deltaTime;
     }
 
+    //private void Run(Sprite[] frames)
+    //{
+    //    //if (animationTimer >= animationSpeed)
+    //    //{
+
+    //    //    currentSpriteIndex = (currentSpriteIndex + 1) % frames.Length;
+    //    //    spriteRenderer.sprite = frames[currentSpriteIndex];
+
+    //    //    animationTimer = 0f;
+    //    //}
+
+    //    // on next frame
+    //    if (animationTimer <= 0)
+    //    {
+    //        if (animationTimer >= (frames.Length - 1))
+    //        {
+    //            currentSpriteIndex = 0;
+    //        }
+    //        spriteRenderer.sprite = frames[currentSpriteIndex];
+    //        currentSpriteIndex++;
+    //        animationTimer = (1 / animationSpeed);
+    //    }
+    //    animationTimer -= Time.deltaTime;
+    //}
+
     // called externally
     public void Attack()
     {
-        PlayAnimation(AnimationState.Attacking);
+        SwitchAnimation(AnimationState.Attacking);
     }
 
-    public void AttackRun(Sprite[] frames)
-    {
-        // playerAnimator.PlayAnimation("attack");
-        //playerAnimator.Attack();
-        Debug.Log("animating attack");
+    //public void AttackRun(Sprite[] frames)
+    //{
+    //    // playerAnimator.PlayAnimation("attack");
+    //    //playerAnimator.Attack();
+    //    Debug.Log("animating attack");
 
-        // I wrote a good explanation of how flipbook animation works somewhere so find that
-        while (true)
-        {
-            if (animationTimer <= 0)
-            {
-                if (currentSpriteIndex >= (frames.Length - 1))
-                {
-                    return;
-                }
-                spriteRenderer.sprite = frames[currentSpriteIndex];
-                currentSpriteIndex++;
-                animationTimer = (1 / animationSpeed);
-            }
-            animationTimer -= Time.deltaTime;
-        }
-    }
+    //    // I wrote a good explanation of how flipbook animation works somewhere so find that
+    //    while (true)
+    //    {
+    //        // next frame
+    //        if (animationTimer <= 0)
+    //        {
+    //            if (currentSpriteIndex >= (frames.Length - 1))
+    //            {
+    //                return;
+    //            }
+    //            spriteRenderer.sprite = frames[currentSpriteIndex];
+    //            currentSpriteIndex++;
+    //            animationTimer = (1 / animationSpeed);
+    //        }
+    //        animationTimer -= Time.deltaTime;
+    //    }
+    //}
 
 
     // attack animation should loop thru sprites once and set state back to idle at end

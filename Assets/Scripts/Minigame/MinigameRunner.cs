@@ -30,10 +30,10 @@ public class MinigameRunner : MonoBehaviour
         Enemy[] enemyControls = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
         //List<GameOb> foo = new List<Object>(enemies);
         enemies = enemyControls.OrderBy((Enemy c) => c.gameObject.transform.position.x).ToList();
-        foreach (Enemy e in enemies)
-        {
-            Debug.Log(e.gameObject.transform.position.x);
-        }
+        //foreach (Enemy e in enemies)
+        //{
+        //    Debug.Log(e.gameObject.transform.position.x);
+        //}
         currentEnemyIndex = 0;
 
         currentEnemyControl = enemies[currentEnemyIndex];

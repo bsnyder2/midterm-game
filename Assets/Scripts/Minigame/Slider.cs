@@ -81,7 +81,7 @@ public class Slider : MonoBehaviour
                 //oscillatorControl.PitchNext();
                 // or continuous increase
                 //oscillatorControl.PitchUp();
-                Debug.Log("MOVING UP");
+                //Debug.Log("MOVING UP");
                 sliderBar.transform.position += sliderSpeed * distanceScalar * Vector3.up;
                 sliderBarControl.movingUp = true;
             }
