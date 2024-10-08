@@ -31,7 +31,6 @@ public class MinigameManager : MonoBehaviour
         lives = lives.OrderByDescending(obj => obj.transform.position.x).ToArray();
 
         StartCoroutine(FadeAnimator.FadeIn(transitionSpriteRenderer, 1, 0, 3));
-        playerController.isMoving = true;
     }
 
     // Update is called once per frame
@@ -79,8 +78,6 @@ public class MinigameManager : MonoBehaviour
         Vector3 target = character.transform.position;
         SpriteRenderer lifeSpriteRenderer = miracle.GetComponent<SpriteRenderer>();
 
-        //Debug.Log("Should be moving");
-
         float t = 0f;
         while (t < 1)
         {
@@ -91,7 +88,6 @@ public class MinigameManager : MonoBehaviour
         }
 
         lifeSpriteRenderer.enabled = false;
-
     }
 
 }

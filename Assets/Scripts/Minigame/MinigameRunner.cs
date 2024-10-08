@@ -18,7 +18,6 @@ public class MinigameRunner : MonoBehaviour
     private int currentEnemyIndex;
     private Enemy currentEnemyControl;
 
-
     private int barTargetsIndex = 0;
 
     // Start is called before the first frame update
@@ -38,7 +37,7 @@ public class MinigameRunner : MonoBehaviour
         currentEnemyIndex = 0;
 
         currentEnemyControl = enemies[currentEnemyIndex];
-
+        playerControl.isMoving = true;
     }
 
     // Update is called once per frame
@@ -66,7 +65,6 @@ public class MinigameRunner : MonoBehaviour
             sliderControl = FindObjectsByType<Slider>(FindObjectsSortMode.None);
             sliderBarControl = FindObjectsByType<SliderBar>(FindObjectsSortMode.None);
         }
-        //Debug.Log("sliderbarcontrol is still null");
 
         int sliderHits = 0;
         foreach (var bar in sliderBarControl)

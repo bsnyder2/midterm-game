@@ -5,9 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+    enum AnimationState {
+        Running,
+        Attacking,
+        Dying,
+    }
     public float moveSpeed = 1;
     public float distance = 1f;
     private PlayerAnimator playerAnimator;
+    private bool attacking = false;
 
 
     // try just doing flipbook animation like bomberman
@@ -15,11 +21,7 @@ public class Player : MonoBehaviour
     public Sprite[] attack;
     public Sprite[] die;
 
-
-
-
-
-
+    //private AnimationState animationState;
 
     //public float animationFrameTime;
     public Sprite[] idleFrames;
@@ -54,112 +56,167 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (isMoving == true)
-        {
-            //Vector3 movement = Vector3.right * moveSpeed * Time.deltaTime;
-            //thisRigidbody.MovePosition(transform.position + movement);
-
-            MoveRight();
-        }
-        // else is attacking... (change)
-        else
-        {
-
-        }
-
-        //else
-        //{
-        //    Idle();
-        //}
-        //StartCoroutine(MoveRight());
+        if (isMoving) MoveRight();
     }
 
+    //private void Idle()
+    //{
+    //    Animate(idleFrames);
+    //}
+
+    private void MoveRight()
+    {
+        Debug.Log(attacking);
+        transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+        //if (attacking) {
+        //    AnimateAttack(attack);
+        //} else {
+        //    Animate(run);
+        //}
+        //Animate(attacking ? attack : run);
+    }
+
+    //private void AnimateAttack(Sprite[] frames)
+    //{
+    //    animationTimer += Time.deltaTime;
+
+    //    int i = 0;
+    //    while (i < frames.Length)
+    //    {
+    //        if (animationTimer >= animationSpeed)
+    //        {
+
+    //            currentSpriteIndex = (currentSpriteIndex + 1) % frames.Length;
+    //            spriteRenderer.sprite = frames[currentSpriteIndex];
+
+    //            animationTimer = 0f;
+    //        }
+    //        i++;
+    //    }
+    //    attacking = false;
+    //}
+
+    // only executed on state switch
+    private void PlayAnimation(AnimationState animationState)
+    {
+        Debug.Log("Switched animation state to " + animationState);
+        switch (animationState)
+        {
+            case AnimationState.Running:
+                Run(run);
+                break;
+            case AnimationState.Attacking:
+                AttackRun(attack);
+                break;
+        }
+
+    }
+
+    private void Run(Sprite[] frames)
+    {
+        //if (animationTimer >= animationSpeed)
+        //{
+
+        //    currentSpriteIndex = (currentSpriteIndex + 1) % frames.Length;
+        //    spriteRenderer.sprite = frames[currentSpriteIndex];
+
+        //    animationTimer = 0f;
+        //}
+
+        // on next frame
+        if (animationTimer <= 0)
+        {
+            if (animationTimer >= (frames.Length - 1))
+            {
+                currentSpriteIndex = 0;
+            }
+            spriteRenderer.sprite = frames[currentSpriteIndex];
+            currentSpriteIndex++;
+            animationTimer = (1 / animationSpeed);
+        }
+        animationTimer -= Time.deltaTime;
+    }
+
+    // called externally
     public void Attack()
+    {
+        PlayAnimation(AnimationState.Attacking);
+    }
+
+    public void AttackRun(Sprite[] frames)
     {
         // playerAnimator.PlayAnimation("attack");
         //playerAnimator.Attack();
         Debug.Log("animating attack");
-        Animate(attack);
-    }
 
-    private void Idle()
-    {
-        Animate(idleFrames);
-    }
-
-    private void MoveRight()
-    {
-        transform.position += Vector3.right * moveSpeed * Time.deltaTime;
-        //Animate(run);
-    }
-
-    private void Animate(Sprite[] frames)
-    {
-        animationTimer += Time.deltaTime;
-
-        if (animationTimer >= animationSpeed)
-        {
-
-            currentSpriteIndex = (currentSpriteIndex + 1) % frames.Length;
-            spriteRenderer.sprite = frames[currentSpriteIndex];
-
-            animationTimer = 0f;
-        }
-    }
-
-    /*public void Idle()
-    {
-        animationQueue.Enqueue(IdleRoutine());
-    }
-
-    public void Run()
-    {
-        isMoving = true;
-        animationQueue.Enqueue(RunRoutine());
-    }
-
-    // inspired by https://discussions.unity.com/t/how-to-stack-coroutines-and-call-each-one-till-all-are-executed/219063/5
-    private IEnumerator AnimationCoordinator()
-    {
-        // constantly check...
+        // I wrote a good explanation of how flipbook animation works somewhere so find that
         while (true)
         {
-            // while animations left in the queue
-            while (animationQueue.Count > 0)
+            if (animationTimer <= 0)
             {
-                // run next animation
-                yield return StartCoroutine(animationQueue.Dequeue());
+                if (currentSpriteIndex >= (frames.Length - 1))
+                {
+                    return;
+                }
+                spriteRenderer.sprite = frames[currentSpriteIndex];
+                currentSpriteIndex++;
+                animationTimer = (1 / animationSpeed);
             }
-            yield return null;
+            animationTimer -= Time.deltaTime;
         }
     }
 
-    private IEnumerator IdleRoutine()
-    {
-        // play all frames of animation
-        //Sprite[] frames = isTarget ? targetFrames : standardFrames;
-        int animationFrameIndex = 0;
-        while (animationFrameIndex < idleFrames.Length)
-        {
-            spriteRenderer.sprite = idleFrames[animationFrameIndex];
-            animationFrameIndex++;
-            yield return new WaitForSeconds(Time.deltaTime * animationFrameTime);
-        }
-    }
 
-    private IEnumerator RunRoutine()
-    {
-        // play all frames of animation
-        //Sprite[] frames = isTarget ? targetFrames : standardFrames;
-        int animationFrameIndex = runFrames.Length - 1;
-        while (animationFrameIndex >= 0)
-        {
-            spriteRenderer.sprite = runFrames[animationFrameIndex];
-            animationFrameIndex--;
-            yield return new WaitForSeconds(Time.deltaTime * animationFrameTime);
-        }
-    }*/
-    private void OnTriggerEnter2D(Collider2D collision)
+    // attack animation should loop thru sprites once and set state back to idle at end
+
+    public void Idle()
+{
+    //animationQueue.Enqueue(IdleRoutine());
+}
+
+// inspired by https://discussions.unity.com/t/how-to-stack-coroutines-and-call-each-one-till-all-are-executed/219063/5
+//private IEnumerator AnimationCoordinator()
+//{
+//    // constantly check...
+//    while (true)
+//    {
+//        // while animations left in the queue
+//        while (animationQueue.Count > 0)
+//        {
+//            // run next animation
+//            yield return StartCoroutine(animationQueue.Dequeue());
+//        }
+//        yield return null;
+//    }
+//}
+
+//private IEnumerator IdleRoutine()
+//{
+//    // play all frames of animation
+//    //Sprite[] frames = isTarget ? targetFrames : standardFrames;
+//    int animationFrameIndex = 0;
+//    while (animationFrameIndex < idleFrames.Length)
+//    {
+//        spriteRenderer.sprite = idleFrames[animationFrameIndex];
+//        animationFrameIndex++;
+//        yield return new WaitForSeconds(Time.deltaTime * animationFrameTime);
+//    }
+//}
+
+//private IEnumerator RunRoutine()
+//{
+//    // play all frames of animation
+//    //Sprite[] frames = isTarget ? targetFrames : standardFrames;
+//    int animationFrameIndex = runFrames.Length - 1;
+//    while (animationFrameIndex >= 0)
+//    {
+//        spriteRenderer.sprite = runFrames[animationFrameIndex];
+//        animationFrameIndex--;
+//        yield return new WaitForSeconds(Time.deltaTime * animationFrameTime);
+//    }
+//}
+
+private void OnTriggerEnter2D(Collider2D collision)
     {
         Enemy other = collision.gameObject.GetComponent<Enemy>();
         if (other != null)
