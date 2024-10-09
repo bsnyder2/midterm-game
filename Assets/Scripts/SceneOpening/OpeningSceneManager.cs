@@ -98,7 +98,7 @@ public class OpeningSceneManager : MonoBehaviour
         playerController = character.GetComponent<Player>();
         doneTrigger = objectsToActivate[2].transform.position;
         transitionSpriteRenderer = transition.GetComponent<SpriteRenderer>();
-        playerController.isMoving = true;
+        playerController.moving = true;
         //playerController.enabled = true;
         //playerController.Run();
         //playerController.MoveAndAnimate(character.transform.position, endPosition.position, "Walk");

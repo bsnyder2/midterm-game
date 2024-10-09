@@ -36,16 +36,6 @@ public class MinigameManager : MonoBehaviour
             StartCoroutine(FadeAnimator.FadeIntoTransition(transitionSpriteRenderer, 0, 1, 2, "EndingScene"));
         }
 
-        //LoseLife();
-        //Debug.Log("Help " + playerController.isMoving);
-
-        //for testing comment out later: 
-        //if (Input.GetKeyDown(KeyCode.Escape))
-        //{
-        //    Debug.Log("Escape Key Pressed");
-        //    LoseLife();
-        //}
-
         if ((livesLost > 0) && (livesLost <= lives.Length))
         {
             //lives[livesLost - 1].Activate(false);
@@ -62,6 +52,7 @@ public class MinigameManager : MonoBehaviour
     public void LoseLife()
     {
         livesLost++;
+        GetComponent<MinigameRunner>().NextEnemy();
     }
 
     private IEnumerator UseUpLifeAnimation(GameObject miracle)

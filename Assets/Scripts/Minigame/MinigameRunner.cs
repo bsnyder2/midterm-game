@@ -37,7 +37,7 @@ public class MinigameRunner : MonoBehaviour
         currentEnemyIndex = 0;
 
         currentEnemyControl = enemies[currentEnemyIndex];
-        playerControl.isMoving = true;
+        playerControl.moving = true;
     }
 
     // Update is called once per frame

@@ -10,101 +10,46 @@ public class Player : MonoBehaviour
         Attacking,
         Dying,
     }
-    public float moveSpeed = 1;
-    public float distance = 1f;
 
-    private PlayerAnimator playerAnimator;
-    private bool attacking = false;
+    public float moveSpeed = 1f;
+    public float animationSpeed = 6f;
 
-    private AnimationState currentAnimationState;
-
-
-    // try just doing flipbook animation like bomberman
     public Sprite[] run;
     public Sprite[] attack;
     public Sprite[] die;
-
-    //private AnimationState animationState;
-
-    //public float animationFrameTime;
-    public Sprite[] idleFrames;
-    //public Sprite[] runFrames;
-    //private Sprite[] frames;
-
-    private Sprite[] currentFrames;
+    public bool moving = false;
 
     private SpriteRenderer spriteRenderer;
-    //private Rigidbody2D thisRigidbody;
-    //private Queue<IEnumerator> animationQueue;
+    private MinigameManager minigameManager;
 
-    public bool isMoving = false;
-    private float animationSpeed = 6f;
+    private AnimationState currentAnimationState;
+    private Sprite[] currentFrames;
     private int currentSpriteIndex = 0;
     private float animationTimer;
 
-    private MinigameManager minigameManager; 
 
-    //private Rigidbody2D rigidbody;
     // Start is called before the first frame update
     void Start()
     {
-        playerAnimator = GetComponent<PlayerAnimator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        //thisRigidbody = GetComponent<Rigidbody2D>();
-        // animation queue is always active
-        //animationQueue = new Queue<IEnumerator>();
-        //StartCoroutine(AnimationCoordinator());
-        //thisRigidbody.MovePosition(Vector3.right * moveSpeed * Time.deltaTime);
-        SwitchAnimation(AnimationState.Running);
         minigameManager = FindFirstObjectByType<MinigameManager>();
-
+        SwitchAnimation(AnimationState.Running);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (isMoving) MoveRight();
+        if (moving) MoveRight();
 
         // play current animation
         PlayCurrentAnimation();
     }
 
-    //private void Idle()
-    //{
-    //    Animate(idleFrames);
-    //}
-
     private void MoveRight()
     {
-        //Debug.Log(attacking);
         transform.position += Vector3.right * moveSpeed * Time.deltaTime;
-        //if (attacking) {
-        //    AnimateAttack(attack);
-        //} else {
-        //    Animate(run);
-        //}
-        //Animate(attacking ? attack : run);
     }
 
-    //private void AnimateAttack(Sprite[] frames)
-    //{
-    //    animationTimer += Time.deltaTime;
-
-    //    int i = 0;
-    //    while (i < frames.Length)
-    //    {
-    //        if (animationTimer >= animationSpeed)
-    //        {
-
-    //            currentSpriteIndex = (currentSpriteIndex + 1) % frames.Length;
-    //            spriteRenderer.sprite = frames[currentSpriteIndex];
-
-    //            animationTimer = 0f;
-    //        }
-    //        i++;
-    //    }
-    //    attacking = false;
-    //}
 
     // only executed on state switch
     private void SwitchAnimation(AnimationState animationState)
@@ -122,8 +67,20 @@ public class Player : MonoBehaviour
                 currentAnimationState = AnimationState.Attacking;
                 currentFrames = attack;
                 break;
+            case AnimationState.Dying:
+                currentAnimationState = AnimationState.Dying;
+                currentFrames = die;
+                break;
         }
+        currentSpriteIndex = 0;
 
+    }
+
+    private void Die()
+    {
+        minigameManager.LoseLife();
+        SwitchAnimation(AnimationState.Dying);
+        moving = false;
     }
 
     private void PlayCurrentAnimation()
@@ -132,9 +89,8 @@ public class Player : MonoBehaviour
         {
             if (currentSpriteIndex >= (currentFrames.Length - 1))
             {
-                // if animation that completes, return
-                //return;
-                if (currentAnimationState == AnimationState.Attacking)
+                // if animation that completes, switch back to running and return
+                if (currentAnimationState != AnimationState.Running)
                 {
                     SwitchAnimation(AnimationState.Running);
                     return;
@@ -143,9 +99,6 @@ public class Player : MonoBehaviour
                 currentSpriteIndex = 0;
             }
             spriteRenderer.sprite = currentFrames[currentSpriteIndex];
-            //Debug.Log("sprite " + currentSpriteIndex);
-            //Debug.Log("played frame " + currentSpriteIndex);
-
             currentSpriteIndex++;
             animationTimer = (1 / animationSpeed);
 
@@ -153,120 +106,16 @@ public class Player : MonoBehaviour
         animationTimer -= Time.deltaTime;
     }
 
-    //private void Run(Sprite[] frames)
-    //{
-    //    //if (animationTimer >= animationSpeed)
-    //    //{
-
-    //    //    currentSpriteIndex = (currentSpriteIndex + 1) % frames.Length;
-    //    //    spriteRenderer.sprite = frames[currentSpriteIndex];
-
-    //    //    animationTimer = 0f;
-    //    //}
-
-    //    // on next frame
-    //    if (animationTimer <= 0)
-    //    {
-    //        if (animationTimer >= (frames.Length - 1))
-    //        {
-    //            currentSpriteIndex = 0;
-    //        }
-    //        spriteRenderer.sprite = frames[currentSpriteIndex];
-    //        currentSpriteIndex++;
-    //        animationTimer = (1 / animationSpeed);
-    //    }
-    //    animationTimer -= Time.deltaTime;
-    //}
-
     // called externally
     public void Attack()
     {
         SwitchAnimation(AnimationState.Attacking);
     }
 
-    //public void AttackRun(Sprite[] frames)
-    //{
-    //    // playerAnimator.PlayAnimation("attack");
-    //    //playerAnimator.Attack();
-    //    Debug.Log("animating attack");
-
-    //    // I wrote a good explanation of how flipbook animation works somewhere so find that
-    //    while (true)
-    //    {
-    //        // next frame
-    //        if (animationTimer <= 0)
-    //        {
-    //            if (currentSpriteIndex >= (frames.Length - 1))
-    //            {
-    //                return;
-    //            }
-    //            spriteRenderer.sprite = frames[currentSpriteIndex];
-    //            currentSpriteIndex++;
-    //            animationTimer = (1 / animationSpeed);
-    //        }
-    //        animationTimer -= Time.deltaTime;
-    //    }
-    //}
-
-
-    // attack animation should loop thru sprites once and set state back to idle at end
-
-    public void Idle()
-{
-    //animationQueue.Enqueue(IdleRoutine());
-}
-
-// inspired by https://discussions.unity.com/t/how-to-stack-coroutines-and-call-each-one-till-all-are-executed/219063/5
-//private IEnumerator AnimationCoordinator()
-//{
-//    // constantly check...
-//    while (true)
-//    {
-//        // while animations left in the queue
-//        while (animationQueue.Count > 0)
-//        {
-//            // run next animation
-//            yield return StartCoroutine(animationQueue.Dequeue());
-//        }
-//        yield return null;
-//    }
-//}
-
-//private IEnumerator IdleRoutine()
-//{
-//    // play all frames of animation
-//    //Sprite[] frames = isTarget ? targetFrames : standardFrames;
-//    int animationFrameIndex = 0;
-//    while (animationFrameIndex < idleFrames.Length)
-//    {
-//        spriteRenderer.sprite = idleFrames[animationFrameIndex];
-//        animationFrameIndex++;
-//        yield return new WaitForSeconds(Time.deltaTime * animationFrameTime);
-//    }
-//}
-
-//private IEnumerator RunRoutine()
-//{
-//    // play all frames of animation
-//    //Sprite[] frames = isTarget ? targetFrames : standardFrames;
-//    int animationFrameIndex = runFrames.Length - 1;
-//    while (animationFrameIndex >= 0)
-//    {
-//        spriteRenderer.sprite = runFrames[animationFrameIndex];
-//        animationFrameIndex--;
-//        yield return new WaitForSeconds(Time.deltaTime * animationFrameTime);
-//    }
-//}
-
-private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         Enemy other = collision.gameObject.GetComponent<Enemy>();
-        if (other != null)
-        {
-            //Debug.Log("Enemy hit... calling LoseLife");
-            Debug.Log("minigame manager is " + minigameManager);
-            minigameManager.LoseLife();
-        }
-        //SceneManager.LoadScene("Main");
+        if (other != null) Die();
     }
+
 }
