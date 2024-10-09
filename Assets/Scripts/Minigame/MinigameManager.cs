@@ -30,7 +30,7 @@ public class MinigameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("lives lost are " + livesLost);
+        // end scene trigger
         if (playerControl.transform.position.x > transform.position.x)
         {
             StartCoroutine(FadeAnimator.FadeIntoTransition(transitionSpriteRenderer, 0, 1, 2, "EndingScene"));

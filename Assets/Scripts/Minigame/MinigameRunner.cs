@@ -46,7 +46,7 @@ public class MinigameRunner : MonoBehaviour
         if (running) CheckSliderHits();
     }
 
-    private void NextEnemy() {
+    public void NextEnemy() {
         currentEnemyIndex++;
         if (currentEnemyIndex > (enemies.Count - 1))
         {
@@ -93,6 +93,14 @@ public class MinigameRunner : MonoBehaviour
         playerControl.Attack();
         currentEnemyControl.Die();
 
+        // temp
+        if (barTargetsIndex > (barTargets.GetLength(0) - 1))
+        {
+            Debug.Log("(out of targets)");
+            return;
+        }
+
+        //Debug.Log(barTargetsIndex + " " + barTargets.GetLength(0));
         // reset bar targets for each slider
         sliderControl[0].ResetBarTarget(barTargets[barTargetsIndex,0]);
         sliderControl[1].ResetBarTarget(barTargets[barTargetsIndex,1]);
