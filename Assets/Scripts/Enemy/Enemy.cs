@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
-        Debug.Log("enemy died");
+        //Debug.Log("enemy died");
         enemyAnimator.Die();
         //Destroy(gameObject);
     }

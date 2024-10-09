@@ -17,7 +17,6 @@ public static class FadeAnimator
 
     public static IEnumerator FadeIn(SpriteRenderer spriteRenderer, float alphaStart, float alphaEnd, float fadeTime)
     {
-        Debug.Log("Fading in");
         float timer = 0;
         while (timer < fadeTime)
         {
@@ -31,7 +30,6 @@ public static class FadeAnimator
 
     public static IEnumerator FadeIntoTransition(SpriteRenderer spriteRenderer, float alphaStart, float alphaEnd, float fadeTime, string nextScene)
     {
-        Debug.Log("Fading in");
         float timer = 0;
         while (timer < fadeTime)
         {

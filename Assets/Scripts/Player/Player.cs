@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
     private int currentSpriteIndex = 0;
     private float animationTimer;
 
-    public MinigameManager minigameManager; 
+    private MinigameManager minigameManager; 
 
     //private Rigidbody2D rigidbody;
     // Start is called before the first frame update
@@ -56,6 +56,7 @@ public class Player : MonoBehaviour
         //StartCoroutine(AnimationCoordinator());
         //thisRigidbody.MovePosition(Vector3.right * moveSpeed * Time.deltaTime);
         SwitchAnimation(AnimationState.Running);
+        minigameManager = FindFirstObjectByType<MinigameManager>();
 
     }
 
@@ -143,7 +144,7 @@ public class Player : MonoBehaviour
             }
             spriteRenderer.sprite = currentFrames[currentSpriteIndex];
             //Debug.Log("sprite " + currentSpriteIndex);
-            Debug.Log("played frame " + currentSpriteIndex);
+            //Debug.Log("played frame " + currentSpriteIndex);
 
             currentSpriteIndex++;
             animationTimer = (1 / animationSpeed);
@@ -262,7 +263,8 @@ private void OnTriggerEnter2D(Collider2D collision)
         Enemy other = collision.gameObject.GetComponent<Enemy>();
         if (other != null)
         {
-            Debug.Log("Enemy hit");
+            //Debug.Log("Enemy hit... calling LoseLife");
+            Debug.Log("minigame manager is " + minigameManager);
             minigameManager.LoseLife();
         }
         //SceneManager.LoadScene("Main");

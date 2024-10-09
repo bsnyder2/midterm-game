@@ -6,24 +6,17 @@ using System.Linq;
 
 public class MinigameManager : MonoBehaviour
 {
-    
-    public GameObject character;
-    public Transform endPosition; 
+    private Player playerControl;
     private GameObject transition;
 
-    //public GameObject lastLife
     private SpriteRenderer transitionSpriteRenderer;
-    private GameObject[] lives; 
-    //private SpriteRenderer[] lifeSpriteRenderer;
-
-    private Player playerController;
+    private GameObject[] lives;
 
     private int livesLost = 0;
     // Start is called before the first frame update
     void Start()
     {
-        playerController = character.GetComponent<Player>();
-        //lifeSpriteRenderer = lastLife.GetComponent<SpriteRenderer>();
+        playerControl = FindFirstObjectByType<Player>();
         GameObject[] transitions = GameObject.FindGameObjectsWithTag("Transition");
         transition = transitions[0];
         transitionSpriteRenderer = transition.GetComponent<SpriteRenderer>();
@@ -31,14 +24,15 @@ public class MinigameManager : MonoBehaviour
         lives = lives.OrderByDescending(obj => obj.transform.position.x).ToArray();
 
         StartCoroutine(FadeAnimator.FadeIn(transitionSpriteRenderer, 1, 0, 3));
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (character.transform.position.x >= endPosition.position.x)
+        Debug.Log("lives lost are " + livesLost);
+        if (playerControl.transform.position.x > transform.position.x)
         {
-            Debug.Log("HELLO?");
             StartCoroutine(FadeAnimator.FadeIntoTransition(transitionSpriteRenderer, 0, 1, 2, "EndingScene"));
         }
 
@@ -46,11 +40,11 @@ public class MinigameManager : MonoBehaviour
         //Debug.Log("Help " + playerController.isMoving);
 
         //for testing comment out later: 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Debug.Log("Escape Key Pressed");
-            LoseLife();
-        }
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    Debug.Log("Escape Key Pressed");
+        //    LoseLife();
+        //}
 
         if ((livesLost > 0) && (livesLost <= lives.Length))
         {
@@ -63,8 +57,6 @@ public class MinigameManager : MonoBehaviour
             StartCoroutine(FadeAnimator.FadeIntoTransition(transitionSpriteRenderer, 0, 1, 2, "Opening1"));
         }
 
-         
-
     }
 
     public void LoseLife()
@@ -75,7 +67,7 @@ public class MinigameManager : MonoBehaviour
     private IEnumerator UseUpLifeAnimation(GameObject miracle)
     {
         Vector3 start = miracle.transform.position;
-        Vector3 target = character.transform.position;
+        Vector3 target = playerControl.transform.position;
         SpriteRenderer lifeSpriteRenderer = miracle.GetComponent<SpriteRenderer>();
 
         float t = 0f;

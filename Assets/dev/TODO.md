@@ -4,6 +4,7 @@
 enemy placement concept
 far away intervals- should be far away
 close together- close together enemies ok
+place some in cool positions- in ground? in air?
 
 start with 1, 2
 then chain 2 together
