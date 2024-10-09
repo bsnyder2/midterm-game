@@ -1,6 +1,17 @@
 # TODO
 
 
+enemy placement concept
+far away intervals- should be far away
+close together- close together enemies ok
+
+start with 1, 2
+then chain 2 together
+then make it more difficult
+repeat
+then chain 3 together
+
+
 ## Animation to do
 - strategy from bomberman for queueing
 - When get hit by enemy: falls to ground and stays there.
