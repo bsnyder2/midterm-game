@@ -6,7 +6,7 @@ using UnityEngine;
 public class MinigameRunner : MonoBehaviour
 {
     // better place to define constants?
-    private readonly int[,] barTargets = { { 1, 3 }, { 4, 1 }, { 2, 5 }, { 3, 6 }, { 1, 3 } };
+    private readonly int[,] barTargets = { { 1, 3 }, { 4, 1 }, { 2, 5 }, { 3, 6 }, { 1, 3 }, { 4, 1 }, { 2, 5 }, { 3, 6 }, { 1, 3 }, { 4, 1 }, { 2, 5 }, { 3, 6 }, { 1, 3 } };
 
     public bool running = false;
 

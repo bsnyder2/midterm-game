@@ -7,7 +7,7 @@ close together- close together enemies ok
 place some in cool positions- in ground? in air?
 
 start with 1, 2
-then chain 2 together
+then chain 2 together with close intervals
 then make it more difficult
 repeat
 then chain 3 together

@@ -52,7 +52,6 @@ public class MinigameManager : MonoBehaviour
     public void LoseLife()
     {
         livesLost++;
-        //GetComponent<MinigameRunner>().NextEnemy();
     }
 
     private IEnumerator UseUpLifeAnimation(GameObject miracle)
