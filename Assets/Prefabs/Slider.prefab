@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -1, z: 0}
-  m_LocalScale: {x: 8, y: 8, z: 1}
+  m_LocalScale: {x: 3.7, y: 3.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2032984355234357720}
@@ -56,7 +56,7 @@ MonoBehaviour:
   sliderPiece: {fileID: 8397694794993983009, guid: 1ab48a8b227744485a3c063f5db489ce, type: 3}
   sliderBar: {fileID: 7187007491954648340, guid: 4fef7d8aa76a54fbaa3daeb59b6f2b29, type: 3}
   up: 119
-  down: 113
+  down: 115
   nSliderPieces: 7
   sliderSpeed: 0.01
   sliderStart: 4
@@ -194,11 +194,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -6719771274784872173, guid: 4fef7d8aa76a54fbaa3daeb59b6f2b29, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6719771274784872173, guid: 4fef7d8aa76a54fbaa3daeb59b6f2b29, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7187007491954648340, guid: 4fef7d8aa76a54fbaa3daeb59b6f2b29, type: 3}
       propertyPath: m_Name

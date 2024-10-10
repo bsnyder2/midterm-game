@@ -21,6 +21,13 @@ public class SliderBar : MonoBehaviour
         oscillatorControl = Instantiate(oscillator).GetComponent<Oscillator>();
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.enabled = false;
+        //lineRenderer.
+        //lineRenderer.alignment = LineAlignment.TransformZ;
+    }
+
+    private void Update()
+    {
+        lineRenderer.SetPosition(0, currentSliderPieceControl.transform.position);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -79,7 +86,6 @@ public class SliderBar : MonoBehaviour
 
     private IEnumerator DrawLineRoutine(Vector3 enemyPosition)
     {
-        lineRenderer.SetPosition(0, currentSliderPieceControl.transform.position);
         lineRenderer.SetPosition(1, enemyPosition);
         lineRenderer.enabled = true;
         yield return new WaitForSeconds(0.5f);
