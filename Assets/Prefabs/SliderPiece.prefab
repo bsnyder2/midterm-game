@@ -119,7 +119,7 @@ MonoBehaviour:
   - {fileID: 841982446, guid: 5303438195338cd41aeefa31ae411fd6, type: 3}
   - {fileID: 836635582, guid: 5303438195338cd41aeefa31ae411fd6, type: 3}
   - {fileID: -127408603, guid: 5303438195338cd41aeefa31ae411fd6, type: 3}
-  animationFrameTime: 48
+  animationFrameTime: 12
 --- !u!61 &6383492094881144998
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -44,7 +44,6 @@ public class MinigameRunner : MonoBehaviour
     void Update()
     {
         if (running) CheckSliderHits();
-        Debug.Log(playerControl.moving);
     }
 
     public void NextEnemy() {
@@ -100,7 +99,7 @@ public class MinigameRunner : MonoBehaviour
 
     private IEnumerator ZapAfter()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.6f);
         // draw ray
         Vector3 enemyPosition = currentEnemyControl.transform.position;
 

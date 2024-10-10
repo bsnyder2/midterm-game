@@ -22,7 +22,6 @@ public static class FadeAnimator
         {
             timer += Time.deltaTime;
             float alpha = Mathf.Lerp(alphaStart, alphaEnd, timer / fadeTime);
-            Debug.Log(spriteRenderer + " " + alpha);
             Color color = spriteRenderer.material.color;
             spriteRenderer.material.color = new Color(color.r, color.g, color.b, alpha);
             yield return null;

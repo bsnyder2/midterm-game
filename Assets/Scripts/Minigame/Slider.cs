@@ -70,7 +70,7 @@ public class Slider : MonoBehaviour
     }
 
     // Update is called once per fixed framerate frame
-    void FixedUpdate()
+    void Update()
     {
         // Some really not pretty equations here
         if (Input.GetKey(up))
@@ -82,7 +82,7 @@ public class Slider : MonoBehaviour
                 // or continuous increase
                 //oscillatorControl.PitchUp();
                 //Debug.Log("MOVING UP");
-                sliderBar.transform.position += sliderSpeed * distanceScalar * Vector3.up;
+                sliderBar.transform.localPosition += sliderSpeed * distanceScalar * Vector3.up;
                 sliderBarControl.movingUp = true;
             }
 
@@ -93,7 +93,7 @@ public class Slider : MonoBehaviour
             {
                 //oscillatorControl.PitchPrevious();
                 //oscillatorControl.PitchDown();
-                sliderBar.transform.position += sliderSpeed * distanceScalar * Vector3.down;
+                sliderBar.transform.localPosition += sliderSpeed * distanceScalar * Vector3.down;
                 sliderBarControl.movingUp = false;
             }
         }

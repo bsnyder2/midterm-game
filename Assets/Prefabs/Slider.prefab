@@ -58,7 +58,7 @@ MonoBehaviour:
   up: 119
   down: 113
   nSliderPieces: 7
-  sliderSpeed: 0.1
+  sliderSpeed: 0.01
   sliderStart: 4
   interPieceDistance: 2
   barStart: 6
