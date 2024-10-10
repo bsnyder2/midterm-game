@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_Sprite: {fileID: -167319880, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -156,8 +156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3e294712bde46e7b41f7a13517ad33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
-  distance: 1
+  moveSpeed: 3
+  animationSpeed: 6
   run:
   - {fileID: -167319880, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
   - {fileID: 1555558575, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
@@ -168,8 +168,9 @@ MonoBehaviour:
   - {fileID: 1885204992, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
   - {fileID: -1699907686, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
   attack:
+  - {fileID: 195583123, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
+  - {fileID: -855973460, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
   - {fileID: -624679861, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
-  - {fileID: -1052500640, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
   - {fileID: 358767512, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
   - {fileID: 1879822795, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
   - {fileID: -197689451, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
@@ -178,16 +179,19 @@ MonoBehaviour:
   - {fileID: -1788990206, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
   - {fileID: 1355846962, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
   - {fileID: -240391872, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
-  die: []
-  idleFrames:
-  - {fileID: 21300000, guid: 6c0a0e53f7988d442ac44d65d94c4cd2, type: 3}
-  - {fileID: 21300000, guid: 735e5fd072803324787c57deadca769a, type: 3}
-  - {fileID: 21300000, guid: c0157d1d2a9a63549bbe1ab92500cfd3, type: 3}
-  - {fileID: 21300000, guid: acc93377e42639442baf2a880f26ce5a, type: 3}
-  - {fileID: 21300000, guid: e43ac83bb0eab204cb3e6a0e48ebfe79, type: 3}
-  - {fileID: 21300000, guid: ff810f6f92da87849b7049176773f79c, type: 3}
-  isMoving: 1
-  minigameManager: {fileID: 0}
+  die:
+  - {fileID: 21300000, guid: 4c4038c6f3257044ea2ce3f02a8a0e8a, type: 3}
+  - {fileID: 21300000, guid: 16c24f8b14ffaa9498dafd6fea22fd41, type: 3}
+  - {fileID: 21300000, guid: 44c11649b81926e4080f042142ed4d71, type: 3}
+  - {fileID: 21300000, guid: 01a2093de3526ba448ff55ca5d075b64, type: 3}
+  - {fileID: 21300000, guid: 5c1e26c1b8c37154da3a0fe89aa569a5, type: 3}
+  - {fileID: 21300000, guid: 5561d1ffdda8590458c75c775e092818, type: 3}
+  - {fileID: 21300000, guid: be86d70bc19b9b54dbd00043bdfee1e7, type: 3}
+  - {fileID: 21300000, guid: 3f3a02458c5422045990caf412fe9e45, type: 3}
+  - {fileID: 21300000, guid: b180fb6e7cbc1434b877f5a0d5725582, type: 3}
+  - {fileID: 21300000, guid: 76341df208cd62c49be70ae845e34800, type: 3}
+  - {fileID: 21300000, guid: c45639055a9bd984e812e454f42f3d0d, type: 3}
+  moving: 0
 --- !u!60 &-2001169986341077847
 PolygonCollider2D:
   m_ObjectHideFlags: 0

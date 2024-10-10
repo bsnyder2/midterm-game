@@ -667,9 +667,53 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3514494946293114380, guid: 5f5d38d6e7419ea4eaf73b8e00cc80ab, type: 3}
-      propertyPath: moveSpeed
-      value: 3
+      propertyPath: attack.Array.size
+      value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 3514494946293114380, guid: 5f5d38d6e7419ea4eaf73b8e00cc80ab, type: 3}
+      propertyPath: attack.Array.data[0]
+      value: 
+      objectReference: {fileID: 195583123, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
+    - target: {fileID: 3514494946293114380, guid: 5f5d38d6e7419ea4eaf73b8e00cc80ab, type: 3}
+      propertyPath: attack.Array.data[1]
+      value: 
+      objectReference: {fileID: -855973460, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
+    - target: {fileID: 3514494946293114380, guid: 5f5d38d6e7419ea4eaf73b8e00cc80ab, type: 3}
+      propertyPath: attack.Array.data[2]
+      value: 
+      objectReference: {fileID: -624679861, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
+    - target: {fileID: 3514494946293114380, guid: 5f5d38d6e7419ea4eaf73b8e00cc80ab, type: 3}
+      propertyPath: attack.Array.data[3]
+      value: 
+      objectReference: {fileID: 358767512, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
+    - target: {fileID: 3514494946293114380, guid: 5f5d38d6e7419ea4eaf73b8e00cc80ab, type: 3}
+      propertyPath: attack.Array.data[4]
+      value: 
+      objectReference: {fileID: 1879822795, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
+    - target: {fileID: 3514494946293114380, guid: 5f5d38d6e7419ea4eaf73b8e00cc80ab, type: 3}
+      propertyPath: attack.Array.data[5]
+      value: 
+      objectReference: {fileID: -197689451, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
+    - target: {fileID: 3514494946293114380, guid: 5f5d38d6e7419ea4eaf73b8e00cc80ab, type: 3}
+      propertyPath: attack.Array.data[6]
+      value: 
+      objectReference: {fileID: 2087379620, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
+    - target: {fileID: 3514494946293114380, guid: 5f5d38d6e7419ea4eaf73b8e00cc80ab, type: 3}
+      propertyPath: attack.Array.data[7]
+      value: 
+      objectReference: {fileID: 904041023, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
+    - target: {fileID: 3514494946293114380, guid: 5f5d38d6e7419ea4eaf73b8e00cc80ab, type: 3}
+      propertyPath: attack.Array.data[8]
+      value: 
+      objectReference: {fileID: -1788990206, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
+    - target: {fileID: 3514494946293114380, guid: 5f5d38d6e7419ea4eaf73b8e00cc80ab, type: 3}
+      propertyPath: attack.Array.data[9]
+      value: 
+      objectReference: {fileID: 1355846962, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
+    - target: {fileID: 3514494946293114380, guid: 5f5d38d6e7419ea4eaf73b8e00cc80ab, type: 3}
+      propertyPath: attack.Array.data[10]
+      value: 
+      objectReference: {fileID: -240391872, guid: 053bdc44ebb6b3f45b1c48ee4814f0e7, type: 3}
     - target: {fileID: 8691122514211569433, guid: 5f5d38d6e7419ea4eaf73b8e00cc80ab, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.5043215
@@ -1233,6 +1277,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4509616503489595662, guid: 4278dbfe76486694fb9845858f253c29, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8649078969815167687, guid: 4278dbfe76486694fb9845858f253c29, type: 3}
       propertyPath: m_Name
       value: Minigame Overlay
@@ -1263,6 +1311,10 @@ PrefabInstance:
     - target: {fileID: 316879457693596318, guid: 78931fd617e5f41d18131e93bd1da5f0, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207202318151109568, guid: 78931fd617e5f41d18131e93bd1da5f0, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4353173620776312991, guid: 78931fd617e5f41d18131e93bd1da5f0, type: 3}
       propertyPath: m_LocalPosition.x
