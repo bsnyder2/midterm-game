@@ -22,6 +22,7 @@ public static class FadeAnimator
         {
             timer += Time.deltaTime;
             float alpha = Mathf.Lerp(alphaStart, alphaEnd, timer / fadeTime);
+            Debug.Log(spriteRenderer + " " + alpha);
             Color color = spriteRenderer.material.color;
             spriteRenderer.material.color = new Color(color.r, color.g, color.b, alpha);
             yield return null;
@@ -30,15 +31,16 @@ public static class FadeAnimator
 
     public static IEnumerator FadeIntoTransition(SpriteRenderer spriteRenderer, float alphaStart, float alphaEnd, float fadeTime, string nextScene)
     {
-        float timer = 0;
-        while (timer < fadeTime)
-        {
-            timer += Time.deltaTime;
-            float alpha = Mathf.Lerp(alphaStart, alphaEnd, timer / fadeTime);
-            Color color = spriteRenderer.material.color;
-            spriteRenderer.material.color = new Color(color.r, color.g, color.b, alpha);
-            yield return null;
-        }
+        yield return FadeIn(spriteRenderer, alphaStart, alphaEnd, fadeTime);
+        //float timer = 0;
+        //while (timer < fadeTime)
+        //{
+        //    timer += Time.deltaTime;
+        //    float alpha = Mathf.Lerp(alphaStart, alphaEnd, timer / fadeTime);
+        //    Color color = spriteRenderer.material.color;
+        //    spriteRenderer.material.color = new Color(color.r, color.g, color.b, alpha);
+        //    yield return null;
+        //}
         SceneManager.LoadScene(nextScene);
     }
 }

@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     private MinigameManager minigameManager;
+    private MinigameRunner minigameRunner;
 
     private AnimationState currentAnimationState;
     private Sprite[] currentFrames;
@@ -33,6 +34,7 @@ public class Player : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         minigameManager = FindFirstObjectByType<MinigameManager>();
+        minigameRunner = FindFirstObjectByType<MinigameRunner>();
         SwitchAnimation(AnimationState.Running);
     }
 
@@ -76,11 +78,15 @@ public class Player : MonoBehaviour
 
     }
 
-    private void Die()
+    private IEnumerator Die()
     {
+        moving = false;
         minigameManager.LoseLife();
         SwitchAnimation(AnimationState.Dying);
-        moving = false;
+        yield return StartCoroutine(minigameRunner.EnemyFade());
+        yield return new WaitForSeconds(1f);
+        minigameRunner.NextEnemy();
+        moving = true;
     }
 
     private void PlayCurrentAnimation()
@@ -115,7 +121,7 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Enemy other = collision.gameObject.GetComponent<Enemy>();
-        if (other != null) Die();
+        if (other != null) StartCoroutine(Die());
     }
 
 }

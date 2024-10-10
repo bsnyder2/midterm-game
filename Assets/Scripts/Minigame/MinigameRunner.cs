@@ -44,6 +44,7 @@ public class MinigameRunner : MonoBehaviour
     void Update()
     {
         if (running) CheckSliderHits();
+        Debug.Log(playerControl.moving);
     }
 
     public void NextEnemy() {
@@ -54,6 +55,14 @@ public class MinigameRunner : MonoBehaviour
             return;
         }
         currentEnemyControl = enemies[currentEnemyIndex];
+    }
+
+    public IEnumerator EnemyFade()
+    {
+        Debug.Log("enemy fading");
+        SpriteRenderer enemySprite = currentEnemyControl.GetComponent<SpriteRenderer>();
+        Debug.Log(enemySprite);
+        yield return StartCoroutine(FadeAnimator.FadeIn(enemySprite, 1f, 0f, 1f));
     }
 
     private void CheckSliderHits()
@@ -82,28 +91,38 @@ public class MinigameRunner : MonoBehaviour
 
     private void HitEnemy()
     {
+
+        // but this should also draw line here
+        playerControl.Attack();
+        StartCoroutine(ZapAfter());
+
+    }
+
+    private IEnumerator ZapAfter()
+    {
+        yield return new WaitForSeconds(1f);
         // draw ray
         Vector3 enemyPosition = currentEnemyControl.transform.position;
+
         foreach (var bar in sliderBarControl)
         {
             bar.DrawLine(enemyPosition);
             Debug.Log("draw line");
         }
 
-        playerControl.Attack();
         currentEnemyControl.Die();
 
         // temp
         if (barTargetsIndex > (barTargets.GetLength(0) - 1))
         {
             Debug.Log("(out of targets)");
-            return;
+            yield break;
         }
 
         //Debug.Log(barTargetsIndex + " " + barTargets.GetLength(0));
         // reset bar targets for each slider
-        sliderControl[0].ResetBarTarget(barTargets[barTargetsIndex,0]);
-        sliderControl[1].ResetBarTarget(barTargets[barTargetsIndex,1]);
+        sliderControl[0].ResetBarTarget(barTargets[barTargetsIndex, 0]);
+        sliderControl[1].ResetBarTarget(barTargets[barTargetsIndex, 1]);
 
         barTargetsIndex++;
         NextEnemy();
