@@ -45,7 +45,7 @@ public class MinigameManager : MonoBehaviour
 
         if (livesLost > lives.Length)
         {
-            StartCoroutine(FadeAnimator.FadeIntoTransition(transitionSpriteRenderer, 0, 1, 2, "Opening1"));
+            StartCoroutine(FadeAnimator.FadeIntoTransition(transitionSpriteRenderer, 0, 1, 2, "Main"));
         }
 
     }

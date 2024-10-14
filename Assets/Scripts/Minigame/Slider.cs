@@ -52,7 +52,7 @@ public class Slider : MonoBehaviour
         //sliderBarControl = sliderBar.GetComponent<SliderBar>();
 
         // TODO bad
-        int initBarTarget = 5;
+        int initBarTarget = 0;
         ResetBarTarget(initBarTarget);
 
         // Fade in... maybe a better way to do this. If all the other objects are children of Slider I could just iterate through all of those, and also do that in MinigameRunner which I should do
@@ -104,9 +104,12 @@ public class Slider : MonoBehaviour
     {
         //Debug.Log(sliderPieces.Count);
 
+
         foreach (var sliderPiece in sliderPieces)
         {
             sliderPiece.GetComponent<SliderPiece>().isTarget = false;
+
+
         }
         sliderPieces[newBarTarget].GetComponent<SliderPiece>().isTarget = true;
 

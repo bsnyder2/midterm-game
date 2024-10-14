@@ -6,7 +6,7 @@ using UnityEngine;
 public class TutorialController : MonoBehaviour
 {
     // better place to define constants?
-    private readonly int[,] barTargets = { { 1, 2 } };
+    //private readonly int[,] barTargets = { { 1, 2 } };
 
     //public bool running = false;
 
@@ -30,9 +30,9 @@ public class TutorialController : MonoBehaviour
         GameObject transition = transitions[0];
         transitionSpriteRenderer = transition.GetComponent<SpriteRenderer>();
         sliderControl = FindObjectsByType<Slider>(FindObjectsSortMode.None);
-            //sliderBarControl = FindObjectsByType<SliderBar>(FindObjectsSortMode.None);
-        sliderControl[0].ResetBarTarget(barTargets[barTargetsIndex,0]);
-        sliderControl[1].ResetBarTarget(barTargets[barTargetsIndex,1]);
+        //sliderBarControl = FindObjectsByType<SliderBar>(FindObjectsSortMode.None);
+        //sliderControl[0].ResetBarTarget(barTargets[barTargetsIndex, 0]);
+        //sliderControl[1].ResetBarTarget(barTargets[barTargetsIndex, 1]);
 
     }
 
@@ -40,7 +40,7 @@ public class TutorialController : MonoBehaviour
     void Update()
     {
         CheckSliderHits();
-        
+
     }
 
     private void CheckSliderHits()
@@ -65,9 +65,10 @@ public class TutorialController : MonoBehaviour
             Debug.Log("Title HIt");
             HitTitle();
             // end hits
-            foreach (var bar in sliderBarControl){
+            foreach (var bar in sliderBarControl)
+            {
                 bar.isHit = false;
-            } 
+            }
         }
     }
 
