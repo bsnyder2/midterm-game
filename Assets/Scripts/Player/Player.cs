@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
         Running,
         Attacking,
         Dying,
+        Idle,
     }
 
     public float moveSpeed = 1f;
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
     public Sprite[] run;
     public Sprite[] attack;
     public Sprite[] die;
+    public Sprite[] idle;
     public bool moving = false;
 
     private SpriteRenderer spriteRenderer;
@@ -38,7 +40,7 @@ public class Player : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         minigameManager = FindFirstObjectByType<MinigameManager>();
         minigameRunner = FindFirstObjectByType<MinigameRunner>();
-        SwitchAnimation(AnimationState.Running);
+        SwitchAnimation(AnimationState.Idle);
     }
 
     // Update is called once per frame
@@ -53,6 +55,11 @@ public class Player : MonoBehaviour
     private void MoveRight()
     {
         transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+    }
+
+    public void StartRunningInIntro()
+    {
+        SwitchAnimation(AnimationState.Running);
     }
 
     public IEnumerator Dash()
@@ -87,6 +94,10 @@ public class Player : MonoBehaviour
                 currentAnimationState = AnimationState.Dying;
                 currentFrames = die;
                 break;
+            case AnimationState.Idle:
+                currentAnimationState = AnimationState.Idle;
+                currentFrames = idle;
+                break;
         }
         currentSpriteIndex = 0;
 
@@ -98,11 +109,12 @@ public class Player : MonoBehaviour
         minigameManager.LoseLife();
         SwitchAnimation(AnimationState.Dying);
         yield return StartCoroutine(minigameRunner.EnemyFade());
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(2f);
         minigameRunner.NextEnemy();
         moving = true;
     }
 
+    // called on fixedupdate
     private void PlayCurrentAnimation()
     {
         //animationSpeed = (currentAnimationState == AnimationState.Running) ? 6f : 12f;
@@ -142,7 +154,7 @@ public class Player : MonoBehaviour
             if (currentSpriteIndex >= (currentFrames.Length - 1))
             {
                 // if animation that completes, switch back to running and return
-                if (currentAnimationState != AnimationState.Running)
+                if ((currentAnimationState == AnimationState.Attacking) || (currentAnimationState == AnimationState.Dying))
                 {
                     SwitchAnimation(AnimationState.Running);
                     return;

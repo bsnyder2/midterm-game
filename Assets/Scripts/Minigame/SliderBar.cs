@@ -27,7 +27,12 @@ public class SliderBar : MonoBehaviour
 
     private void Update()
     {
-        lineRenderer.SetPosition(0, currentSliderPieceControl.transform.position);
+        Debug.Log("currentsliderpiece control is " + currentSliderPieceControl);
+        Debug.Log("linerenderer is " + lineRenderer);
+        if (currentSliderPieceControl != null)
+        {
+            lineRenderer.SetPosition(0, currentSliderPieceControl.transform.position);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

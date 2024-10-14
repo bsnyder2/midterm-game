@@ -69,6 +69,7 @@ public class MinigameManager : MonoBehaviour
             yield return null;
         }
 
+        StartCoroutine(FadeAnimator.FadeIn(lifeSpriteRenderer, 1.0f, 0f, 1.0f));
         lifeSpriteRenderer.enabled = false;
     }
 

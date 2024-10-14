@@ -12,20 +12,26 @@ then make it more difficult
 repeat
 then chain 3 together
 
+## idea
+- player shouldn't be zapping enemies offscreen, so place enemies strategically
+
+- **Playtesting**!!!
+- **Opening text shouldn't replay on death
+- camera zoom out? (done)
 
 ## Animation to do
 - strategy from bomberman for queueing (done)
 
+- (all done)
 - When get hit by enemy: falls to ground and stays there.
 - Life transform position to character. Life gets disabled.
 - Character gets up and keeps moving right.
 - When character falls down and stays down when there are no more lives, reset whole game.
+
+
 - slowdown/speedup upon approaching (while slider minigame) and killing enemy
 
-##
-- **Playtesting**!!!
 
-- camera zoom out? (done)
 
 ## Grading
 - look at rubric
