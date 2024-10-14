@@ -17,6 +17,7 @@ public class MinigameManager : MonoBehaviour
     void Start()
     {
         playerControl = FindFirstObjectByType<Player>();
+        playerControl.StartRunning();
         GameObject[] transitions = GameObject.FindGameObjectsWithTag("Transition");
         transition = transitions[0];
         transitionSpriteRenderer = transition.GetComponent<SpriteRenderer>();

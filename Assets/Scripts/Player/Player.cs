@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
         transform.position += Vector3.right * moveSpeed * Time.deltaTime;
     }
 
-    public void StartRunningInIntro()
+    public void StartRunning()
     {
         SwitchAnimation(AnimationState.Running);
     }
