@@ -7,7 +7,7 @@ public class MinigameRunner : MonoBehaviour
 {
     // better place to define constants?
     private readonly int[,] barTargets = { { 0, 0 }, { 4, 4 }, { 2, 6 }, { 4, 2 }, { 0, 5 }, {1,4}, {2, 3}, {5, 6}, {0, 0}, { 3, 3 },
-    { 2, 2 }, { 5, 5 }, { 4, 4 }, { 3, 3 }, { 3, 6 }, { 1, 3 } , {6, 0}, {3, 3}, {4,5}, {5,4}, {4,5}, {2,2}};
+    { 2, 2 }, { 5, 5 }, { 4, 4 }, { 3, 3 }, { 4, 2 }, { 5, 1 } , {6, 0}, {3, 3}, {4,5}, {5,4}, {4,5}, {0,0}};
 
     public bool running = false;
 
