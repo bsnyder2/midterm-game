@@ -109,9 +109,9 @@ public class Player : MonoBehaviour
         minigameManager.LoseLife();
         SwitchAnimation(AnimationState.Dying);
         yield return StartCoroutine(minigameRunner.EnemyFade());
-        yield return new WaitForSeconds(2f);
+        //yield return new WaitForSeconds(2f);
         minigameRunner.NextEnemy();
-        moving = true;
+        //moving = true;
     }
 
     // called on fixedupdate
@@ -157,6 +157,7 @@ public class Player : MonoBehaviour
                 if ((currentAnimationState == AnimationState.Attacking) || (currentAnimationState == AnimationState.Dying))
                 {
                     SwitchAnimation(AnimationState.Running);
+                    moving = true;
                     return;
                 }
                 // if animation that repeats, loop

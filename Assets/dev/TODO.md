@@ -1,12 +1,13 @@
 # TODO
 enemy placement
-fix falling animation issue
-rotation should be based on Time.deltaTime
+
 actually looking at rubric
 	making the code good quality
 build
 
 
+fix falling animation issue
+rotation should be based on Time.deltaTime
 test build
 more playtesting
 
