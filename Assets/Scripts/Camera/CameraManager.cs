@@ -21,6 +21,7 @@ public class CameraManager : MonoBehaviour
     {
         transform.position = new Vector3(playerControl.transform.position.x + 2, transform.position.y, transform.position.z);
         Rotate();
+        //transform.position += ...
         //= playerControl.transform.position.x;
     }
 

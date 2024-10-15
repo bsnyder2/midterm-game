@@ -1,4 +1,17 @@
 # TODO
+test build
+open text shouldn't replay on death
+more playtesting
+name change/new title art
+actually looking at rubric
+	making the code good quality
+build
+
+
+
+
+
+
 
 
 enemy placement concept

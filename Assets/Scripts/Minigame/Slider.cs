@@ -52,7 +52,7 @@ public class Slider : MonoBehaviour
         //sliderBarControl = sliderBar.GetComponent<SliderBar>();
 
         // TODO bad
-        int initBarTarget = 0;
+        int initBarTarget = 4;
         ResetBarTarget(initBarTarget);
 
         // Fade in... maybe a better way to do this. If all the other objects are children of Slider I could just iterate through all of those, and also do that in MinigameRunner which I should do
@@ -82,7 +82,7 @@ public class Slider : MonoBehaviour
                 // or continuous increase
                 //oscillatorControl.PitchUp();
                 //Debug.Log("MOVING UP");
-                sliderBar.transform.localPosition += sliderSpeed * distanceScalar * Vector3.up;
+                sliderBar.transform.localPosition += sliderSpeed * distanceScalar * Vector3.up * Time.deltaTime;
                 sliderBarControl.movingUp = true;
             }
 
@@ -93,7 +93,7 @@ public class Slider : MonoBehaviour
             {
                 //oscillatorControl.PitchPrevious();
                 //oscillatorControl.PitchDown();
-                sliderBar.transform.localPosition += sliderSpeed * distanceScalar * Vector3.down;
+                sliderBar.transform.localPosition += sliderSpeed * distanceScalar * Vector3.down * Time.deltaTime;
                 sliderBarControl.movingUp = false;
             }
         }
