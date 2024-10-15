@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    enum AnimationState {
+    public enum AnimationState {
         Running,
         Attacking,
         Dying,
@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     private MinigameManager minigameManager;
     private MinigameRunner minigameRunner;
 
-    private AnimationState currentAnimationState;
+    public AnimationState currentAnimationState;
     private Sprite[] currentFrames;
     private int currentSpriteIndex = 0;
     private float animationTimer;
@@ -50,6 +50,7 @@ public class Player : MonoBehaviour
 
         // play current animation
         PlayCurrentAnimation();
+        Debug.Log("invincible? " + invincible);
     }
 
     private void MoveRight()
@@ -62,17 +63,17 @@ public class Player : MonoBehaviour
         SwitchAnimation(AnimationState.Running);
     }
 
-    public IEnumerator Dash()
-    {
-        invincible = true;
+    //public IEnumerator Dash()
+    //{
+        //invincible = true;
         //float originalMoveSpeed = moveSpeed;
         //moveSpeed = dashSpeed;
-        yield return new WaitForSeconds(0.7f);
+        //yield return new WaitForSeconds(0.7f);
         //moveSpeed = 0.1f;
         //yield return new WaitForSeconds(0.1f);
         //moveSpeed = originalMoveSpeed;
-        invincible = false;
-    }
+        //invincible = false;
+    //}
 
     // only executed on state switch
     private void SwitchAnimation(AnimationState animationState)
@@ -123,6 +124,11 @@ public class Player : MonoBehaviour
             if (currentAnimationState == AnimationState.Attacking)
             {
                 // 4, 5, ., 9, 2, 1, ., 3, ...
+                if (currentSpriteIndex == 0)
+                {
+                    moveSpeed = 4f;
+                    invincible = true;
+                }
                 if (currentSpriteIndex == 1)
                 {
                     moveSpeed = 4f;
@@ -147,11 +153,23 @@ public class Player : MonoBehaviour
                 }
                 else if (currentSpriteIndex == 8)
                 {
-                    moveSpeed = 3f;
+                    moveSpeed = 4f;
+                    invincible = false;
                 }
             }
+            if (currentAnimationState == AnimationState.Attacking)
+            {
+                //if (currentSpriteIndex == 0)
+                //{
+                //    dyingProcess = true;
+                //}
+                //if (currentSpriteIndex == 10)
+                //{
+                //    dyingProcess = false;
+                //}
+            }
 
-            if (currentSpriteIndex >= (currentFrames.Length - 1))
+                if (currentSpriteIndex >= (currentFrames.Length - 1))
             {
                 // if animation that completes, switch back to running and return
                 if ((currentAnimationState == AnimationState.Attacking) || (currentAnimationState == AnimationState.Dying))
@@ -175,7 +193,7 @@ public class Player : MonoBehaviour
     public void Attack()
     {
         SwitchAnimation(AnimationState.Attacking);
-        StartCoroutine(Dash());
+        //StartCoroutine(Dash());
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

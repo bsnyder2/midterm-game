@@ -27,8 +27,6 @@ public class SliderBar : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("currentsliderpiece control is " + currentSliderPieceControl);
-        Debug.Log("linerenderer is " + lineRenderer);
         if (currentSliderPieceControl != null)
         {
             lineRenderer.SetPosition(0, currentSliderPieceControl.transform.position);

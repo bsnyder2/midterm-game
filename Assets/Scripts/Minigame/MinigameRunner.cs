@@ -99,8 +99,11 @@ public class MinigameRunner : MonoBehaviour
     {
 
         // but this should also draw line here
-        playerControl.Attack();
-        StartCoroutine(ZapAfter());
+        if (playerControl.currentAnimationState != Player.AnimationState.Dying)
+        {
+            playerControl.Attack();
+            StartCoroutine(ZapAfter());
+        }
 
     }
 
