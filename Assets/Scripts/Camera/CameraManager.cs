@@ -6,8 +6,10 @@ public class CameraManager : MonoBehaviour
 {
     //// singleton (read only)
     //public static CameraManager Instance { get; private set; }
+    public float rotationPerFrame = -2f;
+    //public float rightPerFrame = 2f;
+
     private Player playerControl;
-    private float rotationPerFrame = -0.002f;
 
     // Start is called before the first frame update
     void Start()
@@ -19,14 +21,13 @@ public class CameraManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(playerControl.transform.position.x + 2, transform.position.y, transform.position.z);
+        //transform.position += rightPerFrame * Vector3.right * Time.deltaTime;
         Rotate();
-        //transform.position += ...
-        //= playerControl.transform.position.x;
+        transform.position = new Vector3(playerControl.transform.position.x + 2, transform.position.y, transform.position.z);
     }
 
     void Rotate()
     {
-        transform.Rotate(new Vector3(0, 0, rotationPerFrame));
+        transform.Rotate(new Vector3(0, 0, rotationPerFrame * Time.deltaTime));
     }
 }
