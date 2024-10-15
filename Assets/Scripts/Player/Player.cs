@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
     public bool moving = false;
 
     private SpriteRenderer spriteRenderer;
+    // should just have one script for audio
+    private SwordSlash swordSlash;
     private MinigameManager minigameManager;
     private MinigameRunner minigameRunner;
 
@@ -38,19 +40,21 @@ public class Player : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        swordSlash = GetComponent<SwordSlash>();
         minigameManager = FindFirstObjectByType<MinigameManager>();
         minigameRunner = FindFirstObjectByType<MinigameRunner>();
         SwitchAnimation(AnimationState.Idle);
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (moving) MoveRight();
 
         // play current animation
         PlayCurrentAnimation();
         Debug.Log("invincible? " + invincible);
+
     }
 
     private void MoveRight()
@@ -90,6 +94,7 @@ public class Player : MonoBehaviour
                 //AttackRun(attack);
                 currentAnimationState = AnimationState.Attacking;
                 currentFrames = attack;
+                swordSlash.Play();
                 break;
             case AnimationState.Dying:
                 currentAnimationState = AnimationState.Dying;
@@ -157,20 +162,8 @@ public class Player : MonoBehaviour
                     invincible = false;
                 }
             }
-            if (currentAnimationState == AnimationState.Attacking)
-            {
-                //if (currentSpriteIndex == 0)
-                //{
-                //    dyingProcess = true;
-                //}
-                //if (currentSpriteIndex == 10)
-                //{
-                //    dyingProcess = false;
-                //}
-            }
 
-                if (currentSpriteIndex >= (currentFrames.Length - 1))
-            {
+                if (currentSpriteIndex >= (currentFrames.Length - 1)) {
                 // if animation that completes, switch back to running and return
                 if ((currentAnimationState == AnimationState.Attacking) || (currentAnimationState == AnimationState.Dying))
                 {
