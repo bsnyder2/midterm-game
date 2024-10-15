@@ -1,15 +1,14 @@
 # TODO
-test build
-open text shouldn't replay on death
-more playtesting
-name change/new title art
+enemy placement
+fix falling animation issue
+rotation should be based on Time.deltaTime
 actually looking at rubric
 	making the code good quality
 build
 
 
-
-
+test build
+more playtesting
 
 
 
