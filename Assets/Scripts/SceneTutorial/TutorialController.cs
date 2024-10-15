@@ -83,6 +83,6 @@ public class TutorialController : MonoBehaviour
         }
 
         Hit = true;
-        StartCoroutine(FadeAnimator.FadeIntoTransition(transitionSpriteRenderer, 0, 1, 2, "Opening1"));
+        StartCoroutine(FadeAnimator.FadeIntoTransition(transitionSpriteRenderer, 0, 1, 2, "Opening"));
     }
 }
