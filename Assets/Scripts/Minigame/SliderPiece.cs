@@ -83,7 +83,7 @@ public class SliderPiece : MonoBehaviour
         {
             spriteRenderer.sprite = frames[animationFrameIndex];
             animationFrameIndex++;
-            yield return new WaitForSeconds(Time.deltaTime * animationFrameTime);
+            yield return new WaitForSeconds(animationFrameTime);
         }
     }
 
@@ -96,7 +96,7 @@ public class SliderPiece : MonoBehaviour
         {
             spriteRenderer.sprite = frames[animationFrameIndex];
             animationFrameIndex--;
-            yield return new WaitForSeconds(Time.deltaTime * animationFrameTime);
+            yield return new WaitForSeconds(animationFrameTime);
         }
     }
 
