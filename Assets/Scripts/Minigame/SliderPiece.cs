@@ -9,7 +9,7 @@ public class SliderPiece : MonoBehaviour
     public Sprite[] standardFrames;
     public Sprite[] targetFrames;
     public float animationFrameTime;
-    private Sprite[] frames;
+    public Sprite[] frames;
 
     private SpriteRenderer spriteRenderer;
     private Queue<IEnumerator> animationQueue;
@@ -43,7 +43,7 @@ public class SliderPiece : MonoBehaviour
         // if eye stops being a target
         if (lastTarget && !isTarget)
         {
-            spriteRenderer.sprite = frames[frames.Length - 1];
+            spriteRenderer.sprite = frames[0];
         }
         lastTarget = isTarget;
     }

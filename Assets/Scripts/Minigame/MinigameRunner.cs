@@ -6,7 +6,8 @@ using UnityEngine;
 public class MinigameRunner : MonoBehaviour
 {
     // better place to define constants?
-    private readonly int[,] barTargets = { { 1, 3 }, { 4, 1 }, { 2, 5 }, { 3, 6 }, { 1, 3 }, { 4, 1 }, { 2, 5 }, { 3, 6 }, { 1, 3 }, { 4, 1 }, { 2, 5 }, { 3, 6 }, { 1, 3 } };
+    private readonly int[,] barTargets = { { 0, 0 }, { 4, 4 }, { 2, 6 }, { 4, 2 }, { 0, 5 }, {1,4}, {2, 3}, {5, 6}, {0, 0}, { 3, 3 },
+    { 2, 2 }, { 5, 5 }, { 4, 4 }, { 3, 3 }, { 3, 6 }, { 1, 3 } , {6, 0}, {3, 3}, {4,5}, {5,4}, {4,5}, {2,2}};
 
     public bool running = false;
 
@@ -46,7 +47,12 @@ public class MinigameRunner : MonoBehaviour
         if (running) CheckSliderHits();
     }
 
-    public void NextEnemy() {
+    public void NextEnemy()
+    {
+        sliderControl[0].ResetBarTarget(barTargets[barTargetsIndex, 0]);
+        sliderControl[1].ResetBarTarget(barTargets[barTargetsIndex, 1]);
+        barTargetsIndex++;
+
         currentEnemyIndex++;
         if (currentEnemyIndex > (enemies.Count - 1))
         {
@@ -54,6 +60,7 @@ public class MinigameRunner : MonoBehaviour
             return;
         }
         currentEnemyControl = enemies[currentEnemyIndex];
+
     }
 
     public IEnumerator EnemyFade()
@@ -120,10 +127,10 @@ public class MinigameRunner : MonoBehaviour
 
         //Debug.Log(barTargetsIndex + " " + barTargets.GetLength(0));
         // reset bar targets for each slider
-        sliderControl[0].ResetBarTarget(barTargets[barTargetsIndex, 0]);
-        sliderControl[1].ResetBarTarget(barTargets[barTargetsIndex, 1]);
+        //sliderControl[0].ResetBarTarget(barTargets[barTargetsIndex, 0]);
+        //sliderControl[1].ResetBarTarget(barTargets[barTargetsIndex, 1]);
 
-        barTargetsIndex++;
+        //barTargetsIndex++;
         NextEnemy();
     }
 }
