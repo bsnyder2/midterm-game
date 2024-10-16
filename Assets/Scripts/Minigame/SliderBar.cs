@@ -8,8 +8,6 @@ public class SliderBar : MonoBehaviour
     public bool movingUp;
     public bool isHit;
 
-    //private Rigidbody2D thisRigidbody;
-
     private SliderPiece currentSliderPieceControl;
     private SliderPiece previousSliderPieceControl;
     private Oscillator oscillatorControl;
@@ -21,8 +19,6 @@ public class SliderBar : MonoBehaviour
         oscillatorControl = Instantiate(oscillator).GetComponent<Oscillator>();
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.enabled = false;
-        //lineRenderer.
-        //lineRenderer.alignment = LineAlignment.TransformZ;
     }
 
     private void Update()
@@ -53,9 +49,6 @@ public class SliderBar : MonoBehaviour
             previousSliderPieceControl.Close();
         }
 
-        // if moving down, decrease pitch; if moving up increase
-        //Debug.Log(thisRigidbody.velocity);
-        //if (Input.GetKey(KeyCode.LeftShift))
         if (movingUp)
         {
             oscillatorControl.PitchNext();
@@ -63,22 +56,6 @@ public class SliderBar : MonoBehaviour
         {
             oscillatorControl.PitchPrevious();
         }
-
-        //Debug.Log(isHit ? "there is a hit" : "no hit");
-
-        // check for target hit
-        //sliderTargetControl = collision.GetComponent<SliderTarget>();
-        //if (sliderTargetControl != null)
-        //{
-        //    Debug.Log("TARGET HIT");
-        //}
-
-        // TODO target hit on each slider (different color eye)
-        // -> kill enemy by casting rays from each eye
-        // slowing down time and music effect? enough time to create interval that matches melody
-        // analog synth tones
-        // guitar?
-        // make it sound great in headphones
     }
 
     public void DrawLine(Vector3 enemyPosition)

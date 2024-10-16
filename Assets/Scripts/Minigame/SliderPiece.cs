@@ -21,13 +21,7 @@ public class SliderPiece : MonoBehaviour
         // animation queue is always active
         animationQueue = new Queue<IEnumerator>();
         StartCoroutine(AnimationCoordinator());
-
     }
-
-    //public void BadFunction(bool isTarget)
-    //{
-    //    frames = isTarget ? targetFrames : standardFrames;
-    //}
 
     private void Update()
     {
@@ -38,7 +32,6 @@ public class SliderPiece : MonoBehaviour
         {
             // set sprite to first frame
             spriteRenderer.sprite = frames[0];
-            //Close();
         }
         // if eye stops being a target
         if (lastTarget && !isTarget)
@@ -77,7 +70,6 @@ public class SliderPiece : MonoBehaviour
     private IEnumerator OpenRoutine()
     {
         // play all frames of animation
-        //Sprite[] frames = isTarget ? targetFrames : standardFrames;
         int animationFrameIndex = 0;
         while (animationFrameIndex < frames.Length)
         {
@@ -90,7 +82,6 @@ public class SliderPiece : MonoBehaviour
     private IEnumerator CloseRoutine()
     {
         // play all frames of animation
-        //Sprite[] frames = isTarget ? targetFrames : standardFrames;
         int animationFrameIndex = frames.Length - 1;
         while (animationFrameIndex >= 0)
         {

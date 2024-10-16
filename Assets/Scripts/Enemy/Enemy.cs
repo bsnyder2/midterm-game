@@ -9,21 +9,11 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         gameObject.SetActive(true);
-
         enemyAnimator = GetComponent<EnemyAnimator>();
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void Die()
     {
-        //Debug.Log("enemy died");
         enemyAnimator.Die();
-        //Destroy(gameObject);
     }
 }

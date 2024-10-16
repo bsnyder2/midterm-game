@@ -39,7 +39,6 @@ public class MinigameManager : MonoBehaviour
 
         if ((livesLost > 0) && (livesLost <= lives.Length))
         {
-            //lives[livesLost - 1].Activate(false);
             StartCoroutine(UseUpLifeAnimation(lives[livesLost - 1]));
         }
 

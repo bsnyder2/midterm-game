@@ -10,7 +10,6 @@ public class EnemyAnimator : MonoBehaviour
     public float animationFrameTime;
 
     private SpriteRenderer spriteRenderer;
-    //private Dictionary<string, Sprite[]> animations;
     private Queue<IEnumerator> animationQueue;
 
     // Start is called before the first frame update
@@ -18,23 +17,11 @@ public class EnemyAnimator : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         animationQueue = new Queue<IEnumerator>();
-        //Debug.Log(animationQueue);
         StartCoroutine(AnimationCoordinator());
-        //for (int i = 0; i < 5; i++)
-        //{
-        //    animationQueue.Enqueue(IdleRoutine());
-        //}
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //animationQueue.Enqueue(IdleRoutine());
     }
 
     public void Die()
     {
-        //Debug.Log("Die runs");
         animationQueue.Enqueue(DieRoutine());
         PolygonCollider2D collider = GetComponent<PolygonCollider2D>();
         collider.enabled = false;
@@ -55,19 +42,6 @@ public class EnemyAnimator : MonoBehaviour
         }
     }
 
-    private IEnumerator IdleRoutine()
-    {
-        int animationFrameIndex = 0;
-        while (animationFrameIndex < idleFrames.Length)
-        {
-            spriteRenderer.sprite = idleFrames[animationFrameIndex];
-            animationFrameIndex++;
-            yield return new WaitForSeconds(Time.deltaTime * animationFrameTime);
-        }
-    }
-
-
-    // refactor to stop writing this method over and over
     private IEnumerator DieRoutine()
     {
         int animationFrameIndex = 0;

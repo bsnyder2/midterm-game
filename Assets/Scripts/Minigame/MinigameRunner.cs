@@ -9,8 +9,6 @@ public class MinigameRunner : MonoBehaviour
     private readonly int[,] barTargets = { { 0, 0 }, { 4, 4 }, { 2, 6 }, { 4, 2 }, { 0, 5 }, {1,4}, {2, 3}, {5, 6}, {0, 0}, { 3, 3 },
     { 2, 2 }, { 5, 5 }, { 4, 4 }, { 3, 3 }, { 4, 2 }, { 5, 1 } , {6, 0}, {3, 3}, {4,5}, {5,4}, {4,5}, {0,0}};
 
-    public bool running = false;
-
     private Player playerControl;
     private Slider[] sliderControl;
     private SliderBar[] sliderBarControl;
@@ -29,12 +27,7 @@ public class MinigameRunner : MonoBehaviour
 
         // get all enemy objects placed
         Enemy[] enemyControls = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
-        //List<GameOb> foo = new List<Object>(enemies);
         enemies = enemyControls.OrderBy((Enemy c) => c.gameObject.transform.position.x).ToList();
-        //foreach (Enemy e in enemies)
-        //{
-        //    Debug.Log(e.gameObject.transform.position.x);
-        //}
         currentEnemyIndex = 0;
 
         currentEnemyControl = enemies[currentEnemyIndex];
@@ -44,7 +37,7 @@ public class MinigameRunner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (running) CheckSliderHits();
+        CheckSliderHits();
     }
 
     public void NextEnemy()
@@ -54,27 +47,20 @@ public class MinigameRunner : MonoBehaviour
         barTargetsIndex++;
 
         currentEnemyIndex++;
-        if (currentEnemyIndex > (enemies.Count - 1))
-        {
-            Debug.Log("out of enemies");
-            return;
-        }
+        if (currentEnemyIndex > (enemies.Count - 1)) return;
         currentEnemyControl = enemies[currentEnemyIndex];
 
     }
 
     public IEnumerator EnemyFade()
     {
-        Debug.Log("enemy fading");
         SpriteRenderer enemySprite = currentEnemyControl.GetComponent<SpriteRenderer>();
-        Debug.Log(enemySprite);
         yield return StartCoroutine(FadeAnimator.FadeIn(enemySprite, 1f, 0f, 1f));
     }
 
     private void CheckSliderHits()
     {
         // TODO this is a hack. Because can't call this on Start because SliderBars haven't initialized yet
-        // actual init
         if (sliderBarControl == null)
         {
             sliderControl = FindObjectsByType<Slider>(FindObjectsSortMode.None);
@@ -97,8 +83,6 @@ public class MinigameRunner : MonoBehaviour
 
     private void HitEnemy()
     {
-
-        // but this should also draw line here
         if (playerControl.currentAnimationState != Player.AnimationState.Dying)
         {
             playerControl.Attack();
@@ -116,24 +100,15 @@ public class MinigameRunner : MonoBehaviour
         foreach (var bar in sliderBarControl)
         {
             bar.DrawLine(enemyPosition);
-            Debug.Log("draw line");
         }
 
         currentEnemyControl.Die();
 
-        // temp
         if (barTargetsIndex > (barTargets.GetLength(0) - 1))
         {
-            Debug.Log("(out of targets)");
             yield break;
         }
 
-        //Debug.Log(barTargetsIndex + " " + barTargets.GetLength(0));
-        // reset bar targets for each slider
-        //sliderControl[0].ResetBarTarget(barTargets[barTargetsIndex, 0]);
-        //sliderControl[1].ResetBarTarget(barTargets[barTargetsIndex, 1]);
-
-        //barTargetsIndex++;
         NextEnemy();
     }
 }
