@@ -20,7 +20,6 @@ public class EndingScreenManager : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             Application.Quit();
-            //UnityEditor.EditorApplication.isPlaying = false;
         }
     }
 }

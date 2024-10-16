@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class TutorialController : MonoBehaviour
 {
+    // this is a simpilfied version of MinigameRunner
     public GameObject title;
     public bool hit = false;
 

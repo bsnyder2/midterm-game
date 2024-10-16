@@ -33,7 +33,6 @@ public class Player : MonoBehaviour
 
     private bool invincible = false;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -95,7 +94,7 @@ public class Player : MonoBehaviour
         minigameRunner.NextEnemy();
     }
 
-    // called on fixedupdate
+    // called on update
     private void PlayCurrentAnimation()
     {
         if (animationTimer <= 0)
@@ -124,37 +123,6 @@ public class Player : MonoBehaviour
                         invincible = false;
                         break;
                 }
-                // 4, 5, ., 9, 2, 1, ., 3, ...
-                //if (currentSpriteIndex == 0)
-                //{
-                //    moveSpeed = 4f;
-                //    invincible = true;
-                //}
-                //else if (currentSpriteIndex == 1)
-                //{
-                //    moveSpeed = 4f;
-                //}
-                //else if (currentSpriteIndex == 2)
-                //{
-                //    moveSpeed = 5f;
-                //}
-                //else if (currentSpriteIndex == 4)
-                //{
-                //    moveSpeed = 10f;
-                //}
-                //else if (currentSpriteIndex == 5)
-                //{
-                //    moveSpeed = 4f;
-                //}
-                //else if (currentSpriteIndex == 6)
-                //{
-                //    moveSpeed = 1f;
-                //}
-                //else if (currentSpriteIndex == 8)
-                //{
-                //    moveSpeed = 4f;
-                //    invincible = false;
-                //}
             }
 
                 if (currentSpriteIndex >= (currentFrames.Length - 1)) {

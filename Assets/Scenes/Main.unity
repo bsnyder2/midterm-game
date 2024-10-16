@@ -259,7 +259,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1752137756863805920, guid: cbfc6ab109a09c0448fba3fe724a4253, type: 3}
       propertyPath: m_Name
-      value: Intro Transition
+      value: transitiontoScene
       objectReference: {fileID: 0}
     - target: {fileID: 1752137756863805920, guid: cbfc6ab109a09c0448fba3fe724a4253, type: 3}
       propertyPath: m_IsActive

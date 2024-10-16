@@ -206,6 +206,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &146897517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 146897518}
+  m_Layer: 0
+  m_Name: Souls
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &146897518
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146897517}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.006133, y: -2.2530913, z: -0.051323432}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1073105303}
+  - {fileID: 400553646}
+  - {fileID: 1391191087}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &290005932
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,7 +339,7 @@ GameObject:
   - component: {fileID: 400553645}
   - component: {fileID: 400553644}
   m_Layer: 0
-  m_Name: purplesoul (1)
+  m_Name: Soul2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -386,11 +420,11 @@ Transform:
   m_GameObject: {fileID: 400553643}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.03000021, y: -4.1700006, z: 0}
+  m_LocalPosition: {x: -6.976133, y: -1.9169092, z: 0.051323432}
   m_LocalScale: {x: 0.09020918, y: 0.09020918, z: 0.09020918}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 146897518}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -612,8 +646,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 711883047}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.16, y: -0.09719583, z: -0.113627985}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 12.061151, y: -1.0461017, z: -29.310366}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -693,7 +727,7 @@ GameObject:
   - component: {fileID: 1073105302}
   - component: {fileID: 1073105301}
   m_Layer: 0
-  m_Name: purplesoul
+  m_Name: Soul1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -774,11 +808,11 @@ Transform:
   m_GameObject: {fileID: 1073105300}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.01, y: -4.17, z: 0}
+  m_LocalPosition: {x: -8.016133, y: -1.9169087, z: 0.051323432}
   m_LocalScale: {x: 0.09020918, y: 0.09020918, z: 0.09020918}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 146897518}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1191569565
 PrefabInstance:
@@ -790,7 +824,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2403231593115058388, guid: 5f5d38d6e7419ea4eaf73b8e00cc80ab, type: 3}
       propertyPath: m_Name
-      value: Player 1
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3514494946293114380, guid: 5f5d38d6e7419ea4eaf73b8e00cc80ab, type: 3}
       propertyPath: isMoving
@@ -1537,7 +1571,7 @@ GameObject:
   - component: {fileID: 1391191086}
   - component: {fileID: 1391191085}
   m_Layer: 0
-  m_Name: purplesoul (2)
+  m_Name: Soul3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1618,11 +1652,11 @@ Transform:
   m_GameObject: {fileID: 1391191084}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.0500011, y: -4.1700006, z: 0}
+  m_LocalPosition: {x: -5.956132, y: -1.9169092, z: 0.051323432}
   m_LocalScale: {x: 0.09020918, y: 0.09020918, z: 0.09020918}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 146897518}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1450000915
 GameObject:
@@ -3111,7 +3145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1752137756863805920, guid: 04844b9c575bf0a4d8782c27b5a142bd, type: 3}
       propertyPath: m_Name
-      value: transition
+      value: transitiontoBlack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3123,15 +3157,13 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
-  - {fileID: 1580676207}
+  - {fileID: 1191569565}
+  - {fileID: 864086797}
   - {fileID: 1598510079}
+  - {fileID: 1580676207}
   - {fileID: 290005934}
   - {fileID: 1239847703}
   - {fileID: 4480700870215431709}
-  - {fileID: 1073105303}
-  - {fileID: 1391191087}
-  - {fileID: 400553646}
-  - {fileID: 864086797}
   - {fileID: 711883048}
-  - {fileID: 1191569565}
   - {fileID: 4661188785340236453}
+  - {fileID: 146897518}

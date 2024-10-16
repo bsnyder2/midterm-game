@@ -333,7 +333,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1358504247770661697, guid: ee9b04f31f090458e9712e62f995d409, type: 3}
       propertyPath: m_Name
-      value: Slider (1)
+      value: Slider 2
       objectReference: {fileID: 0}
     - target: {fileID: 1821832406177231686, guid: ee9b04f31f090458e9712e62f995d409, type: 3}
       propertyPath: m_LocalScale.x
@@ -406,7 +406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1358504247770661697, guid: ee9b04f31f090458e9712e62f995d409, type: 3}
       propertyPath: m_Name
-      value: Slider
+      value: Slider 1
       objectReference: {fileID: 0}
     - target: {fileID: 1821832406177231686, guid: ee9b04f31f090458e9712e62f995d409, type: 3}
       propertyPath: m_LocalScale.x
@@ -786,7 +786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: {fileID: 1401781719}
-  Hit: 0
+  hit: 0
 --- !u!1 &1401781719
 GameObject:
   m_ObjectHideFlags: 0
